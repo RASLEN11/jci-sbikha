@@ -2,14 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FaHome,
-  FaUsers,
   FaHandshake,
   FaNewspaper,
   FaEnvelope,
   FaFileAlt,
   FaShieldAlt,
-  FaCertificate,
-  FaGlobe,
   FaInstagram,
   FaFacebookF,
   FaLinkedinIn,
@@ -17,8 +14,6 @@ import {
   FaShieldVirus,
   FaProjectDiagram,
   FaInfoCircle,
-  FaCalendarAlt,
-  FaRocket,
   FaMapMarkerAlt,
   FaPhone,
   FaClock,
