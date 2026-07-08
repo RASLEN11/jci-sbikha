@@ -14,7 +14,7 @@ import {
   FaRoad,
   FaCompass
 } from 'react-icons/fa';
-import { getPageTranslations } from '../../contexts/Languages';
+import { getPageTranslations } from '../../Utils/Languages';
 import './Error.css';
 
 const Error = ({ code = 404, title, message, language = 'en', translations = {} }) => {
@@ -74,28 +74,28 @@ const Error = ({ code = 404, title, message, language = 'en', translations = {} 
 
   const digits = code.toString().split('');
   const floatingCards = [
-    { icon: FaQuestionCircle, text: pageT.floatingCards.lost, className: 'error-card-1' },
-    { icon: FaRoad, text: pageT.floatingCards.wrongTurn, className: 'error-card-2' },
-    { icon: FaCompass, text: pageT.floatingCards.navigate, className: 'error-card-3' }
+    { icon: FaQuestionCircle, text: pageT.floatingCards.lost, className: 'jci-error-card-1' },
+    { icon: FaRoad, text: pageT.floatingCards.wrongTurn, className: 'jci-error-card-2' },
+    { icon: FaCompass, text: pageT.floatingCards.navigate, className: 'jci-error-card-3' }
   ];
 
   return (
-    <div className={`error-page ${isVisible ? 'visible' : ''}`}>
-      <section className="error-hero">
-        <div className="error-container">
-          <div className="error-grid">
-            <div className="error-content">
-              <div className="error-hero-content animate-on-scroll visible">
-                <div className="error-hero-badge animate-on-scroll visible">
-                  <IconComponent className="error-hero-badge-icon" />
-                  <span className="error-hero-badge-text">{config.badge}</span>
+    <div className={`jci-error-page ${isVisible ? 'jci-visible' : ''}`}>
+      <section className="jci-error-hero">
+        <div className="jci-error-container">
+          <div className="jci-error-grid">
+            <div className="jci-error-content">
+              <div className="jci-error-hero-content jci-animate-on-scroll jci-visible">
+                <div className="jci-error-hero-badge jci-animate-on-scroll jci-visible">
+                  <IconComponent className="jci-error-hero-badge-icon" />
+                  <span className="jci-error-hero-badge-text">{config.badge}</span>
                 </div>
                 
-                <div className="error-code animate-on-scroll visible">
+                <div className="jci-error-code jci-animate-on-scroll jci-visible">
                   {digits.map((digit, i) => (
                     <span 
                       key={i} 
-                      className="error-digit"
+                      className="jci-error-digit"
                       style={{ animationDelay: `${i * 0.1}s` }}
                     >
                       {digit}
@@ -103,69 +103,69 @@ const Error = ({ code = 404, title, message, language = 'en', translations = {} 
                   ))}
                 </div>
                 
-                <h1 className="error-title animate-on-scroll visible">
-                  <span className="error-title-text">{config.title}</span>
+                <h1 className="jci-error-title jci-animate-on-scroll jci-visible">
+                  <span className="jci-error-title-text">{config.title}</span>
                 </h1>
                 
-                <p className="error-description animate-on-scroll visible">
-                  <span className="error-description-text">{config.message}</span>
+                <p className="jci-error-description jci-animate-on-scroll jci-visible">
+                  <span className="jci-error-description-text">{config.message}</span>
                 </p>
                 
-                <div className="error-stats animate-on-scroll visible">
-                  <div className="error-stat">
-                    <div className="error-stat-number">
-                      <span className="error-stat-number-text">404</span>
+                <div className="jci-error-stats jci-animate-on-scroll jci-visible">
+                  <div className="jci-error-stat">
+                    <div className="jci-error-stat-number">
+                      <span className="jci-error-stat-number-text">404</span>
                     </div>
-                    <div className="error-stat-label">
-                      <span className="error-stat-label-text">{pageT.stats.pageNotFound}</span>
-                    </div>
-                  </div>
-                  <div className="error-stat">
-                    <div className="error-stat-number">
-                      <span className="error-stat-number-text">500</span>
-                    </div>
-                    <div className="error-stat-label">
-                      <span className="error-stat-label-text">{pageT.stats.serverIssue}</span>
+                    <div className="jci-error-stat-label">
+                      <span className="jci-error-stat-label-text">{pageT.stats.pageNotFound}</span>
                     </div>
                   </div>
-                  <div className="error-stat">
-                    <div className="error-stat-number">
-                      <span className="error-stat-number-text">403</span>
+                  <div className="jci-error-stat">
+                    <div className="jci-error-stat-number">
+                      <span className="jci-error-stat-number-text">500</span>
                     </div>
-                    <div className="error-stat-label">
-                      <span className="error-stat-label-text">{pageT.stats.accessDenied}</span>
+                    <div className="jci-error-stat-label">
+                      <span className="jci-error-stat-label-text">{pageT.stats.serverIssue}</span>
                     </div>
                   </div>
-                  <div className="error-stat">
-                    <div className="error-stat-number">
-                      <span className="error-stat-number-text">401</span>
+                  <div className="jci-error-stat">
+                    <div className="jci-error-stat-number">
+                      <span className="jci-error-stat-number-text">403</span>
                     </div>
-                    <div className="error-stat-label">
-                      <span className="error-stat-label-text">{pageT.stats.unauthorized}</span>
+                    <div className="jci-error-stat-label">
+                      <span className="jci-error-stat-label-text">{pageT.stats.accessDenied}</span>
+                    </div>
+                  </div>
+                  <div className="jci-error-stat">
+                    <div className="jci-error-stat-number">
+                      <span className="jci-error-stat-number-text">401</span>
+                    </div>
+                    <div className="jci-error-stat-label">
+                      <span className="jci-error-stat-label-text">{pageT.stats.unauthorized}</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="error-buttons animate-on-scroll visible">
-                  <Link to="/" className="error-home-btn error-home-btn-primary">
-                    <FaHome className="error-home-btn-icon" />
-                    <span className="error-home-btn-text">{pageT.buttons.goHome}</span>
+                <div className="jci-error-buttons jci-animate-on-scroll jci-visible">
+                  <Link to="/" className="jci-error-home-btn jci-error-home-btn-primary">
+                    <FaHome className="jci-error-home-btn-icon" />
+                    <span className="jci-error-home-btn-text">{pageT.buttons.goHome}</span>
                   </Link>
-                  <button onClick={() => window.history.back()} className="error-home-btn error-home-btn-secondary">
-                    <FaArrowLeft className="error-home-btn-icon" />
-                    <span className="error-home-btn-text">{pageT.buttons.goBack}</span>
+                  <button onClick={() => window.history.back()} className="jci-error-home-btn jci-error-home-btn-secondary">
+                    <FaArrowLeft className="jci-error-home-btn-icon" />
+                    <span className="jci-error-home-btn-text">{pageT.buttons.goBack}</span>
                   </button>
-                  <button onClick={() => window.location.reload()} className="error-home-btn error-home-btn-secondary">
-                    <FaSyncAlt className="error-home-btn-icon" />
-                    <span className="error-home-btn-text">{pageT.buttons.refresh}</span>
+                  <button onClick={() => window.location.reload()} className="jci-error-home-btn jci-error-home-btn-secondary">
+                    <FaSyncAlt className="jci-error-home-btn-icon" />
+                    <span className="jci-error-home-btn-text">{pageT.buttons.refresh}</span>
                   </button>
                 </div>
                 
                 {(code === 404 || code === 500 || code === 503) && (
-                  <div className="error-redirect animate-on-scroll visible">
-                    <div className="error-redirect-bar">
+                  <div className="jci-error-redirect jci-animate-on-scroll jci-visible">
+                    <div className="jci-error-redirect-bar">
                       <div 
-                        className="error-redirect-progress" 
+                        className="jci-error-redirect-progress" 
                         style={{ 
                           width: `${(countdown / 5) * 100}%`,
                           transition: 'width 0.3s ease'
@@ -173,114 +173,114 @@ const Error = ({ code = 404, title, message, language = 'en', translations = {} 
                       />
                     </div>
                     <p>
-                      <span className="error-redirect-text">{pageT.redirect} {countdown} {pageT.seconds}...</span>
+                      <span className="jci-error-redirect-text">{pageT.redirect} {countdown} {pageT.seconds}...</span>
                     </p>
                   </div>
                 )}
               </div>
             </div>
             
-            <div className="error-visual">
+            <div className="jci-error-visual">
               {floatingCards.map((card, idx) => (
                 <div 
                   key={idx} 
-                  className={`error-visual-card ${card.className}`}
+                  className={`jci-error-visual-card ${card.className}`}
                   style={{ animationDelay: `${idx * 0.2}s` }}
                 >
-                  <card.icon className="error-visual-card-icon" />
-                  <span className="error-visual-card-text">{card.text}</span>
+                  <card.icon className="jci-error-visual-card-icon" />
+                  <span className="jci-error-visual-card-text">{card.text}</span>
                 </div>
               ))}
               <div 
-                className="error-visual-center"
+                className="jci-error-visual-center"
                 style={{
                   transform: `translate(calc(-50% + ${mousePosition.x * 0.05}px), calc(-50% + ${mousePosition.y * 0.05}px))`
                 }}
               >
-                <IconComponent className="error-visual-center-icon" />
+                <IconComponent className="jci-error-visual-center-icon" />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="error-suggestions animate-on-scroll visible">
-        <div className="error-container">
-          <div className="error-section-header">
+      <section className="jci-error-suggestions jci-animate-on-scroll jci-visible">
+        <div className="jci-error-container">
+          <div className="jci-error-section-header">
             <h2>
-              <span className="error-section-header-title">{pageT.suggestions.title}</span>
+              <span className="jci-error-section-header-title">{pageT.suggestions.title}</span>
             </h2>
             <p>
-              <span className="error-section-header-subtitle">{pageT.suggestions.subtitle}</span>
+              <span className="jci-error-section-header-subtitle">{pageT.suggestions.subtitle}</span>
             </p>
           </div>
-          <div className="error-suggestions-grid">
-            <div className="error-suggestion-card glass-card">
-              <div className="error-suggestion-icon">
-                <FaHome className="error-suggestion-icon-svg" />
+          <div className="jci-error-suggestions-grid">
+            <div className="jci-error-suggestion-card jci-glass-card">
+              <div className="jci-error-suggestion-icon">
+                <FaHome className="jci-error-suggestion-icon-svg" />
               </div>
               <h4>
-                <span className="error-suggestion-card-title">{pageT.suggestions.homepage.title}</span>
+                <span className="jci-error-suggestion-card-title">{pageT.suggestions.homepage.title}</span>
               </h4>
               <p>
-                <span className="error-suggestion-card-desc">{pageT.suggestions.homepage.description}</span>
+                <span className="jci-error-suggestion-card-desc">{pageT.suggestions.homepage.description}</span>
               </p>
-              <Link to="/" className="error-suggestion-link">
-                <span className="error-suggestion-link-text">{pageT.suggestions.homepage.link} →</span>
+              <Link to="/" className="jci-error-suggestion-link">
+                <span className="jci-error-suggestion-link-text">{pageT.suggestions.homepage.link} →</span>
               </Link>
             </div>
-            <div className="error-suggestion-card glass-card">
-              <div className="error-suggestion-icon">
-                <FaSearch className="error-suggestion-icon-svg" />
+            <div className="jci-error-suggestion-card jci-glass-card">
+              <div className="jci-error-suggestion-icon">
+                <FaSearch className="jci-error-suggestion-icon-svg" />
               </div>
               <h4>
-                <span className="error-suggestion-card-title">{pageT.suggestions.search.title}</span>
+                <span className="jci-error-suggestion-card-title">{pageT.suggestions.search.title}</span>
               </h4>
               <p>
-                <span className="error-suggestion-card-desc">{pageT.suggestions.search.description}</span>
+                <span className="jci-error-suggestion-card-desc">{pageT.suggestions.search.description}</span>
               </p>
-              <Link to="/search" className="error-suggestion-link">
-                <span className="error-suggestion-link-text">{pageT.suggestions.search.link} →</span>
+              <Link to="/search" className="jci-error-suggestion-link">
+                <span className="jci-error-suggestion-link-text">{pageT.suggestions.search.link} →</span>
               </Link>
             </div>
-            <div className="error-suggestion-card glass-card">
-              <div className="error-suggestion-icon">
-                <FaEnvelope className="error-suggestion-icon-svg" />
+            <div className="jci-error-suggestion-card jci-glass-card">
+              <div className="jci-error-suggestion-icon">
+                <FaEnvelope className="jci-error-suggestion-icon-svg" />
               </div>
               <h4>
-                <span className="error-suggestion-card-title">{pageT.suggestions.support.title}</span>
+                <span className="jci-error-suggestion-card-title">{pageT.suggestions.support.title}</span>
               </h4>
               <p>
-                <span className="error-suggestion-card-desc">{pageT.suggestions.support.description}</span>
+                <span className="jci-error-suggestion-card-desc">{pageT.suggestions.support.description}</span>
               </p>
-              <Link to="/contact" className="error-suggestion-link">
-                <span className="error-suggestion-link-text">{pageT.suggestions.support.link} →</span>
+              <Link to="/contact" className="jci-error-suggestion-link">
+                <span className="jci-error-suggestion-link-text">{pageT.suggestions.support.link} →</span>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="error-help animate-on-scroll visible">
-        <div className="error-container">
-          <div className="error-help-card glass-card">
-            <div className="error-help-icon">
-              <FaPlug className="error-help-icon-svg" />
+      <section className="jci-error-help jci-animate-on-scroll jci-visible">
+        <div className="jci-error-container">
+          <div className="jci-error-help-card jci-glass-card">
+            <div className="jci-error-help-icon">
+              <FaPlug className="jci-error-help-icon-svg" />
             </div>
             <h2>
-              <span className="error-help-title">{pageT.help.title}</span>
+              <span className="jci-error-help-title">{pageT.help.title}</span>
             </h2>
             <p>
-              <span className="error-help-desc">{pageT.help.description}</span>
+              <span className="jci-error-help-desc">{pageT.help.description}</span>
             </p>
-            <div className="error-help-buttons">
-              <Link to="/contact" className="error-home-btn error-home-btn-primary">
-                <FaEnvelope className="error-home-btn-icon" />
-                <span className="error-home-btn-text">{pageT.help.contact}</span>
+            <div className="jci-error-help-buttons">
+              <Link to="/contact" className="jci-error-home-btn jci-error-home-btn-primary">
+                <FaEnvelope className="jci-error-home-btn-icon" />
+                <span className="jci-error-home-btn-text">{pageT.help.contact}</span>
               </Link>
-              <Link to="/faq" className="error-home-btn error-home-btn-secondary">
-                <FaSearch className="error-home-btn-icon" />
-                <span className="error-home-btn-text">{pageT.help.faq}</span>
+              <Link to="/faq" className="jci-error-home-btn jci-error-home-btn-secondary">
+                <FaSearch className="jci-error-home-btn-icon" />
+                <span className="jci-error-home-btn-text">{pageT.help.faq}</span>
               </Link>
             </div>
           </div>

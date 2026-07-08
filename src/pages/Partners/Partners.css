@@ -1,9 +1,9 @@
 /* Partners.css - JCI Sbikha Partners Page Styles */
 
 /* ===== Hero Section - Unified with Home ===== */
-.partners-hero {
+.jci-partners-hero {
   position: relative;
-  min-height: 85vh; /* Matches Home */
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,8 @@
   overflow: hidden;
   border-radius: 0 0 var(--radius-3xl) var(--radius-3xl);
   margin-bottom: var(--spacing-3xl);
+  width: 100%;
+  max-width: 100vw;
 
   /* --- DEFAULT DARK THEME GRADIENT --- */
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy), #0d1a2b);
@@ -18,11 +20,11 @@
 }
 
 /* --- LIGHT THEME OVERRIDE --- */
-.light-theme .partners-hero {
+.light-theme .jci-partners-hero {
   background: linear-gradient(145deg, #eef3f8 0%, #dbe3ed 40%, #c4d2e0 100%);
 }
 
-.partners-hero-overlay {
+.jci-partners-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,7 +41,7 @@
 }
 
 /* --- LIGHT THEME GLOW OVERRIDE --- */
-.light-theme .partners-hero-overlay {
+.light-theme .jci-partners-hero-overlay {
   background: radial-gradient(
     circle at 30% 20%,
     rgba(8, 157, 195, 0.06) 0%,
@@ -48,7 +50,7 @@
 }
 
 /* --- TOP FADE (BLENDS WITH HEADER) --- */
-.partners-hero-overlay::before {
+.jci-partners-hero-overlay::before {
   content: "";
   position: absolute;
   top: 0;
@@ -61,7 +63,7 @@
 }
 
 /* --- BOTTOM FADE (BLENDS WITH BODY) --- */
-.partners-hero-overlay::after {
+.jci-partners-hero-overlay::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -73,16 +75,17 @@
   z-index: 1;
 }
 
-.partners-hero-content {
+.jci-partners-hero-content {
   position: relative;
   z-index: 2;
   max-width: 900px;
   text-align: center;
   padding: var(--spacing-2xl) 0;
+  width: 100%;
 }
 
 /* ===== Hero Badge (Theme Aware) ===== */
-.partners-hero-badge {
+.jci-partners-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -99,36 +102,31 @@
   transition: all var(--transition-fast);
 }
 
-.light-theme .partners-hero-badge {
+.light-theme .jci-partners-hero-badge {
   background: rgba(18, 18, 69, 0.06);
   border: 0.5px solid rgba(18, 18, 69, 0.15);
   color: var(--jci-dark-indigo);
 }
 
-.partners-hero-badge-icon {
+.jci-partners-hero-badge-icon {
   font-size: 0.875rem;
   color: var(--jci-teal-blue);
 }
 
-.partners-hero-badge-text::before {
+.jci-partners-hero-badge-text::before {
   content: "●";
   color: var(--jci-teal-blue);
   font-size: 0.5rem;
-  animation: pulse-dot 2s ease-in-out infinite;
+  animation: jci-pulse-dot 2s ease-in-out infinite;
 }
 
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
+@keyframes jci-pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 /* ===== Hero Title (Theme Aware) ===== */
-.partners-hero-title {
+.jci-partners-hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: #ffffff;
@@ -138,18 +136,18 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .partners-hero-title {
+.light-theme .jci-partners-hero-title {
   color: var(--jci-dark-indigo);
 }
 
-.partners-hero-highlight {
+.jci-partners-hero-highlight {
   background: linear-gradient(135deg, #ffffff 0%, var(--jci-teal-blue) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.light-theme .partners-hero-highlight {
+.light-theme .jci-partners-hero-highlight {
   background: linear-gradient(
     135deg,
     var(--jci-dark-indigo) 0%,
@@ -161,7 +159,7 @@
 }
 
 /* ===== Hero Description (Theme Aware) ===== */
-.partners-hero-description {
+.jci-partners-hero-description {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   color: rgba(255, 255, 255, 0.75);
   max-width: 650px;
@@ -170,31 +168,32 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .partners-hero-description {
+.light-theme .jci-partners-hero-description {
   color: var(--jci-light-teal);
 }
 
 /* ===== Hero Stats ===== */
-.partners-hero-stats {
+.jci-partners-hero-stats {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-2xl);
   padding-top: var(--spacing-xl);
   border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
 }
 
-.light-theme .partners-hero-stats {
+.light-theme .jci-partners-hero-stats {
   border-top: 0.5px solid rgba(18, 18, 69, 0.08);
 }
 
-.partners-hero-stat {
+.jci-partners-hero-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.partners-hero-stat-number {
+.jci-partners-hero-stat-number {
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
@@ -202,37 +201,38 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .partners-hero-stat-number {
+.light-theme .jci-partners-hero-stat-number {
   color: var(--jci-dark-indigo);
 }
 
-.partners-hero-stat-label {
+.jci-partners-hero-stat-label {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
   transition: color var(--transition-normal);
 }
 
-.light-theme .partners-hero-stat-label {
+.light-theme .jci-partners-hero-stat-label {
   color: var(--jci-light-teal);
 }
 
-.partners-hero-stat-divider {
+.jci-partners-hero-stat-divider {
   width: 1px;
   height: 40px;
   background: rgba(255, 255, 255, 0.15);
 }
 
-.light-theme .partners-hero-stat-divider {
+.light-theme .jci-partners-hero-stat-divider {
   background: rgba(18, 18, 69, 0.15);
 }
 
-/* ===== THE REST OF YOUR EXISTING CSS BELOW ===== */
-.partners-categories-section {
+/* ===== Categories Section ===== */
+.jci-partners-categories-section {
   padding: 0 var(--spacing-xl) var(--spacing-2xl);
   margin-top: calc(-1 * var(--spacing-xl));
 }
-.partners-categories-wrapper {
+
+.jci-partners-categories-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -244,7 +244,8 @@
   border: 0.5px solid var(--glass-border);
   box-shadow: var(--shadow-md);
 }
-.partners-category-btn {
+
+.jci-partners-category-btn {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -259,27 +260,34 @@
   transition: all var(--transition-fast);
   font-family: inherit;
 }
-.partners-category-btn:hover {
+
+.jci-partners-category-btn:hover {
   background: var(--btn-hover-bg);
   color: var(--text-primary);
 }
-.partners-category-btn.active {
+
+.jci-partners-category-btn.jci-active {
   background: var(--jci-bright-cyan);
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(8, 157, 195, 0.3);
 }
-.partners-category-icon {
+
+.jci-partners-category-icon {
   font-size: 0.875rem;
 }
-.partners-featured-section {
+
+/* ===== Featured Section ===== */
+.jci-partners-featured-section {
   padding: var(--spacing-3xl) 0;
 }
-.partners-featured-grid {
+
+.jci-partners-featured-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-xl);
 }
-.partner-featured-card {
+
+.jci-partner-featured-card {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -288,11 +296,13 @@
   position: relative;
   transition: all var(--transition-normal);
 }
-.partner-featured-card:hover {
+
+.jci-partner-featured-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
-.partner-featured-badge {
+
+.jci-partner-featured-badge {
   position: absolute;
   top: var(--spacing-md);
   right: var(--spacing-md);
@@ -308,16 +318,19 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.partner-featured-star {
+
+.jci-partner-featured-star {
   font-size: 0.5rem;
 }
-.partner-featured-header {
+
+.jci-partner-featured-header {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-md);
 }
-.partner-featured-logo {
+
+.jci-partner-featured-logo {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-lg);
@@ -328,16 +341,19 @@
   font-weight: 700;
   flex-shrink: 0;
 }
-.partner-featured-info {
+
+.jci-partner-featured-info {
   flex: 1;
 }
-.partner-featured-name {
+
+.jci-partner-featured-name {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
 }
-.partner-featured-category {
+
+.jci-partner-featured-category {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -345,13 +361,15 @@
   color: var(--text-tertiary);
   font-weight: 500;
 }
-.partner-featured-description {
+
+.jci-partner-featured-description {
   font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
 }
-.partner-featured-impact {
+
+.jci-partner-featured-impact {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -359,11 +377,13 @@
   color: var(--text-tertiary);
   margin-bottom: var(--spacing-sm);
 }
-.partner-featured-impact-icon {
+
+.jci-partner-featured-impact-icon {
   color: var(--jci-teal-blue);
   font-size: 0.875rem;
 }
-.partner-featured-years {
+
+.jci-partner-featured-years {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -371,11 +391,13 @@
   color: var(--text-tertiary);
   margin-bottom: var(--spacing-md);
 }
-.partner-featured-years-icon {
+
+.jci-partner-featured-years-icon {
   font-size: 0.75rem;
   color: var(--jci-teal-blue);
 }
-.partner-featured-btn {
+
+.jci-partner-featured-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -388,19 +410,24 @@
   padding: 0;
   transition: all var(--transition-fast);
 }
-.partner-featured-btn:hover {
+
+.jci-partner-featured-btn:hover {
   gap: var(--spacing-md);
   color: var(--jci-teal-blue);
 }
-.partners-grid-section {
+
+/* ===== Grid Section ===== */
+.jci-partners-grid-section {
   padding: var(--spacing-3xl) 0;
 }
-.partners-grid {
+
+.jci-partners-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--spacing-xl);
 }
-.partner-card {
+
+.jci-partner-card {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -409,11 +436,13 @@
   transition: all var(--transition-normal);
   cursor: pointer;
 }
-.partner-card:hover {
+
+.jci-partner-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
-.partner-card-logo {
+
+.jci-partner-card-logo {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-lg);
@@ -424,13 +453,15 @@
   font-weight: 700;
   margin-bottom: var(--spacing-md);
 }
-.partner-card-name {
+
+.jci-partner-card-name {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
 }
-.partner-card-category {
+
+.jci-partner-card-category {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -439,13 +470,15 @@
   font-weight: 500;
   margin-bottom: var(--spacing-sm);
 }
-.partner-card-description {
+
+.jci-partner-card-description {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
 }
-.partner-card-impact {
+
+.jci-partner-card-impact {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -453,22 +486,26 @@
   color: var(--text-tertiary);
   margin-bottom: var(--spacing-md);
 }
-.partner-card-impact-icon {
+
+.jci-partner-card-impact-icon {
   color: var(--jci-teal-blue);
   font-size: 0.75rem;
 }
-.partner-card-footer {
+
+.jci-partner-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: var(--spacing-md);
   border-top: 0.5px solid var(--border-light);
 }
-.partner-card-years {
+
+.jci-partner-card-years {
   font-size: 0.7rem;
   color: var(--text-tertiary);
 }
-.partner-card-details {
+
+.jci-partner-card-details {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -481,15 +518,19 @@
   cursor: pointer;
   transition: all var(--transition-fast);
 }
-.partner-card-details:hover {
+
+.jci-partner-card-details:hover {
   background: var(--jci-bright-cyan);
   color: #ffffff;
   border-color: var(--jci-bright-cyan);
 }
-.partners-benefits-section {
+
+/* ===== Benefits Section ===== */
+.jci-partners-benefits-section {
   padding: var(--spacing-3xl) 0;
 }
-.partners-benefits-wrapper {
+
+.jci-partners-benefits-wrapper {
   padding: var(--spacing-3xl);
   background: linear-gradient(
     145deg,
@@ -500,39 +541,46 @@
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   text-align: center;
 }
-.partners-benefits-content {
+
+.jci-partners-benefits-content {
   max-width: 900px;
   margin: 0 auto;
 }
-.partners-benefits-title {
+
+.jci-partners-benefits-title {
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: var(--spacing-sm);
 }
-.partners-benefits-subtitle {
+
+.jci-partners-benefits-subtitle {
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: var(--spacing-2xl);
 }
-.partners-benefits-grid {
+
+.jci-partners-benefits-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-2xl);
 }
-.partners-benefit-item {
+
+.jci-partners-benefit-item {
   padding: var(--spacing-xl);
   background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius-xl);
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   transition: all var(--transition-normal);
 }
-.partners-benefit-item:hover {
+
+.jci-partners-benefit-item:hover {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
 }
-.partners-benefit-icon-wrapper {
+
+.jci-partners-benefit-icon-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -542,22 +590,26 @@
   background: rgba(76, 196, 209, 0.12);
   margin-bottom: var(--spacing-md);
 }
-.partners-benefit-icon {
+
+.jci-partners-benefit-icon {
   font-size: 1.25rem;
   color: var(--jci-teal-blue);
 }
-.partners-benefit-item-title {
+
+.jci-partners-benefit-item-title {
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: var(--spacing-xs);
 }
-.partners-benefit-item-desc {
+
+.jci-partners-benefit-item-desc {
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.6;
 }
-.partners-benefits-btn {
+
+.jci-partners-benefits-btn {
   background: linear-gradient(
     135deg,
     var(--jci-teal-blue),
@@ -568,19 +620,24 @@
   font-weight: 600 !important;
   box-shadow: 0 4px 24px rgba(8, 157, 195, 0.3) !important;
 }
-.partners-benefits-btn:hover {
+
+.jci-partners-benefits-btn:hover {
   transform: translateY(-2px) scale(1.02) !important;
   box-shadow: 0 8px 32px rgba(8, 157, 195, 0.4) !important;
 }
-.partners-testimonials-section {
+
+/* ===== Testimonials Section ===== */
+.jci-partners-testimonials-section {
   padding: var(--spacing-3xl) 0;
 }
-.partners-testimonials-grid {
+
+.jci-partners-testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-xl);
 }
-.partners-testimonial-card {
+
+.jci-partners-testimonial-card {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -588,29 +645,34 @@
   border: 0.5px solid var(--glass-border);
   transition: all var(--transition-normal);
 }
-.partners-testimonial-card:hover {
+
+.jci-partners-testimonial-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
-.partners-testimonial-quote {
+
+.jci-partners-testimonial-quote {
   font-size: 2rem;
   color: var(--jci-teal-blue);
   opacity: 0.3;
   margin-bottom: var(--spacing-md);
 }
-.partners-testimonial-text {
+
+.jci-partners-testimonial-text {
   font-size: 0.875rem;
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: var(--spacing-lg);
   font-style: italic;
 }
-.partners-testimonial-author {
+
+.jci-partners-testimonial-author {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
 }
-.partners-testimonial-logo {
+
+.jci-partners-testimonial-logo {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-lg);
@@ -620,23 +682,29 @@
   font-size: 0.875rem;
   font-weight: 700;
 }
-.partners-testimonial-info {
+
+.jci-partners-testimonial-info {
   display: flex;
   flex-direction: column;
 }
-.partners-testimonial-name {
+
+.jci-partners-testimonial-name {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-primary);
 }
-.partners-testimonial-category {
+
+.jci-partners-testimonial-category {
   font-size: 0.7rem;
   color: var(--text-tertiary);
 }
-.partners-cta-section {
+
+/* ===== CTA Section ===== */
+.jci-partners-cta-section {
   padding: var(--spacing-3xl) 0;
 }
-.partners-cta-wrapper {
+
+.jci-partners-cta-wrapper {
   padding: var(--spacing-3xl);
   background: linear-gradient(
     145deg,
@@ -647,11 +715,13 @@
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   text-align: center;
 }
-.partners-cta-content {
+
+.jci-partners-cta-content {
   max-width: 700px;
   margin: 0 auto;
 }
-.partners-cta-icon-wrapper {
+
+.jci-partners-cta-icon-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -661,29 +731,34 @@
   background: rgba(76, 196, 209, 0.15);
   margin-bottom: var(--spacing-lg);
 }
-.partners-cta-icon {
+
+.jci-partners-cta-icon {
   font-size: 2rem;
   color: var(--jci-teal-blue);
 }
-.partners-cta-title {
+
+.jci-partners-cta-title {
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: var(--spacing-md);
 }
-.partners-cta-text {
+
+.jci-partners-cta-text {
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: var(--spacing-xl);
   line-height: 1.7;
 }
-.partners-cta-actions {
+
+.jci-partners-cta-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-md);
 }
-.partners-cta-btn {
+
+.jci-partners-cta-btn {
   background: linear-gradient(
     135deg,
     var(--jci-teal-blue),
@@ -694,11 +769,13 @@
   font-weight: 600 !important;
   box-shadow: 0 4px 24px rgba(8, 157, 195, 0.3) !important;
 }
-.partners-cta-btn:hover {
+
+.jci-partners-cta-btn:hover {
   transform: translateY(-2px) scale(1.02) !important;
   box-shadow: 0 8px 32px rgba(8, 157, 195, 0.4) !important;
 }
-.partners-cta-btn-secondary {
+
+.jci-partners-cta-btn-secondary {
   background: rgba(255, 255, 255, 0.08) !important;
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(255, 255, 255, 0.15) !important;
@@ -706,11 +783,14 @@
   padding: 0.875rem 2.5rem !important;
   font-size: 1rem !important;
 }
-.partners-cta-btn-secondary:hover {
+
+.jci-partners-cta-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.15) !important;
   transform: translateY(-2px) scale(1.02) !important;
 }
-.partner-modal-overlay {
+
+/* ===== Modal ===== */
+.jci-partner-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -724,7 +804,8 @@
   z-index: var(--z-modal);
   padding: var(--spacing-lg);
 }
-.partner-modal {
+
+.jci-partner-modal {
   background: var(--bg-glass-strong);
   backdrop-filter: blur(30px) saturate(180%);
   border-radius: var(--radius-3xl);
@@ -737,7 +818,8 @@
   padding: var(--spacing-2xl);
   position: relative;
 }
-.partner-modal-close {
+
+.jci-partner-modal-close {
   position: absolute;
   top: var(--spacing-md);
   right: var(--spacing-md);
@@ -754,17 +836,20 @@
   cursor: pointer;
   transition: all var(--transition-fast);
 }
-.partner-modal-close:hover {
+
+.jci-partner-modal-close:hover {
   background: var(--btn-hover-bg);
   color: var(--text-primary);
 }
-.partner-modal-header {
+
+.jci-partner-modal-header {
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
-.partner-modal-logo {
+
+.jci-partner-modal-logo {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-xl);
@@ -775,13 +860,15 @@
   font-weight: 700;
   flex-shrink: 0;
 }
-.partner-modal-title h2 {
+
+.jci-partner-modal-title h2 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: var(--spacing-xs);
   color: var(--text-primary);
 }
-.partner-modal-category {
+
+.jci-partner-modal-category {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -789,29 +876,34 @@
   color: var(--text-tertiary);
   font-weight: 500;
 }
-.partner-modal-description {
+
+.jci-partner-modal-description {
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: var(--spacing-xl);
 }
-.partner-modal-details {
+
+.jci-partner-modal-details {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
 }
-.partner-modal-detail-item {
+
+.jci-partner-modal-detail-item {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-md);
 }
-.partner-modal-detail-icon {
+
+.jci-partner-modal-detail-icon {
   color: var(--jci-teal-blue);
   font-size: 1rem;
   margin-top: 2px;
 }
-.partner-modal-detail-label {
+
+.jci-partner-modal-detail-label {
   display: block;
   font-size: 0.7rem;
   font-weight: 600;
@@ -819,18 +911,21 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.partner-modal-detail-value {
+
+.jci-partner-modal-detail-value {
   display: block;
   font-size: 0.875rem;
   color: var(--text-primary);
 }
-.partner-modal-achievements {
+
+.jci-partner-modal-achievements {
   background: var(--bg-secondary);
   border-radius: var(--radius-xl);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
-.partner-modal-achievements-title {
+
+.jci-partner-modal-achievements-title {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -839,15 +934,18 @@
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
 }
-.partner-modal-achievements-icon {
+
+.jci-partner-modal-achievements-icon {
   color: var(--jci-teal-blue);
 }
-.partner-modal-achievements-list {
+
+.jci-partner-modal-achievements-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.partner-modal-achievements-list li {
+
+.jci-partner-modal-achievements-list li {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -855,348 +953,438 @@
   font-size: 0.8125rem;
   color: var(--text-secondary);
 }
-.partner-modal-achievement-check {
+
+.jci-partner-modal-achievement-check {
   color: var(--jci-teal-blue);
   font-size: 0.75rem;
 }
-.partner-modal-testimonial {
+
+.jci-partner-modal-testimonial {
   background: rgba(76, 196, 209, 0.06);
   border-radius: var(--radius-xl);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
   border-left: 3px solid var(--jci-teal-blue);
 }
-.partner-modal-testimonial-quote {
+
+.jci-partner-modal-testimonial-quote {
   font-size: 1rem;
   color: var(--jci-teal-blue);
   opacity: 0.5;
   margin-bottom: var(--spacing-sm);
 }
-.partner-modal-testimonial-text {
+
+.jci-partner-modal-testimonial-text {
   font-size: 0.875rem;
   font-style: italic;
   color: var(--text-secondary);
   line-height: 1.6;
 }
-.partner-modal-footer {
+
+.jci-partner-modal-footer {
   padding-top: var(--spacing-lg);
   border-top: 0.5px solid var(--border-light);
 }
-.partner-modal-btn {
+
+.jci-partner-modal-btn {
   width: 100%;
   justify-content: center;
 }
-.partners-footer {
-  background: var(--bg-secondary);
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  border-top: 0.5px solid var(--border-light);
-  margin-top: var(--spacing-2xl);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
-}
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-}
-.footer-logo .jci-shield-logo {
-  width: 64px;
-  height: 70px;
-  margin-bottom: var(--spacing-sm);
-}
-.footer-brand-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
-}
-.footer-brand-desc {
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-  line-height: 1.6;
-  max-width: 300px;
-}
-.footer-social {
-  display: flex;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-}
-.footer-social-link {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--btn-hover-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  transition: all var(--transition-fast);
-  border: 0.5px solid var(--border-light);
-}
-.footer-social-link:hover {
-  background: var(--jci-bright-cyan);
-  color: #ffffff;
-  transform: translateY(-2px);
-  border-color: var(--jci-bright-cyan);
-}
-.footer-heading {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-lg);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.footer-list li {
-  margin-bottom: var(--spacing-sm);
-}
-.footer-list a {
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-  transition: all var(--transition-fast);
-}
-.footer-list a:hover {
-  color: var(--jci-teal-blue);
-}
-.footer-contact-icon {
-  margin-right: var(--spacing-sm);
-  color: var(--jci-teal-blue);
-  font-size: 0.75rem;
-}
-.footer-list li {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-}
-.footer-bottom {
-  padding-top: var(--spacing-xl);
-  border-top: 0.5px solid var(--border-light);
-  text-align: center;
-}
-.footer-copy {
-  font-size: 0.8125rem;
-  color: var(--text-tertiary);
-}
-.footer-copy-brand {
-  color: var(--jci-teal-blue);
-  font-weight: 500;
-}
-.animate-on-scroll {
+
+/* ===== Helper Classes ===== */
+.jci-animate-on-scroll {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
-.animate-on-scroll.visible {
+
+.jci-animate-on-scroll.jci-visible {
   opacity: 1;
   transform: translateY(0);
 }
-.animate-on-scroll:nth-child(2) {
+
+.jci-animate-on-scroll:nth-child(2) {
   transition-delay: 0.1s;
 }
-.animate-on-scroll:nth-child(3) {
+.jci-animate-on-scroll:nth-child(3) {
   transition-delay: 0.2s;
 }
-.animate-on-scroll:nth-child(4) {
+.jci-animate-on-scroll:nth-child(4) {
   transition-delay: 0.3s;
 }
-.animate-on-scroll:nth-child(5) {
+.jci-animate-on-scroll:nth-child(5) {
   transition-delay: 0.4s;
 }
-.animate-on-scroll:nth-child(6) {
+.jci-animate-on-scroll:nth-child(6) {
   transition-delay: 0.5s;
 }
-.glass-card {
+
+.jci-glass-card {
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
   border: 0.5px solid var(--glass-border);
   box-shadow: var(--shadow-sm);
 }
-.section-header-wrapper {
+
+.jci-section-header-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-bottom: var(--spacing-2xl);
 }
-.section-title-modern {
+
+.jci-section-title-modern {
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
 }
-.section-subtitle {
+
+.jci-section-subtitle {
   font-size: 1.05rem;
   color: var(--text-tertiary);
   max-width: 600px;
 }
-@media (max-width: 1200px) {
-  .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: var(--spacing-xl);
-  }
-  .partners-benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
+.jci-btn-icon,
+.jci-btn-icon-small {
+  transition: transform var(--transition-fast);
 }
+
+.jci-btn:hover .jci-btn-icon,
+.jci-btn:hover .jci-btn-icon-small {
+  transform: translateX(4px);
+}
+
+/* ======================================== */
+/* ========== RESPONSIVE STYLES ========== */
+/* ======================================== */
+
+/* ===== TABLET LANDSCAPE & SMALL DESKTOP (768px - 991px) ===== */
 @media (max-width: 991px) {
-  .partners-hero-stats {
+  .jci-partners-hero {
+    min-height: 70vh;
+    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .jci-partners-hero-content {
+    max-width: 100%;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .jci-partners-hero-stats {
     flex-wrap: wrap;
     gap: var(--spacing-lg);
   }
-  .partners-hero-stat-divider {
+
+  .jci-partners-hero-stat-divider {
     display: none;
   }
-  .footer-grid {
+
+  .jci-partners-featured-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .partners-hero {
-    min-height: 70vh;
-    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+
+  .jci-partners-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .partners-featured-grid {
-    grid-template-columns: 1fr 1fr;
+
+  .jci-partners-categories-wrapper {
+    flex-wrap: wrap;
   }
 }
+
+/* ===== TABLET PORTRAIT & MOBILE LANDSCAPE (576px - 767px) ===== */
 @media (max-width: 768px) {
-  .partners-hero {
+  .jci-partners-hero {
     min-height: 65vh;
     padding: var(--spacing-2xl) var(--spacing-lg);
     border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   }
-  .partners-hero-stats {
+
+  .jci-partners-hero-stats {
     flex-direction: column;
     gap: var(--spacing-md);
   }
-  .partners-hero-stat-number {
+
+  .jci-partners-hero-stat-number {
     font-size: 1.5rem;
   }
-  .partners-categories-wrapper {
+
+  .jci-partners-categories-wrapper {
     flex-direction: column;
     align-items: stretch;
   }
-  .partners-category-btn {
+
+  .jci-partners-category-btn {
     justify-content: center;
     padding: 0.75rem;
   }
-  .partners-featured-grid {
+
+  .jci-partners-featured-grid {
     grid-template-columns: 1fr;
   }
-  .partners-grid {
+
+  .jci-partners-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .partners-benefits-grid {
+
+  .jci-partners-benefits-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .partners-benefits-wrapper {
+
+  .jci-partners-benefits-wrapper {
     padding: var(--spacing-xl);
   }
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-  .partner-modal {
+
+  .jci-partner-modal {
     padding: var(--spacing-xl);
     margin: var(--spacing-md);
   }
-  .partner-modal-header {
+
+  .jci-partner-modal-header {
     flex-direction: column;
     text-align: center;
   }
-  .partners-cta-wrapper {
+
+  .jci-partners-cta-wrapper {
     padding: var(--spacing-xl);
   }
-  .partners-cta-actions {
+
+  .jci-partners-cta-actions {
     flex-direction: column;
     align-items: center;
   }
-  .partners-cta-btn,
-  .partners-cta-btn-secondary {
+
+  .jci-partners-cta-btn,
+  .jci-partners-cta-btn-secondary {
     width: 100%;
     justify-content: center;
   }
-}
-@media (max-width: 576px) {
-  .partners-hero-title {
-    font-size: 2rem;
-  }
-  .partners-grid {
+
+  .jci-partners-testimonials-grid {
     grid-template-columns: 1fr;
   }
-  .partners-benefits-grid {
-    grid-template-columns: 1fr;
-  }
-  .partners-testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-  .partner-featured-card {
-    padding: var(--spacing-lg);
-  }
-  .partners-categories-section {
+
+  .jci-partners-categories-section {
     padding: 0 var(--spacing-md) var(--spacing-xl);
   }
-  .partner-modal-details {
+}
+
+/* ===== MOBILE PORTRAIT (up to 576px) ===== */
+@media (max-width: 576px) {
+  .jci-partners-hero {
+    min-height: 60vh;
+    padding: var(--spacing-xl) var(--spacing-md);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+
+  .jci-partners-hero-content {
+    padding: var(--spacing-md) 0;
+  }
+
+  .jci-partners-hero-title {
+    font-size: 2rem;
+  }
+
+  .jci-partners-hero-stats {
+    flex-direction: column;
     gap: var(--spacing-sm);
   }
-  .partners-hero-stat-number {
+
+  .jci-partners-hero-stat {
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    width: 100%;
+  }
+
+  .jci-partners-hero-stat-number {
     font-size: 1.25rem;
   }
+
+  .jci-partners-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jci-partners-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jci-partner-featured-card {
+    padding: var(--spacing-lg);
+  }
+
+  .jci-partner-modal-details {
+    gap: var(--spacing-sm);
+  }
+
+  .jci-partner-modal {
+    padding: var(--spacing-lg);
+  }
+
+  .jci-partner-modal-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .jci-partners-benefits-title {
+    font-size: 1.6rem;
+  }
+
+  .jci-partners-cta-title {
+    font-size: 1.6rem;
+  }
+
+  .jci-section-title-modern {
+    font-size: 1.6rem;
+  }
+
+  .jci-partner-featured-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .jci-partner-featured-logo {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
+
+  .jci-partner-card {
+    padding: var(--spacing-md);
+  }
+
+  .jci-partner-card-logo {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
 }
-.dark-theme .partners-hero {
+
+/* ===== EXTRA SMALL MOBILE (up to 400px) ===== */
+@media (max-width: 400px) {
+  .jci-partners-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .jci-partners-hero-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 1rem;
+  }
+
+  .jci-partners-hero-description {
+    font-size: 0.875rem;
+  }
+
+  .jci-partner-modal {
+    padding: var(--spacing-md);
+  }
+
+  .jci-partner-modal-logo {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .jci-partners-benefit-item {
+    padding: var(--spacing-md);
+  }
+
+  .jci-partners-testimonial-card {
+    padding: var(--spacing-md);
+  }
+
+  .jci-partner-featured-description {
+    font-size: 0.8125rem;
+  }
+
+  .jci-partner-card-description {
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== Dark Theme Overrides ===== */
+.dark-theme .jci-partners-hero {
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy), #0d1a2b);
 }
-.dark-theme .partners-benefits-wrapper,
-.dark-theme .partners-cta-wrapper {
+
+.dark-theme .jci-partners-benefits-wrapper,
+.dark-theme .jci-partners-cta-wrapper {
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy));
 }
-.dark-theme .partner-featured-card,
-.dark-theme .partner-card,
-.dark-theme .partners-testimonial-card {
+
+.dark-theme .jci-partner-featured-card,
+.dark-theme .jci-partner-card,
+.dark-theme .jci-partners-testimonial-card {
   background: rgba(27, 28, 71, 0.85);
 }
-.dark-theme .partners-categories-wrapper {
+
+.dark-theme .jci-partners-categories-wrapper {
   background: rgba(27, 28, 71, 0.85);
   border-color: rgba(255, 255, 255, 0.06);
 }
-.dark-theme .partners-category-btn:hover {
+
+.dark-theme .jci-partners-category-btn:hover {
   background: rgba(255, 255, 255, 0.05);
 }
-.dark-theme .partners-category-btn.active {
+
+.dark-theme .jci-partners-category-btn.jci-active {
   background: var(--jci-bright-cyan);
 }
-.dark-theme .partner-modal {
+
+.dark-theme .jci-partner-modal {
   background: rgba(27, 28, 71, 0.96);
 }
-.dark-theme .partner-modal-close {
+
+.dark-theme .jci-partner-modal-close {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.08);
 }
-.dark-theme .partner-modal-close:hover {
+
+.dark-theme .jci-partner-modal-close:hover {
   background: rgba(255, 255, 255, 0.12);
 }
-.dark-theme .partner-modal-achievements {
+
+.dark-theme .jci-partner-modal-achievements {
   background: rgba(255, 255, 255, 0.04);
 }
-.dark-theme .partner-modal-testimonial {
+
+.dark-theme .jci-partner-modal-testimonial {
   background: rgba(76, 196, 209, 0.08);
 }
-.dark-theme .partners-benefit-item {
+
+.dark-theme .jci-partners-benefit-item {
   background: rgba(255, 255, 255, 0.04);
 }
-.dark-theme .partners-benefit-item:hover {
+
+.dark-theme .jci-partners-benefit-item:hover {
   background: rgba(255, 255, 255, 0.08);
 }
-.dark-theme .partners-cta-btn-secondary {
+
+.dark-theme .jci-partners-cta-btn-secondary {
   background: rgba(255, 255, 255, 0.06) !important;
 }
-.dark-theme .partners-cta-btn-secondary:hover {
+
+.dark-theme .jci-partners-cta-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.dark-theme .jci-partner-card-details {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .jci-partner-card-details:hover {
+  background: var(--jci-bright-cyan);
+  border-color: var(--jci-bright-cyan);
+}
+
+.dark-theme .jci-partners-hero-stat {
+  background: transparent;
+}
+
+.dark-theme .jci-partners-hero-stat-divider {
+  background: rgba(255, 255, 255, 0.08);
 }

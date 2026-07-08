@@ -19,7 +19,7 @@ import {
   FaMapMarkerAlt,
   FaArrowLeft
 } from 'react-icons/fa';
-import { getPrivacyTranslations } from '../../contexts/Languages';
+import { getPrivacyTranslations } from '../../Utils/Languages';
 import './LegalPages.css';
 
 const PrivacyPolicy = ({ theme = 'light', language = 'en' }) => {

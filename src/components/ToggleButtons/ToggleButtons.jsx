@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FaSun, FaMoon, FaArrowUp, FaGlobe } from 'react-icons/fa';
-import { getToggleTranslations } from '../../contexts/Languages';
+import { getToggleTranslations } from '../../Utils/Languages';
 import './ToggleButtons.css';
 
 const ToggleButtons = ({ 

@@ -4,7 +4,7 @@
 /* ============================================
    ERROR PAGE WRAPPER
    ============================================ */
-.error-page {
+.jci-error-page {
   min-height: 100vh;
   background: var(--bg-primary);
   transition: background var(--transition-normal);
@@ -13,7 +13,7 @@
 /* ============================================
    CONTAINER
    ============================================ */
-.error-container {
+.jci-error-container {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -23,7 +23,7 @@
 /* ============================================
    HERO SECTION
    ============================================ */
-.error-hero {
+.jci-error-hero {
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -34,25 +34,25 @@
   transition: background var(--transition-normal);
 }
 
-.error-hero-content {
+.jci-error-hero-content {
   width: 100%;
 }
 
-.error-grid {
+.jci-error-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
 }
 
-.error-content {
+.jci-error-content {
   text-align: left;
 }
 
 /* ============================================
    HERO BADGE
    ============================================ */
-.error-hero-badge {
+.jci-error-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -70,30 +70,30 @@
   cursor: pointer;
 }
 
-.error-hero-badge:hover {
+.jci-error-hero-badge:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.error-hero-badge svg {
+.jci-error-hero-badge svg {
   margin-right: 0.5rem;
 }
 
-.error-hero-badge-text {
+.jci-error-hero-badge-text {
   display: inline-block;
 }
 
 /* ============================================
    ERROR CODE
    ============================================ */
-.error-code {
+.jci-error-code {
   display: flex;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
   flex-wrap: wrap;
 }
 
-.error-digit {
+.jci-error-digit {
   font-size: 5rem;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -104,14 +104,14 @@
   display: inline-block;
   font-family: monospace;
   text-shadow: var(--shadow-sm);
-  animation: digitFloat 2s ease-in-out infinite;
+  animation: jci-digitFloat 2s ease-in-out infinite;
 }
 
-.error-digit:nth-child(1) { animation-delay: 0s; }
-.error-digit:nth-child(2) { animation-delay: 0.2s; }
-.error-digit:nth-child(3) { animation-delay: 0.4s; }
+.jci-error-digit:nth-child(1) { animation-delay: 0s; }
+.jci-error-digit:nth-child(2) { animation-delay: 0.2s; }
+.jci-error-digit:nth-child(3) { animation-delay: 0.4s; }
 
-@keyframes digitFloat {
+@keyframes jci-digitFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
@@ -119,7 +119,7 @@
 /* ============================================
    TITLE AND DESCRIPTION
    ============================================ */
-.error-title {
+.jci-error-title {
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -128,11 +128,11 @@
   color: var(--text-primary);
 }
 
-.error-title-text {
+.jci-error-title-text {
   display: inline-block;
 }
 
-.error-description {
+.jci-error-description {
   font-size: 1.125rem;
   color: var(--text-secondary);
   line-height: 1.5;
@@ -140,14 +140,14 @@
   max-width: 500px;
 }
 
-.error-description-text {
+.jci-error-description-text {
   display: inline-block;
 }
 
 /* ============================================
    ERROR STATS
    ============================================ */
-.error-stats {
+.jci-error-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-lg);
@@ -160,17 +160,17 @@
   margin-bottom: var(--spacing-2xl);
 }
 
-.error-stat {
+.jci-error-stat {
   text-align: center;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.error-stat:hover {
+.jci-error-stat:hover {
   transform: translateY(-2px);
 }
 
-.error-stat-number {
+.jci-error-stat-number {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -179,30 +179,30 @@
   margin-bottom: var(--spacing-xs);
 }
 
-.error-stat-number-text {
+.jci-error-stat-number-text {
   display: inline-block;
 }
 
-.error-stat-label {
+.jci-error-stat-label {
   font-size: 0.75rem;
   color: var(--text-tertiary);
   font-weight: 500;
 }
 
-.error-stat-label-text {
+.jci-error-stat-label-text {
   display: inline-block;
 }
 
 /* ============================================
    ACTION BUTTONS
    ============================================ */
-.error-buttons {
+.jci-error-buttons {
   display: flex;
   gap: var(--spacing-lg);
   flex-wrap: wrap;
 }
 
-.error-home-btn {
+.jci-error-home-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -218,36 +218,36 @@
   font-family: inherit;
 }
 
-.error-home-btn-icon {
+.jci-error-home-btn-icon {
   display: inline-block;
 }
 
-.error-home-btn-text {
+.jci-error-home-btn-text {
   display: inline-block;
 }
 
-.error-home-btn-primary {
+.jci-error-home-btn-primary {
   background: var(--btn-primary-bg);
   color: var(--btn-primary-text);
   box-shadow: var(--shadow-sm);
 }
 
-.error-home-btn-primary:hover {
+.jci-error-home-btn-primary:hover {
   transform: scale(1.02);
   filter: brightness(0.95);
 }
 
-.dark-theme .error-home-btn-primary:hover {
+.dark-theme .jci-error-home-btn-primary:hover {
   filter: brightness(1.08);
 }
 
-.error-home-btn-secondary {
+.jci-error-home-btn-secondary {
   background: transparent;
   color: var(--text-primary);
   border: 0.5px solid var(--border-medium);
 }
 
-.error-home-btn-secondary:hover {
+.jci-error-home-btn-secondary:hover {
   background: var(--btn-hover-bg);
   transform: scale(1.02);
 }
@@ -255,12 +255,12 @@
 /* ============================================
    REDIRECT
    ============================================ */
-.error-redirect {
+.jci-error-redirect {
   margin-top: var(--spacing-2xl);
   max-width: 300px;
 }
 
-.error-redirect-bar {
+.jci-error-redirect-bar {
   width: 100%;
   height: 3px;
   background: var(--border-light);
@@ -269,26 +269,26 @@
   margin-bottom: var(--spacing-sm);
 }
 
-.error-redirect-progress {
+.jci-error-redirect-progress {
   height: 100%;
   background: var(--btn-primary-bg);
   border-radius: var(--radius-full);
 }
 
-.error-redirect p {
+.jci-error-redirect p {
   font-size: 0.875rem;
   color: var(--text-tertiary);
   margin: 0;
 }
 
-.error-redirect-text {
+.jci-error-redirect-text {
   display: inline-block;
 }
 
 /* ============================================
    HERO VISUAL - Floating Cards
    ============================================ */
-.error-visual {
+.jci-error-visual {
   position: relative;
   height: 450px;
   width: 100%;
@@ -297,7 +297,7 @@
   justify-content: center;
 }
 
-.error-visual-card {
+.jci-error-visual-card {
   position: absolute;
   background: var(--bg-glass-strong);
   backdrop-filter: blur(20px) saturate(180%);
@@ -310,67 +310,67 @@
   align-items: center;
   gap: var(--spacing-sm);
   width: 120px;
-  animation: float 6s ease-in-out infinite;
+  animation: jci-float 6s ease-in-out infinite;
   z-index: 2;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.error-visual-card:hover {
+.jci-error-visual-card:hover {
   transform: translateY(-5px) scale(1.05);
   border-color: var(--border-medium);
 }
 
-.error-visual-card svg {
+.jci-error-visual-card svg {
   font-size: 1.75rem;
   color: var(--text-primary);
 }
 
-.error-visual-card-icon {
+.jci-error-visual-card-icon {
   display: block;
 }
 
-.error-visual-card-text {
+.jci-error-visual-card-text {
   font-size: 0.75rem;
   font-weight: 500;
   text-align: center;
   color: var(--text-secondary);
 }
 
-.error-card-1 { 
+.jci-error-card-1 { 
   top: 10%; 
   left: 0; 
   animation-delay: 0s; 
 }
 
-.error-card-2 { 
+.jci-error-card-2 { 
   top: 50%; 
   right: 0; 
   transform: translateY(-50%); 
   animation-delay: 1.5s; 
 }
 
-.error-card-3 { 
+.jci-error-card-3 { 
   bottom: 10%; 
   left: 10%; 
   animation-delay: 3s; 
 }
 
-@keyframes float {
+@keyframes jci-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
 
-.error-card-2 {
-  animation: float2 6s ease-in-out infinite;
+.jci-error-card-2 {
+  animation: jci-float2 6s ease-in-out infinite;
 }
 
-@keyframes float2 {
+@keyframes jci-float2 {
   0%, 100% { transform: translateY(-50%); }
   50% { transform: translateY(calc(-50% - 15px)); }
 }
 
-.error-visual-center {
+.jci-error-visual-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -385,16 +385,16 @@
   font-size: 4rem;
   color: var(--btn-primary-text);
   box-shadow: var(--shadow-xl);
-  animation: pulse 3s ease-in-out infinite;
+  animation: jci-pulse 3s ease-in-out infinite;
   z-index: 1;
   transition: all var(--transition-normal);
 }
 
-.error-visual-center-icon {
+.jci-error-visual-center-icon {
   display: block;
 }
 
-@keyframes pulse {
+@keyframes jci-pulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1); }
   50% { transform: translate(-50%, -50%) scale(1.05); }
 }
@@ -402,18 +402,18 @@
 /* ============================================
    SUGGESTIONS SECTION
    ============================================ */
-.error-suggestions {
+.jci-error-suggestions {
   padding: 5rem 0;
   background: var(--bg-primary);
   transition: background var(--transition-normal);
 }
 
-.error-section-header {
+.jci-error-section-header {
   text-align: center;
   margin-bottom: var(--spacing-3xl);
 }
 
-.error-section-header h2 {
+.jci-error-section-header h2 {
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -421,29 +421,29 @@
   color: var(--text-primary);
 }
 
-.error-section-header-title {
+.jci-error-section-header-title {
   display: inline-block;
 }
 
-.error-section-header p {
+.jci-error-section-header p {
   font-size: 1.125rem;
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto;
 }
 
-.error-section-header-subtitle {
+.jci-error-section-header-subtitle {
   display: inline-block;
 }
 
-.error-suggestions-grid {
+.jci-error-suggestions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-xl);
   margin-top: var(--spacing-3xl);
 }
 
-.error-suggestion-card {
+.jci-error-suggestion-card {
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -459,13 +459,13 @@
   align-items: center;
 }
 
-.error-suggestion-card:hover {
+.jci-error-suggestion-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-medium);
   box-shadow: var(--shadow-lg);
 }
 
-.error-suggestion-icon {
+.jci-error-suggestion-icon {
   width: 70px;
   height: 70px;
   background: var(--btn-primary-bg);
@@ -480,37 +480,37 @@
   flex-shrink: 0;
 }
 
-.error-suggestion-card:hover .error-suggestion-icon {
+.jci-error-suggestion-card:hover .jci-error-suggestion-icon {
   transform: scale(1.05);
 }
 
-.error-suggestion-icon-svg {
+.jci-error-suggestion-icon-svg {
   display: block;
 }
 
-.error-suggestion-card h4 {
+.jci-error-suggestion-card h4 {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: var(--spacing-md);
   color: var(--text-primary);
 }
 
-.error-suggestion-card-title {
+.jci-error-suggestion-card-title {
   display: inline-block;
 }
 
-.error-suggestion-card p {
+.jci-error-suggestion-card p {
   font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: var(--spacing-lg);
 }
 
-.error-suggestion-card-desc {
+.jci-error-suggestion-card-desc {
   display: inline-block;
 }
 
-.error-suggestion-link {
+.jci-error-suggestion-link {
   display: inline-block;
   color: var(--text-primary);
   text-decoration: none;
@@ -519,25 +519,25 @@
   transition: all var(--transition-fast);
 }
 
-.error-suggestion-link:hover {
+.jci-error-suggestion-link:hover {
   transform: translateX(4px);
   color: var(--text-secondary);
 }
 
-.error-suggestion-link-text {
+.jci-error-suggestion-link-text {
   display: inline-block;
 }
 
 /* ============================================
    HELP SECTION
    ============================================ */
-.error-help {
+.jci-error-help {
   padding: 5rem 0;
   background: var(--bg-primary);
   transition: background var(--transition-normal);
 }
 
-.error-help-card {
+.jci-error-help-card {
   max-width: 800px;
   margin: 0 auto;
   padding: var(--spacing-3xl);
@@ -552,12 +552,12 @@
   cursor: pointer;
 }
 
-.error-help-card:hover {
+.jci-error-help-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-2xl);
 }
 
-.error-help-icon {
+.jci-error-help-icon {
   width: 80px;
   height: 80px;
   background: var(--btn-primary-bg);
@@ -571,15 +571,15 @@
   transition: all var(--transition-normal);
 }
 
-.error-help-card:hover .error-help-icon {
+.jci-error-help-card:hover .jci-error-help-icon {
   transform: scale(1.05);
 }
 
-.error-help-icon-svg {
+.jci-error-help-icon-svg {
   display: block;
 }
 
-.error-help-card h2 {
+.jci-error-help-card h2 {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -587,22 +587,22 @@
   color: var(--text-primary);
 }
 
-.error-help-title {
+.jci-error-help-title {
   display: inline-block;
 }
 
-.error-help-card p {
+.jci-error-help-card p {
   font-size: 1.125rem;
   color: var(--text-secondary);
   margin-bottom: var(--spacing-2xl);
   line-height: 1.5;
 }
 
-.error-help-desc {
+.jci-error-help-desc {
   display: inline-block;
 }
 
-.error-help-buttons {
+.jci-error-help-buttons {
   display: flex;
   gap: var(--spacing-lg);
   justify-content: center;
@@ -612,28 +612,28 @@
 /* ============================================
    ANIMATE ON SCROLL
    ============================================ */
-.animate-on-scroll {
+.jci-animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
-.animate-on-scroll.visible {
+.jci-animate-on-scroll.jci-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.animate-on-scroll.visible:nth-child(1) { transition-delay: 0.05s; }
-.animate-on-scroll.visible:nth-child(2) { transition-delay: 0.1s; }
-.animate-on-scroll.visible:nth-child(3) { transition-delay: 0.15s; }
-.animate-on-scroll.visible:nth-child(4) { transition-delay: 0.2s; }
-.animate-on-scroll.visible:nth-child(5) { transition-delay: 0.25s; }
-.animate-on-scroll.visible:nth-child(6) { transition-delay: 0.3s; }
+.jci-animate-on-scroll.jci-visible:nth-child(1) { transition-delay: 0.05s; }
+.jci-animate-on-scroll.jci-visible:nth-child(2) { transition-delay: 0.1s; }
+.jci-animate-on-scroll.jci-visible:nth-child(3) { transition-delay: 0.15s; }
+.jci-animate-on-scroll.jci-visible:nth-child(4) { transition-delay: 0.2s; }
+.jci-animate-on-scroll.jci-visible:nth-child(5) { transition-delay: 0.25s; }
+.jci-animate-on-scroll.jci-visible:nth-child(6) { transition-delay: 0.3s; }
 
 /* ============================================
    GLASS CARD
    ============================================ */
-.glass-card {
+.jci-glass-card {
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -642,34 +642,34 @@
   transition: all var(--transition-normal);
 }
 
-.glass-card:hover {
+.jci-glass-card:hover {
   box-shadow: var(--shadow-lg);
 }
 
 /* ============================================
    LIGHT THEME SPECIFIC
    ============================================ */
-.light-theme .error-digit {
+.light-theme .jci-error-digit {
   background: linear-gradient(135deg, #1c1c1e 0%, #636366 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-.light-theme .error-suggestion-icon,
-.light-theme .error-help-icon {
+.light-theme .jci-error-suggestion-icon,
+.light-theme .jci-error-help-icon {
   background: var(--black);
   color: var(--white);
 }
 
-.light-theme .error-visual-center {
+.light-theme .jci-error-visual-center {
   background: var(--black);
   color: var(--white);
 }
 
-.light-theme .error-suggestion-card,
-.light-theme .error-help-card,
-.light-theme .error-visual-card,
-.light-theme .error-stats {
+.light-theme .jci-error-suggestion-card,
+.light-theme .jci-error-help-card,
+.light-theme .jci-error-visual-card,
+.light-theme .jci-error-stats {
   background: rgba(255, 255, 255, 0.92);
   border-color: rgba(0, 0, 0, 0.08);
 }
@@ -677,27 +677,27 @@
 /* ============================================
    DARK THEME SPECIFIC
    ============================================ */
-.dark-theme .error-digit {
+.dark-theme .jci-error-digit {
   background: linear-gradient(135deg, #ffffff 0%, #a1a1a6 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-.dark-theme .error-suggestion-icon,
-.dark-theme .error-help-icon {
+.dark-theme .jci-error-suggestion-icon,
+.dark-theme .jci-error-help-icon {
   background: var(--white);
   color: var(--black);
 }
 
-.dark-theme .error-visual-center {
+.dark-theme .jci-error-visual-center {
   background: var(--white);
   color: var(--black);
 }
 
-.dark-theme .error-suggestion-card,
-.dark-theme .error-help-card,
-.dark-theme .error-visual-card,
-.dark-theme .error-stats {
+.dark-theme .jci-error-suggestion-card,
+.dark-theme .jci-error-help-card,
+.dark-theme .jci-error-visual-card,
+.dark-theme .jci-error-stats {
   background: rgba(28, 28, 30, 0.92);
   border-color: rgba(255, 255, 255, 0.08);
 }
@@ -708,98 +708,98 @@
 
 /* Large Desktop (1200px and above) */
 @media (min-width: 1200px) {
-  .error-digit {
+  .jci-error-digit {
     font-size: 5rem;
   }
   
-  .error-title {
+  .jci-error-title {
     font-size: 3rem;
   }
   
-  .error-container {
+  .jci-error-container {
     max-width: 1280px;
   }
 }
 
 /* Desktop (992px to 1199px) */
 @media (max-width: 1199px) {
-  .error-digit {
+  .jci-error-digit {
     font-size: 4rem;
   }
   
-  .error-title {
+  .jci-error-title {
     font-size: 2.5rem;
   }
   
-  .error-section-header h2 {
+  .jci-error-section-header h2 {
     font-size: 2.25rem;
   }
   
-  .error-container {
+  .jci-error-container {
     max-width: 960px;
   }
 }
 
 /* Tablet (768px to 991px) */
 @media (max-width: 991px) {
-  .error-grid {
+  .jci-error-grid {
     grid-template-columns: 1fr;
     text-align: center;
     gap: var(--spacing-2xl);
   }
 
-  .error-content {
+  .jci-error-content {
     text-align: center;
   }
 
-  .error-description {
+  .jci-error-description {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
   }
 
-  .error-code {
+  .jci-error-code {
     justify-content: center;
   }
 
-  .error-stats {
+  .jci-error-stats {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .error-buttons {
+  .jci-error-buttons {
     justify-content: center;
   }
 
-  .error-redirect {
+  .jci-error-redirect {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
   }
   
-  .error-hero {
+  .jci-error-hero {
     min-height: auto;
     padding: 4rem 0;
   }
   
-  .error-digit {
+  .jci-error-digit {
     font-size: 3.5rem;
   }
   
-  .error-title {
+  .jci-error-title {
     font-size: 2.25rem;
   }
   
-  .error-section-header h2 {
+  .jci-error-section-header h2 {
     font-size: 2rem;
   }
   
-  .error-help-card h2 {
+  .jci-error-help-card h2 {
     font-size: 2rem;
   }
   
-  .error-container {
+  .jci-error-container {
     max-width: 720px;
     padding: 0 var(--spacing-lg);
   }
@@ -807,109 +807,109 @@
 
 /* Mobile Large (576px to 767px) */
 @media (max-width: 767px) {
-  .error-hero {
+  .jci-error-hero {
     min-height: auto;
     padding: 3rem 0;
   }
 
-  .error-digit {
+  .jci-error-digit {
     font-size: 2.5rem;
     gap: var(--spacing-sm);
   }
 
-  .error-title {
+  .jci-error-title {
     font-size: 1.75rem;
   }
 
-  .error-description {
+  .jci-error-description {
     font-size: 1rem;
   }
 
-  .error-code {
+  .jci-error-code {
     gap: var(--spacing-xs);
   }
 
-  .error-stats {
+  .jci-error-stats {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
     padding: var(--spacing-lg);
   }
 
-  .error-stat-number {
+  .jci-error-stat-number {
     font-size: 1.25rem;
   }
 
-  .error-buttons {
+  .jci-error-buttons {
     flex-direction: column;
     align-items: center;
   }
 
-  .error-home-btn {
+  .jci-error-home-btn {
     width: 100%;
     max-width: 250px;
     justify-content: center;
   }
 
-  .error-visual {
+  .jci-error-visual {
     height: 350px;
   }
 
-  .error-visual-card {
+  .jci-error-visual-card {
     display: none;
   }
 
-  .error-visual-center {
+  .jci-error-visual-center {
     width: 180px;
     height: 180px;
     font-size: 3rem;
   }
 
-  .error-section-header h2 {
+  .jci-error-section-header h2 {
     font-size: 1.75rem;
   }
   
-  .error-section-header p {
+  .jci-error-section-header p {
     font-size: 1rem;
   }
 
-  .error-suggestions {
+  .jci-error-suggestions {
     padding: 3rem 0;
   }
 
-  .error-suggestions-grid {
+  .jci-error-suggestions-grid {
     gap: var(--spacing-lg);
   }
 
-  .error-suggestion-card {
+  .jci-error-suggestion-card {
     padding: var(--spacing-xl);
   }
 
-  .error-help {
+  .jci-error-help {
     padding: 3rem 0;
   }
 
-  .error-help-card {
+  .jci-error-help-card {
     padding: var(--spacing-2xl);
   }
 
-  .error-help-card h2 {
+  .jci-error-help-card h2 {
     font-size: 1.75rem;
   }
 
-  .error-help-card p {
+  .jci-error-help-card p {
     font-size: 1rem;
   }
 
-  .error-help-buttons {
+  .jci-error-help-buttons {
     flex-direction: column;
     align-items: center;
   }
   
-  .error-help-buttons .error-home-btn {
+  .jci-error-help-buttons .jci-error-home-btn {
     max-width: 250px;
   }
   
-  .error-container {
+  .jci-error-container {
     padding: 0 var(--spacing-md);
     max-width: 100%;
   }
@@ -917,123 +917,123 @@
 
 /* Mobile Small (up to 575px) */
 @media (max-width: 575px) {
-  .error-digit {
+  .jci-error-digit {
     font-size: 2rem;
   }
 
-  .error-title {
+  .jci-error-title {
     font-size: 1.5rem;
   }
 
-  .error-description {
+  .jci-error-description {
     font-size: 0.9375rem;
   }
 
-  .error-stats {
+  .jci-error-stats {
     grid-template-columns: 1fr;
   }
 
-  .error-stat-number {
+  .jci-error-stat-number {
     font-size: 1.5rem;
   }
 
-  .error-stat-label {
+  .jci-error-stat-label {
     font-size: 0.7rem;
   }
 
-  .error-visual {
+  .jci-error-visual {
     height: 250px;
   }
 
-  .error-visual-center {
+  .jci-error-visual-center {
     width: 140px;
     height: 140px;
     font-size: 2rem;
   }
 
-  .error-section-header h2 {
+  .jci-error-section-header h2 {
     font-size: 1.5rem;
   }
 
-  .error-suggestion-icon {
+  .jci-error-suggestion-icon {
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
   }
 
-  .error-suggestion-card h4 {
+  .jci-error-suggestion-card h4 {
     font-size: 1rem;
   }
 
-  .error-help-icon {
+  .jci-error-help-icon {
     width: 70px;
     height: 70px;
     font-size: 1.75rem;
   }
 
-  .error-help-card h2 {
+  .jci-error-help-card h2 {
     font-size: 1.5rem;
   }
 
-  .error-redirect {
+  .jci-error-redirect {
     max-width: 100%;
   }
   
-  .error-container {
+  .jci-error-container {
     padding: 0 var(--spacing-md);
   }
 }
 
 /* Extra Small Devices (up to 380px) */
 @media (max-width: 380px) {
-  .error-digit {
+  .jci-error-digit {
     font-size: 1.5rem;
   }
   
-  .error-title {
+  .jci-error-title {
     font-size: 1.25rem;
   }
   
-  .error-hero-badge {
+  .jci-error-hero-badge {
     font-size: 0.7rem;
     padding: var(--spacing-xs) var(--spacing-md);
   }
   
-  .error-section-header h2 {
+  .jci-error-section-header h2 {
     font-size: 1.25rem;
   }
   
-  .error-container {
+  .jci-error-container {
     padding: 0 var(--spacing-sm);
   }
 }
 
 /* Landscape mode */
 @media (max-width: 896px) and (orientation: landscape) {
-  .error-hero {
+  .jci-error-hero {
     min-height: auto;
     padding: 2rem 0;
   }
   
-  .error-grid {
+  .jci-error-grid {
     gap: var(--spacing-xl);
   }
   
-  .error-visual {
+  .jci-error-visual {
     height: 300px;
   }
   
-  .error-visual-center {
+  .jci-error-visual-center {
     width: 120px;
     height: 120px;
     font-size: 2rem;
   }
   
-  .error-suggestion-card {
+  .jci-error-suggestion-card {
     padding: var(--spacing-lg);
   }
   
-  .error-suggestion-icon {
+  .jci-error-suggestion-icon {
     width: 50px;
     height: 50px;
     font-size: 1.25rem;
@@ -1044,49 +1044,49 @@
    REDUCED MOTION
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
-  .error-digit,
-  .error-suggestion-card,
-  .error-help-card,
-  .error-home-btn,
-  .error-visual-card,
-  .error-visual-center,
-  .error-stat,
-  .animate-on-scroll {
+  .jci-error-digit,
+  .jci-error-suggestion-card,
+  .jci-error-help-card,
+  .jci-error-home-btn,
+  .jci-error-visual-card,
+  .jci-error-visual-center,
+  .jci-error-stat,
+  .jci-animate-on-scroll {
     animation: none !important;
     transition: none !important;
   }
 
-  .animate-on-scroll {
+  .jci-animate-on-scroll {
     opacity: 1 !important;
     transform: none !important;
   }
   
-  .animate-on-scroll.visible {
+  .jci-animate-on-scroll.jci-visible {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  .error-digit {
+  .jci-error-digit {
     animation: none !important;
   }
 
-  .error-suggestion-card:hover,
-  .error-help-card:hover,
-  .error-home-btn:hover,
-  .error-visual-card:hover,
-  .error-stat:hover {
+  .jci-error-suggestion-card:hover,
+  .jci-error-help-card:hover,
+  .jci-error-home-btn:hover,
+  .jci-error-visual-card:hover,
+  .jci-error-stat:hover {
     transform: none !important;
   }
 
-  .error-visual-center {
+  .jci-error-visual-center {
     animation: none !important;
   }
   
-  .error-redirect-progress {
+  .jci-error-redirect-progress {
     transition: none !important;
   }
   
-  .error-card-2 {
+  .jci-error-card-2 {
     animation: none !important;
   }
 }
@@ -1095,11 +1095,11 @@
    TOUCH-FRIENDLY IMPROVEMENTS
    ============================================ */
 @media (max-width: 768px) {
-  .error-home-btn,
-  .error-suggestion-card,
-  .error-help-card,
-  .error-stat,
-  .error-visual-card {
+  .jci-error-home-btn,
+  .jci-error-suggestion-card,
+  .jci-error-help-card,
+  .jci-error-stat,
+  .jci-error-visual-card {
     min-height: 44px;
   }
 }
@@ -1107,13 +1107,13 @@
 /* ============================================
    ACCESSIBILITY - FOCUS STATES
    ============================================ */
-.error-home-btn:focus-visible,
-.error-suggestion-card:focus-visible,
-.error-help-card:focus-visible,
-.error-stat:focus-visible,
-.error-visual-card:focus-visible,
-.error-hero-badge:focus-visible,
-.error-suggestion-link:focus-visible {
+.jci-error-home-btn:focus-visible,
+.jci-error-suggestion-card:focus-visible,
+.jci-error-help-card:focus-visible,
+.jci-error-stat:focus-visible,
+.jci-error-visual-card:focus-visible,
+.jci-error-hero-badge:focus-visible,
+.jci-error-suggestion-link:focus-visible {
   outline: 2px solid var(--btn-primary-bg);
   outline-offset: 2px;
 }
@@ -1121,7 +1121,7 @@
 /* ============================================
    SELECTION COLOR
    ============================================ */
-.error-page ::selection {
+.jci-error-page ::selection {
   background: var(--btn-primary-bg);
   color: var(--btn-primary-text);
 }
@@ -1130,38 +1130,38 @@
    PRINT STYLES
    ============================================ */
 @media print {
-  .error-visual,
-  .error-buttons,
-  .error-help-buttons,
-  .error-redirect {
+  .jci-error-visual,
+  .jci-error-buttons,
+  .jci-error-help-buttons,
+  .jci-error-redirect {
     display: none !important;
   }
   
-  .error-hero {
+  .jci-error-hero {
     min-height: auto;
     padding: 1rem 0;
   }
   
-  .error-suggestion-card,
-  .error-help-card {
+  .jci-error-suggestion-card,
+  .jci-error-help-card {
     break-inside: avoid;
     box-shadow: none;
     border: 1px solid #ddd;
   }
   
-  .error-page {
+  .jci-error-page {
     background: white !important;
   }
   
-  .error-title,
-  .error-section-header h2,
-  .error-help-card h2 {
+  .jci-error-title,
+  .jci-error-section-header h2,
+  .jci-error-help-card h2 {
     color: #000 !important;
   }
   
-  .error-description,
-  .error-section-header p,
-  .error-help-card p {
+  .jci-error-description,
+  .jci-error-section-header p,
+  .jci-error-help-card p {
     color: #333 !important;
   }
 }

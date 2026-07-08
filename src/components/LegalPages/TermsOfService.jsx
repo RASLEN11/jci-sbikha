@@ -17,7 +17,7 @@ import {
   FaPhone,
   FaMapMarkerAlt
 } from 'react-icons/fa';
-import { getTermsTranslations } from '../../contexts/Languages';
+import { getTermsTranslations } from '../../Utils/Languages';
 import './LegalPages.css';
 
 const TermsOfService = ({ theme = 'light', language = 'en' }) => {

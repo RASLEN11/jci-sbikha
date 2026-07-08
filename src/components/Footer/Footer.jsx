@@ -22,7 +22,7 @@ import {
   FaGraduationCap,
   FaUserPlus
 } from 'react-icons/fa';
-import { getFooterTranslations } from '../../contexts/Languages';
+import { getFooterTranslations } from '../../Utils/Languages';
 import logoLight from '../../Images/Footer/JCI_Logo_Dark.png';
 import logoDark from '../../Images/Footer/JCI_Logo_Light.png';
 import './Footer.css';
@@ -51,7 +51,7 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
     { name: 'Galerie', path: '/gallery', icon: FaImages },
     { name: 'Formations', path: '/trainings', icon: FaGraduationCap },
     { name: 'Adhérer', path: '/join', icon: FaUserPlus },
-    { name: t.terms || 'Conditions d\'utilisation', path: '/terms', icon: FaFileAlt },
+    { name: t.terms || "Conditions d'utilisation", path: '/terms', icon: FaFileAlt },
     { name: t.privacy || 'Politique de confidentialité', path: '/privacy', icon: FaShieldAlt },
   ];
 
@@ -74,17 +74,19 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
   const copyright = t.copyrightPrefix + currentYear + t.copyrightSuffix;
 
   return (
-    <footer className={footerClass}>
+    <footer className={footerClass} role="contentinfo">
       <div className="jci-footer-inner">
         <div className="jci-footer-grid">
           {/* Brand Section */}
           <div className="jci-footer-brand">
-            <Link to="/" className="jci-footer-logo">
+            <Link to="/" className="jci-footer-logo" aria-label="JCI Sbikha - Accueil">
               <img 
                 src={logo} 
                 alt="JCI Sbikha" 
                 className="jci-footer-logo-icon" 
                 loading="lazy"
+                width="48"
+                height="48"
               />
               <div className="jci-footer-logo-text">
                 <span className="jci-footer-logo-title">JCI Sbikha</span>
@@ -92,13 +94,13 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
               </div>
             </Link>
             <p className="jci-footer-description">
-              {t.description || 'Jeune Chambre Internationale de Sbikha - Développement des leaders pour un monde meilleur.'}
+              {t.description || "Jeune Chambre Internationale de Sbikha - Développement des leaders pour un monde meilleur."}
             </p>
             
             {/* Badge + Social Icons on the same line */}
             <div className="jci-footer-brand-row">
-              <div className="jci-footer-badge">
-                <FaShieldVirus />
+              <div className="jci-footer-badge" role="img" aria-label="JCI Officiel">
+                <FaShieldVirus aria-hidden="true" />
                 <span>{t.certifiedBadge || 'JCI Officiel'}</span>
               </div>
               
@@ -113,7 +115,7 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
                     aria-label={social.name}
                     title={social.name}
                   >
-                    <social.icon />
+                    <social.icon aria-hidden="true" />
                   </a>
                 ))}
               </div>
@@ -123,13 +125,13 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
           {/* Navigation Links */}
           <div className="jci-footer-section">
             <h4 className="jci-footer-heading">
-              <FaHome /> Navigation
+              <FaHome aria-hidden="true" /> Navigation
             </h4>
             <ul className="jci-footer-list">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link to={link.path} className="jci-footer-link">
-                    <link.icon /> {link.name}
+                    <link.icon aria-hidden="true" /> {link.name}
                   </Link>
                 </li>
               ))}
@@ -139,13 +141,13 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
           {/* Resources */}
           <div className="jci-footer-section">
             <h4 className="jci-footer-heading">
-              <FaFileAlt /> Ressources
+              <FaFileAlt aria-hidden="true" /> Ressources
             </h4>
             <ul className="jci-footer-list">
               {resources.map((item) => (
                 <li key={item.name}>
                   <Link to={item.path} className="jci-footer-link">
-                    <item.icon /> {item.name}
+                    <item.icon aria-hidden="true" /> {item.name}
                   </Link>
                 </li>
               ))}
@@ -155,13 +157,13 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
           {/* Contact Information */}
           <div className="jci-footer-section jci-footer-contact-section">
             <h4 className="jci-footer-heading">
-              <FaEnvelope /> Contact
+              <FaEnvelope aria-hidden="true" /> Contact
             </h4>
             <ul className="jci-footer-list jci-footer-contact-list">
               {contactInfo.map((item, index) => (
                 <li key={index}>
                   <span className="jci-footer-contact-item">
-                    <item.icon className="jci-footer-contact-icon" />
+                    <item.icon className="jci-footer-contact-icon" aria-hidden="true" />
                     <span className="jci-footer-contact-text">{item.text}</span>
                   </span>
                 </li>
@@ -180,9 +182,9 @@ const Footer = ({ theme = 'light', language = 'en', translations = {} }) => {
               target="_blank" 
               rel="noopener noreferrer"
             >
-            <span style={{ margin: '0 4px' }}>RASLEN11</span>
+              RASLEN11
             </a>
-            <span style={{ margin: '0 4px' }}>|</span>
+            <span aria-hidden="true">|</span>
             <a href="mailto:rkalboussi15@gmail.com">
               rkalboussi15@gmail.com
             </a>

@@ -1,7 +1,7 @@
 /* Trainings.css - JCI Sbikha Trainings Page Styles */
 
 /* ===== Hero Section - Unified with Home ===== */
-.trainings-hero {
+.jci-trainings-hero {
   position: relative;
   min-height: 85vh;
   display: flex;
@@ -11,6 +11,8 @@
   overflow: hidden;
   border-radius: 0 0 var(--radius-3xl) var(--radius-3xl);
   margin-bottom: var(--spacing-3xl);
+  width: 100%;
+  max-width: 100vw;
 
   /* --- DEFAULT DARK THEME GRADIENT --- */
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy), #0d1a2b);
@@ -18,11 +20,11 @@
 }
 
 /* --- LIGHT THEME OVERRIDE --- */
-.light-theme .trainings-hero {
+.light-theme .jci-trainings-hero {
   background: linear-gradient(145deg, #eef3f8 0%, #dbe3ed 40%, #c4d2e0 100%);
 }
 
-.trainings-hero-overlay {
+.jci-trainings-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,7 +41,7 @@
 }
 
 /* --- LIGHT THEME GLOW OVERRIDE --- */
-.light-theme .trainings-hero-overlay {
+.light-theme .jci-trainings-hero-overlay {
   background: radial-gradient(
     circle at 30% 20%,
     rgba(8, 157, 195, 0.06) 0%,
@@ -48,7 +50,7 @@
 }
 
 /* --- TOP FADE (BLENDS WITH HEADER) --- */
-.trainings-hero-overlay::before {
+.jci-trainings-hero-overlay::before {
   content: "";
   position: absolute;
   top: 0;
@@ -61,7 +63,7 @@
 }
 
 /* --- BOTTOM FADE (BLENDS WITH BODY) --- */
-.trainings-hero-overlay::after {
+.jci-trainings-hero-overlay::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -73,16 +75,17 @@
   z-index: 1;
 }
 
-.trainings-hero-content {
+.jci-trainings-hero-content {
   position: relative;
   z-index: 2;
   max-width: 900px;
   text-align: center;
   padding: var(--spacing-2xl) 0;
+  width: 100%;
 }
 
 /* ===== Hero Badge (Theme Aware) ===== */
-.trainings-hero-badge {
+.jci-trainings-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -99,36 +102,31 @@
   transition: all var(--transition-fast);
 }
 
-.light-theme .trainings-hero-badge {
+.light-theme .jci-trainings-hero-badge {
   background: rgba(18, 18, 69, 0.06);
   border: 0.5px solid rgba(18, 18, 69, 0.15);
   color: var(--jci-dark-indigo);
 }
 
-.trainings-hero-badge-icon {
+.jci-trainings-hero-badge-icon {
   font-size: 0.875rem;
   color: var(--jci-teal-blue);
 }
 
-.trainings-hero-badge-text::before {
+.jci-trainings-hero-badge-text::before {
   content: "●";
   color: var(--jci-teal-blue);
   font-size: 0.5rem;
-  animation: pulse-dot 2s ease-in-out infinite;
+  animation: jci-pulse-dot 2s ease-in-out infinite;
 }
 
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
+@keyframes jci-pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 /* ===== Hero Title (Theme Aware) ===== */
-.trainings-hero-title {
+.jci-trainings-hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: #ffffff;
@@ -138,18 +136,18 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .trainings-hero-title {
+.light-theme .jci-trainings-hero-title {
   color: var(--jci-dark-indigo);
 }
 
-.trainings-hero-highlight {
+.jci-trainings-hero-highlight {
   background: linear-gradient(135deg, #ffffff 0%, var(--jci-teal-blue) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.light-theme .trainings-hero-highlight {
+.light-theme .jci-trainings-hero-highlight {
   background: linear-gradient(
     135deg,
     var(--jci-dark-indigo) 0%,
@@ -161,7 +159,7 @@
 }
 
 /* ===== Hero Description (Theme Aware) ===== */
-.trainings-hero-description {
+.jci-trainings-hero-description {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   color: rgba(255, 255, 255, 0.75);
   max-width: 650px;
@@ -170,31 +168,32 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .trainings-hero-description {
+.light-theme .jci-trainings-hero-description {
   color: var(--jci-light-teal);
 }
 
 /* ===== Hero Stats ===== */
-.trainings-hero-stats {
+.jci-trainings-hero-stats {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-2xl);
   padding-top: var(--spacing-xl);
   border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
 }
 
-.light-theme .trainings-hero-stats {
+.light-theme .jci-trainings-hero-stats {
   border-top: 0.5px solid rgba(18, 18, 69, 0.08);
 }
 
-.trainings-hero-stat {
+.jci-trainings-hero-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.trainings-hero-stat-number {
+.jci-trainings-hero-stat-number {
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
@@ -202,37 +201,38 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .trainings-hero-stat-number {
+.light-theme .jci-trainings-hero-stat-number {
   color: var(--jci-dark-indigo);
 }
 
-.trainings-hero-stat-label {
+.jci-trainings-hero-stat-label {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
   transition: color var(--transition-normal);
 }
 
-.light-theme .trainings-hero-stat-label {
+.light-theme .jci-trainings-hero-stat-label {
   color: var(--jci-light-teal);
 }
 
-.trainings-hero-stat-divider {
+.jci-trainings-hero-stat-divider {
   width: 1px;
   height: 40px;
   background: rgba(255, 255, 255, 0.15);
 }
 
-.light-theme .trainings-hero-stat-divider {
+.light-theme .jci-trainings-hero-stat-divider {
   background: rgba(18, 18, 69, 0.15);
 }
 
-/* ===== THE REST OF YOUR EXISTING CSS BELOW ===== */
-.trainings-search-section {
+/* ===== Search Section ===== */
+.jci-trainings-search-section {
   padding: 0 var(--spacing-xl) var(--spacing-2xl);
   margin-top: calc(-1 * var(--spacing-xl));
 }
-.trainings-search-wrapper {
+
+.jci-trainings-search-wrapper {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
@@ -244,7 +244,8 @@
   box-shadow: var(--shadow-md);
   margin-bottom: var(--spacing-md);
 }
-.trainings-search-bar {
+
+.jci-trainings-search-bar {
   flex: 1;
   display: flex;
   align-items: center;
@@ -255,15 +256,18 @@
   border: 0.5px solid var(--border-light);
   transition: all var(--transition-fast);
 }
-.trainings-search-bar:focus-within {
+
+.jci-trainings-search-bar:focus-within {
   border-color: var(--jci-bright-cyan);
   box-shadow: 0 0 0 3px rgba(8, 157, 195, 0.1);
 }
-.trainings-search-icon {
+
+.jci-trainings-search-icon {
   color: var(--text-tertiary);
   font-size: 0.875rem;
 }
-.trainings-search-input {
+
+.jci-trainings-search-input {
   flex: 1;
   padding: var(--spacing-md) 0;
   border: none;
@@ -273,10 +277,12 @@
   font-family: inherit;
   outline: none;
 }
-.trainings-search-input::placeholder {
+
+.jci-trainings-search-input::placeholder {
   color: var(--text-tertiary);
 }
-.trainings-search-clear {
+
+.jci-trainings-search-clear {
   background: none;
   border: none;
   color: var(--text-tertiary);
@@ -284,10 +290,12 @@
   padding: var(--spacing-sm);
   transition: all var(--transition-fast);
 }
-.trainings-search-clear:hover {
+
+.jci-trainings-search-clear:hover {
   color: var(--text-primary);
 }
-.trainings-filter-toggle {
+
+.jci-trainings-filter-toggle {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -302,11 +310,13 @@
   transition: all var(--transition-fast);
   font-family: inherit;
 }
-.trainings-filter-toggle:hover {
+
+.jci-trainings-filter-toggle:hover {
   background: var(--btn-hover-bg);
   color: var(--text-primary);
 }
-.trainings-filters {
+
+.jci-trainings-filters {
   margin-top: var(--spacing-md);
   padding: var(--spacing-xl);
   background: var(--bg-glass);
@@ -314,18 +324,21 @@
   border-radius: var(--radius-2xl);
   border: 0.5px solid var(--glass-border);
 }
-.trainings-filters-header {
+
+.jci-trainings-filters-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-lg);
 }
-.trainings-filters-title {
+
+.jci-trainings-filters-title {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-primary);
 }
-.trainings-filters-close {
+
+.jci-trainings-filters-close {
   background: none;
   border: none;
   color: var(--text-tertiary);
@@ -333,15 +346,18 @@
   font-size: 1.25rem;
   transition: all var(--transition-fast);
 }
-.trainings-filters-close:hover {
+
+.jci-trainings-filters-close:hover {
   color: var(--text-primary);
 }
-.trainings-filters-grid {
+
+.jci-trainings-filters-grid {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
 }
-.trainings-filter-btn {
+
+.jci-trainings-filter-btn {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -356,28 +372,35 @@
   transition: all var(--transition-fast);
   font-family: inherit;
 }
-.trainings-filter-btn:hover {
+
+.jci-trainings-filter-btn:hover {
   background: var(--btn-hover-bg);
   color: var(--text-primary);
 }
-.trainings-filter-btn.active {
+
+.jci-trainings-filter-btn.jci-active {
   background: var(--jci-bright-cyan);
   color: #ffffff;
   border-color: var(--jci-bright-cyan);
   box-shadow: 0 4px 16px rgba(8, 157, 195, 0.25);
 }
-.trainings-filter-icon {
+
+.jci-trainings-filter-icon {
   font-size: 0.75rem;
 }
-.trainings-featured-section {
+
+/* ===== Featured Section ===== */
+.jci-trainings-featured-section {
   padding: var(--spacing-3xl) 0;
 }
-.trainings-featured-grid {
+
+.jci-trainings-featured-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-xl);
 }
-.training-featured-card {
+
+.jci-training-featured-card {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -385,17 +408,20 @@
   border: 0.5px solid var(--glass-border);
   transition: all var(--transition-normal);
 }
-.training-featured-card:hover {
+
+.jci-training-featured-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
-.training-featured-header {
+
+.jci-training-featured-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: var(--spacing-md);
 }
-.training-featured-icon {
+
+.jci-training-featured-icon {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
@@ -404,7 +430,8 @@
   justify-content: center;
   font-size: 1.25rem;
 }
-.training-featured-status {
+
+.jci-training-featured-status {
   padding: 0.2rem 0.625rem;
   border-radius: var(--radius-full);
   font-size: 0.6rem;
@@ -412,43 +439,50 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.training-featured-title {
+
+.jci-training-featured-title {
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
 }
-.training-featured-description {
+
+.jci-training-featured-description {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
 }
-.training-featured-meta {
+
+.jci-training-featured-meta {
   display: flex;
   gap: var(--spacing-md);
   font-size: 0.7rem;
   color: var(--text-tertiary);
   margin-bottom: var(--spacing-sm);
 }
-.training-featured-meta span {
+
+.jci-training-featured-meta span {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
 }
-.training-featured-info {
+
+.jci-training-featured-info {
   display: flex;
   gap: var(--spacing-md);
   font-size: 0.7rem;
   color: var(--text-tertiary);
   margin-bottom: var(--spacing-md);
 }
-.training-featured-info span {
+
+.jci-training-featured-info span {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
 }
-.training-featured-btn {
+
+.jci-training-featured-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -461,19 +495,24 @@
   padding: 0;
   transition: all var(--transition-fast);
 }
-.training-featured-btn:hover {
+
+.jci-training-featured-btn:hover {
   gap: var(--spacing-md);
   color: var(--jci-teal-blue);
 }
-.trainings-grid-section {
+
+/* ===== Grid Section ===== */
+.jci-trainings-grid-section {
   padding: var(--spacing-3xl) 0;
 }
-.trainings-grid {
+
+.jci-trainings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-xl);
 }
-.training-card {
+
+.jci-training-card {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -482,17 +521,20 @@
   transition: all var(--transition-normal);
   cursor: pointer;
 }
-.training-card:hover {
+
+.jci-training-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
-.training-card-header {
+
+.jci-training-card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: var(--spacing-md);
 }
-.training-card-icon {
+
+.jci-training-card-icon {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-lg);
@@ -501,7 +543,8 @@
   justify-content: center;
   font-size: 1.1rem;
 }
-.training-card-status {
+
+.jci-training-card-status {
   padding: 0.2rem 0.625rem;
   border-radius: var(--radius-full);
   font-size: 0.55rem;
@@ -509,19 +552,22 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.training-card-title {
+
+.jci-training-card-title {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
 }
-.training-card-description {
+
+.jci-training-card-description {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
 }
-.training-card-category {
+
+.jci-training-card-category {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -533,25 +579,29 @@
   font-weight: 500;
   margin-bottom: var(--spacing-md);
 }
-.training-card-footer {
+
+.jci-training-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: var(--spacing-md);
   border-top: 0.5px solid var(--border-light);
 }
-.training-card-info {
+
+.jci-training-card-info {
   display: flex;
   gap: var(--spacing-md);
   font-size: 0.7rem;
   color: var(--text-tertiary);
 }
-.training-card-info span {
+
+.jci-training-card-info span {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
 }
-.training-card-details {
+
+.jci-training-card-details {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -564,30 +614,38 @@
   cursor: pointer;
   transition: all var(--transition-fast);
 }
-.training-card-details:hover {
+
+.jci-training-card-details:hover {
   background: var(--jci-bright-cyan);
   color: #ffffff;
   border-color: var(--jci-bright-cyan);
 }
-.trainings-empty {
+
+/* ===== Empty State ===== */
+.jci-trainings-empty {
   text-align: center;
   padding: var(--spacing-3xl);
 }
-.trainings-empty-icon {
+
+.jci-trainings-empty-icon {
   font-size: 3rem;
   color: var(--text-tertiary);
   opacity: 0.3;
   margin-bottom: var(--spacing-md);
 }
-.trainings-empty h3 {
+
+.jci-trainings-empty h3 {
   font-size: 1.25rem;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
 }
-.trainings-empty p {
+
+.jci-trainings-empty p {
   color: var(--text-tertiary);
 }
-.training-modal-overlay {
+
+/* ===== Modal ===== */
+.jci-training-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -601,7 +659,8 @@
   z-index: var(--z-modal);
   padding: var(--spacing-lg);
 }
-.training-modal {
+
+.jci-training-modal {
   background: var(--bg-glass-strong);
   backdrop-filter: blur(30px) saturate(180%);
   border-radius: var(--radius-3xl);
@@ -614,7 +673,8 @@
   position: relative;
   padding: var(--spacing-2xl);
 }
-.training-modal-close {
+
+.jci-training-modal-close {
   position: absolute;
   top: var(--spacing-md);
   right: var(--spacing-md);
@@ -632,17 +692,20 @@
   transition: all var(--transition-fast);
   z-index: 1;
 }
-.training-modal-close:hover {
+
+.jci-training-modal-close:hover {
   background: var(--btn-hover-bg);
   color: var(--text-primary);
 }
-.training-modal-header {
+
+.jci-training-modal-header {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
-.training-modal-icon {
+
+.jci-training-modal-icon {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-xl);
@@ -652,21 +715,25 @@
   font-size: 1.5rem;
   flex-shrink: 0;
 }
-.training-modal-title-area {
+
+.jci-training-modal-title-area {
   flex: 1;
 }
-.training-modal-title {
+
+.jci-training-modal-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
 }
-.training-modal-meta {
+
+.jci-training-modal-meta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
 }
-.training-modal-category {
+
+.jci-training-modal-category {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -677,7 +744,8 @@
   font-size: 0.7rem;
   font-weight: 500;
 }
-.training-modal-status {
+
+.jci-training-modal-status {
   padding: 0.2rem 0.75rem;
   border-radius: var(--radius-full);
   font-size: 0.65rem;
@@ -685,19 +753,22 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.training-modal-description {
+
+.jci-training-modal-description {
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: var(--spacing-xl);
 }
-.training-modal-details {
+
+.jci-training-modal-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
 }
-.training-modal-detail {
+
+.jci-training-modal-detail {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-md);
@@ -706,12 +777,14 @@
   background: var(--bg-secondary);
   border: 0.5px solid var(--border-light);
 }
-.training-modal-detail-icon {
+
+.jci-training-modal-detail-icon {
   color: var(--jci-teal-blue);
   font-size: 0.875rem;
   margin-top: 2px;
 }
-.training-modal-detail-label {
+
+.jci-training-modal-detail-label {
   display: block;
   font-size: 0.6rem;
   font-weight: 600;
@@ -719,18 +792,21 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.training-modal-detail-value {
+
+.jci-training-modal-detail-value {
   display: block;
   font-size: 0.8125rem;
   color: var(--text-primary);
 }
-.training-modal-skills {
+
+.jci-training-modal-skills {
   background: var(--bg-secondary);
   border-radius: var(--radius-xl);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
-.training-modal-skills-title {
+
+.jci-training-modal-skills-title {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -739,15 +815,18 @@
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
 }
-.training-modal-skills-icon {
+
+.jci-training-modal-skills-icon {
   color: var(--jci-teal-blue);
 }
-.training-modal-skills-list {
+
+.jci-training-modal-skills-list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
 }
-.training-modal-skill {
+
+.jci-training-modal-skill {
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
   background: rgba(76, 196, 209, 0.08);
@@ -755,28 +834,35 @@
   font-size: 0.75rem;
   font-weight: 500;
 }
-.training-modal-footer {
+
+.jci-training-modal-footer {
   display: flex;
   gap: var(--spacing-md);
   padding-top: var(--spacing-lg);
   border-top: 0.5px solid var(--border-light);
 }
-.training-modal-btn {
+
+.jci-training-modal-btn {
   flex: 1;
   justify-content: center;
 }
-.training-modal-btn:disabled {
+
+.jci-training-modal-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.training-modal-btn-secondary {
+
+.jci-training-modal-btn-secondary {
   flex: 0 0 auto;
   justify-content: center;
 }
-.trainings-benefits-section {
+
+/* ===== Benefits Section ===== */
+.jci-trainings-benefits-section {
   padding: var(--spacing-3xl) 0;
 }
-.trainings-benefits-wrapper {
+
+.jci-trainings-benefits-wrapper {
   padding: var(--spacing-2xl);
   background: linear-gradient(
     145deg,
@@ -787,29 +873,34 @@
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   text-align: center;
 }
-.trainings-benefits-title {
+
+.jci-trainings-benefits-title {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: var(--spacing-2xl);
 }
-.trainings-benefits-grid {
+
+.jci-trainings-benefits-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-xl);
 }
-.trainings-benefit-item {
+
+.jci-trainings-benefit-item {
   padding: var(--spacing-xl);
   background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius-xl);
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   transition: all var(--transition-normal);
 }
-.trainings-benefit-item:hover {
+
+.jci-trainings-benefit-item:hover {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
 }
-.trainings-benefit-icon-wrapper {
+
+.jci-trainings-benefit-icon-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -819,223 +910,441 @@
   background: rgba(76, 196, 209, 0.12);
   margin-bottom: var(--spacing-md);
 }
-.trainings-benefit-icon {
+
+.jci-trainings-benefit-icon {
   font-size: 1.25rem;
   color: var(--jci-teal-blue);
 }
-.trainings-benefit-item h4 {
+
+.jci-trainings-benefit-item h4 {
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: var(--spacing-xs);
 }
-.trainings-benefit-item p {
+
+.jci-trainings-benefit-item p {
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.6;
   margin: 0;
 }
-.trainings-footer {
-  background: var(--bg-secondary);
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  border-top: 0.5px solid var(--border-light);
-  margin-top: var(--spacing-2xl);
-}
-.animate-on-scroll {
+
+/* ===== Helper Classes ===== */
+.jci-animate-on-scroll {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
-.animate-on-scroll.visible {
+
+.jci-animate-on-scroll.jci-visible {
   opacity: 1;
   transform: translateY(0);
 }
-.animate-on-scroll:nth-child(2) {
+
+.jci-animate-on-scroll:nth-child(2) {
   transition-delay: 0.1s;
 }
-.animate-on-scroll:nth-child(3) {
+.jci-animate-on-scroll:nth-child(3) {
   transition-delay: 0.2s;
 }
-.animate-on-scroll:nth-child(4) {
+.jci-animate-on-scroll:nth-child(4) {
   transition-delay: 0.3s;
 }
-.animate-on-scroll:nth-child(5) {
+.jci-animate-on-scroll:nth-child(5) {
   transition-delay: 0.4s;
 }
-.animate-on-scroll:nth-child(6) {
+.jci-animate-on-scroll:nth-child(6) {
   transition-delay: 0.5s;
 }
-.glass-card {
+
+.jci-glass-card {
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
   border: 0.5px solid var(--glass-border);
   box-shadow: var(--shadow-sm);
 }
-.section-header-wrapper {
+
+.jci-section-header-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-bottom: var(--spacing-2xl);
 }
-.section-title-modern {
+
+.jci-section-title-modern {
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
 }
-.section-subtitle {
+
+.jci-section-subtitle {
   font-size: 1.05rem;
   color: var(--text-tertiary);
   max-width: 600px;
 }
+
+.jci-btn-icon,
+.jci-btn-icon-small {
+  transition: transform var(--transition-fast);
+}
+
+.jci-btn:hover .jci-btn-icon,
+.jci-btn:hover .jci-btn-icon-small {
+  transform: translateX(4px);
+}
+
+/* ======================================== */
+/* ========== RESPONSIVE STYLES ========== */
+/* ======================================== */
+
+/* ===== LARGE DESKTOP (1200px+) ===== */
 @media (max-width: 1199px) {
-  .trainings-benefits-grid {
+  .jci-trainings-benefits-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ===== TABLET LANDSCAPE & SMALL DESKTOP (768px - 991px) ===== */
 @media (max-width: 991px) {
-  .trainings-featured-grid {
-    grid-template-columns: 1fr;
+  .jci-trainings-hero {
+    min-height: 70vh;
+    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+    padding: var(--spacing-2xl) var(--spacing-lg);
   }
-  .trainings-hero-stats {
+
+  .jci-trainings-hero-content {
+    max-width: 100%;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .jci-trainings-hero-stats {
     flex-wrap: wrap;
     gap: var(--spacing-lg);
   }
-  .trainings-hero-stat-divider {
+
+  .jci-trainings-hero-stat-divider {
     display: none;
   }
-  .trainings-hero {
-    min-height: 70vh;
-    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
-  }
-  .training-modal-details {
+
+  .jci-trainings-featured-grid {
     grid-template-columns: 1fr;
   }
+
+  .jci-training-modal-details {
+    grid-template-columns: 1fr;
+  }
+
+  .jci-trainings-search-section {
+    padding: 0 var(--spacing-md) var(--spacing-xl);
+  }
 }
+
+/* ===== TABLET PORTRAIT & MOBILE LANDSCAPE (576px - 767px) ===== */
 @media (max-width: 768px) {
-  .trainings-hero {
+  .jci-trainings-hero {
     min-height: 65vh;
     padding: var(--spacing-2xl) var(--spacing-lg);
     border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   }
-  .trainings-hero-stats {
+
+  .jci-trainings-hero-stats {
     flex-direction: column;
     gap: var(--spacing-md);
   }
-  .trainings-search-wrapper {
+
+  .jci-trainings-hero-stat {
+    flex-direction: row;
+    gap: var(--spacing-sm);
+  }
+
+  .jci-trainings-hero-stat-number {
+    font-size: 1.5rem;
+  }
+
+  .jci-trainings-search-wrapper {
     flex-direction: column;
     padding: var(--spacing-md);
   }
-  .trainings-search-bar {
+
+  .jci-trainings-search-bar {
     width: 100%;
   }
-  .trainings-filter-toggle {
+
+  .jci-trainings-filter-toggle {
     width: 100%;
     justify-content: center;
   }
-  .trainings-filters-grid {
+
+  .jci-trainings-filters-grid {
     flex-direction: column;
   }
-  .trainings-filter-btn {
+
+  .jci-trainings-filter-btn {
     width: 100%;
     justify-content: center;
   }
-  .trainings-grid {
+
+  .jci-trainings-grid {
     grid-template-columns: 1fr;
   }
-  .trainings-benefits-grid {
+
+  .jci-trainings-benefits-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .trainings-benefits-wrapper {
+
+  .jci-trainings-benefits-wrapper {
     padding: var(--spacing-xl);
   }
-  .training-modal {
+
+  .jci-training-modal {
     padding: var(--spacing-lg);
   }
-  .training-modal-header {
+
+  .jci-training-modal-header {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .training-modal-footer {
+
+  .jci-training-modal-footer {
     flex-direction: column;
   }
-  .training-modal-btn-secondary {
+
+  .jci-training-modal-btn-secondary {
     flex: 1;
   }
-  .trainings-search-section {
+
+  .jci-trainings-search-section {
     padding: 0 var(--spacing-md) var(--spacing-xl);
   }
 }
+
+/* ===== MOBILE PORTRAIT (up to 576px) ===== */
 @media (max-width: 576px) {
-  .trainings-hero-title {
+  .jci-trainings-hero {
+    min-height: 60vh;
+    padding: var(--spacing-xl) var(--spacing-md);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+
+  .jci-trainings-hero-content {
+    padding: var(--spacing-md) 0;
+  }
+
+  .jci-trainings-hero-title {
     font-size: 2rem;
   }
-  .trainings-benefits-grid {
-    grid-template-columns: 1fr;
-  }
-  .trainings-featured-card {
-    padding: var(--spacing-lg);
-  }
-  .training-card-footer {
+
+  .jci-trainings-hero-stats {
     flex-direction: column;
     gap: var(--spacing-sm);
   }
-  .training-card-info {
+
+  .jci-trainings-hero-stat {
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .jci-trainings-hero-stat-number {
+    font-size: 1.25rem;
+  }
+
+  .jci-trainings-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jci-training-featured-card {
+    padding: var(--spacing-lg);
+  }
+
+  .jci-training-card-footer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .jci-training-card-info {
     width: 100%;
     justify-content: space-around;
   }
-  .training-card-details {
+
+  .jci-training-card-details {
     width: 100%;
     justify-content: center;
     padding: 0.5rem;
     background: var(--btn-hover-bg);
+    border-radius: var(--radius-full);
+  }
+
+  .jci-training-card-details:hover {
+    background: var(--jci-bright-cyan);
+  }
+
+  .jci-trainings-benefits-title {
+    font-size: 1.5rem;
+  }
+
+  .jci-section-title-modern {
+    font-size: 1.6rem;
+  }
+
+  .jci-training-modal {
+    padding: var(--spacing-md);
+  }
+
+  .jci-training-modal-title {
+    font-size: 1.2rem;
+  }
+
+  .jci-training-modal-description {
+    font-size: 0.875rem;
   }
 }
-.dark-theme .trainings-hero {
+
+/* ===== EXTRA SMALL MOBILE (up to 400px) ===== */
+@media (max-width: 400px) {
+  .jci-trainings-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .jci-trainings-hero-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 1rem;
+  }
+
+  .jci-trainings-hero-description {
+    font-size: 0.875rem;
+  }
+
+  .jci-training-card {
+    padding: var(--spacing-md);
+  }
+
+  .jci-training-card-title {
+    font-size: 0.9375rem;
+  }
+
+  .jci-training-card-description {
+    font-size: 0.75rem;
+  }
+
+  .jci-training-modal-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .jci-training-modal-detail {
+    padding: var(--spacing-sm);
+  }
+
+  .jci-training-modal-detail-value {
+    font-size: 0.75rem;
+  }
+
+  .jci-training-modal-skill {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .jci-trainings-benefit-item {
+    padding: var(--spacing-md);
+  }
+
+  .jci-trainings-benefit-item h4 {
+    font-size: 0.875rem;
+  }
+
+  .jci-trainings-benefit-item p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== Dark Theme Overrides ===== */
+.dark-theme .jci-trainings-hero {
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy), #0d1a2b);
 }
-.dark-theme .trainings-benefits-wrapper {
+
+.dark-theme .jci-trainings-benefits-wrapper {
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy));
 }
-.dark-theme .trainings-search-wrapper,
-.dark-theme .trainings-filters,
-.dark-theme .training-featured-card,
-.dark-theme .training-card {
+
+.dark-theme .jci-trainings-search-wrapper,
+.dark-theme .jci-trainings-filters,
+.dark-theme .jci-training-featured-card,
+.dark-theme .jci-training-card {
   background: rgba(27, 28, 71, 0.85);
 }
-.dark-theme .trainings-search-bar {
+
+.dark-theme .jci-trainings-search-bar {
   background: rgba(255, 255, 255, 0.04);
 }
-.dark-theme .trainings-filter-btn {
+
+.dark-theme .jci-trainings-filter-btn {
   background: rgba(255, 255, 255, 0.04);
 }
-.dark-theme .trainings-filter-btn:hover {
+
+.dark-theme .jci-trainings-filter-btn:hover {
   background: rgba(255, 255, 255, 0.08);
 }
-.dark-theme .trainings-filter-btn.active {
+
+.dark-theme .jci-trainings-filter-btn.jci-active {
   background: var(--jci-bright-cyan);
 }
-.dark-theme .training-modal {
+
+.dark-theme .jci-training-modal {
   background: rgba(27, 28, 71, 0.96);
 }
-.dark-theme .training-modal-close {
+
+.dark-theme .jci-training-modal-close {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.08);
 }
-.dark-theme .training-modal-close:hover {
+
+.dark-theme .jci-training-modal-close:hover {
   background: rgba(255, 255, 255, 0.12);
 }
-.dark-theme .training-modal-detail {
+
+.dark-theme .jci-training-modal-detail {
   background: rgba(255, 255, 255, 0.04);
 }
-.dark-theme .training-modal-skills {
+
+.dark-theme .jci-training-modal-skills {
   background: rgba(255, 255, 255, 0.04);
 }
-.dark-theme .trainings-benefit-item {
+
+.dark-theme .jci-trainings-benefit-item {
   background: rgba(255, 255, 255, 0.04);
 }
-.dark-theme .trainings-benefit-item:hover {
+
+.dark-theme .jci-trainings-benefit-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .jci-training-modal-skill {
+  background: rgba(76, 196, 209, 0.12);
+}
+
+.dark-theme .jci-training-card-details {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .jci-training-card-details:hover {
+  background: var(--jci-bright-cyan);
+  border-color: var(--jci-bright-cyan);
+}
+
+.dark-theme .jci-trainings-hero-stat {
+  background: transparent;
+}
+
+.dark-theme .jci-trainings-hero-stat-divider {
   background: rgba(255, 255, 255, 0.08);
 }

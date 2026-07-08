@@ -1,5 +1,5 @@
 /* Header.css - iOS 26 Liquid Glass Style (JCI Sbikha Edition) */
-/* Fully integrated with global.css and App.css - Fully responsive */
+/* Fully responsive - Optimized for all devices */
 
 /* ===== HEADER CONTAINER ===== */
 .jci-header {
@@ -126,6 +126,7 @@
   height: 48px;
   object-fit: contain;
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .jci-logo:hover .jci-logo-icon {
@@ -181,6 +182,7 @@
   border: none;
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
 }
 
 .jci-nav-link:hover {
@@ -200,6 +202,7 @@
 .jci-nav-icon {
   font-size: 0.875rem;
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .jci-nav-link:hover .jci-nav-icon {
@@ -435,7 +438,7 @@
   transform: scale(1.02);
 }
 
-/* ===== MOBILE TOGGLE - NOW VISIBLE ON ALL SCREENS ===== */
+/* ===== MOBILE TOGGLE - VISIBLE ON TABLET AND MOBILE ===== */
 .jci-menu-toggle {
   display: flex;
   align-items: center;
@@ -449,6 +452,7 @@
   transition: all var(--transition-fast);
   color: var(--text-primary);
   margin-left: var(--spacing-sm);
+  flex-shrink: 0;
 }
 
 .jci-menu-toggle:hover {
@@ -458,6 +462,10 @@
 
 .jci-menu-toggle:active {
   transform: scale(0.95);
+}
+
+.jci-menu-toggle svg {
+  font-size: 1.1rem;
 }
 
 /* ===== MOBILE MENU - Liquid Glass ===== */
@@ -478,6 +486,8 @@
   display: flex;
   flex-direction: column;
   animation: jci_mobileMenuSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .jci-menu-mobile.closing {
@@ -488,11 +498,12 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: var(--spacing-2xl);
+  flex-shrink: 0;
 }
 
 .jci-menu-close {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -509,11 +520,18 @@
   animation: jci_menuCloseRotate 0.3s ease forwards;
 }
 
+.jci-menu-close svg {
+  font-size: 1.1rem;
+}
+
 .jci-nav-mobile {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
   flex: 1;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .jci-nav-link-mobile {
@@ -533,6 +551,7 @@
   width: 100%;
   animation: jci_mobileItemSlideIn 0.3s ease forwards;
   opacity: 0;
+  min-height: 48px;
 }
 
 /* Staggered animations for 6 items */
@@ -555,6 +574,8 @@
 
 .jci-nav-link-mobile svg {
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
+  font-size: 1.1rem;
 }
 
 .jci-nav-link-mobile:hover svg {
@@ -660,12 +681,14 @@
   margin-top: var(--spacing-lg);
   padding-top: var(--spacing-lg);
   border-top: 0.5px solid var(--border-light);
+  flex-shrink: 0;
 }
 
 .jci-btn-mobile {
   width: 100%;
   justify-content: center;
   padding: var(--spacing-md);
+  min-height: 44px;
 }
 
 /* ===== MODAL OVERLAY ===== */
@@ -677,10 +700,11 @@
   bottom: 0;
   background: var(--bg-overlay);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1200;
+  z-index: 1050;
   padding: var(--spacing-lg);
   animation: jci_overlayFadeIn 0.2s ease forwards;
 }
@@ -701,8 +725,31 @@
   margin-left: auto;
 }
 
-/* Adjust padding for 6 items on desktop */
-@media (min-width: 992px) {
+/* ===== FULL RESPONSIVE BREAKPOINTS ===== */
+
+/* ============================================
+   LARGE DESKTOP (1200px and above)
+   ============================================ */
+@media (min-width: 1200px) {
+  .jci-header-inner {
+    max-width: 1400px;
+  }
+  
+  .jci-nav-link {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* ============================================
+   DESKTOP SMALL / LAPTOP (992px to 1199px)
+   ============================================ */
+@media (max-width: 1199px) {
+  .jci-header-inner {
+    padding: var(--spacing-md) var(--spacing-xl);
+    gap: var(--spacing-xl);
+  }
+  
   .jci-nav-link {
     padding: 0.5rem 0.9rem;
     font-size: 0.8125rem;
@@ -711,46 +758,19 @@
   .jci-nav-icon {
     font-size: 0.8rem;
   }
-}
-
-/* For medium desktop screens with 6 items */
-@media (max-width: 1199px) and (min-width: 992px) {
-  .jci-nav-link {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.75rem;
-  }
-  
-  .jci-nav-icon {
-    font-size: 0.7rem;
-  }
   
   .jci-nav-desktop {
     gap: 2px;
   }
-}
-
-/* ===== FULL RESPONSIVE BREAKPOINTS ===== */
-
-/* Large Desktop (1200px and above) */
-@media (min-width: 1200px) {
-  .jci-header-inner {
-    max-width: 1400px;
-  }
-}
-
-/* Desktop (992px to 1199px) */
-@media (max-width: 1199px) {
-  .jci-header-inner {
-    padding: var(--spacing-md) var(--spacing-xl);
-    gap: var(--spacing-xl);
-  }
   
-  .jci-nav-desktop {
-    gap: var(--spacing-xs);
+  .jci-logo-title {
+    font-size: 1.1rem;
   }
 }
 
-/* Tablet (768px to 991px) */
+/* ============================================
+   TABLET (768px to 991px)
+   ============================================ */
 @media (max-width: 991px) {
   .jci-nav-desktop {
     display: none;
@@ -769,17 +789,29 @@
   }
   
   .jci-logo-icon {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
   }
   
   .jci-header-inner {
     padding: var(--spacing-sm) var(--spacing-lg);
     gap: var(--spacing-md);
   }
+  
+  .jci-header {
+    top: var(--spacing-md);
+    width: calc(100% - 1.5rem);
+  }
+  
+  .jci-menu-toggle {
+    width: 42px;
+    height: 42px;
+  }
 }
 
-/* Mobile Large (576px to 767px) */
+/* ============================================
+   MOBILE LARGE (576px to 767px)
+   ============================================ */
 @media (max-width: 767px) {
   .jci-header {
     top: var(--spacing-sm);
@@ -789,6 +821,8 @@
   
   .jci-header.scrolled {
     top: 0;
+    border-radius: 0;
+    width: 100%;
   }
   
   .jci-header-inner {
@@ -804,12 +838,16 @@
   }
   
   .jci-logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
+  }
+  
+  .jci-logo {
+    gap: var(--spacing-xs);
   }
   
   .jci-menu-mobile {
-    max-width: 100%;
+    max-width: 85%;
     padding: var(--spacing-lg);
   }
   
@@ -818,23 +856,45 @@
     height: 40px;
   }
   
+  .jci-menu-toggle svg {
+    font-size: 1rem;
+  }
+  
   /* Mobile nav links - 6 items */
   .jci-nav-link-mobile {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: 0.9375rem;
-    min-height: 44px;
+    min-height: 48px;
+    gap: var(--spacing-md);
   }
   
   .jci-nav-link-mobile svg {
     font-size: 1.1rem;
   }
+  
+  .jci-menu-close {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .jci-menu-close svg {
+    font-size: 1rem;
+  }
 }
 
-/* Mobile Small (up to 575px) */
+/* ============================================
+   MOBILE SMALL (up to 575px)
+   ============================================ */
 @media (max-width: 575px) {
   .jci-header {
     top: var(--spacing-xs);
     width: calc(100% - 0.75rem);
+    border-radius: var(--radius-lg);
+  }
+  
+  .jci-header.scrolled {
+    border-radius: 0;
+    width: 100%;
   }
   
   .jci-header-inner {
@@ -842,8 +902,8 @@
   }
   
   .jci-logo-icon {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
   }
   
   .jci-logo-title {
@@ -855,7 +915,12 @@
     height: 36px;
   }
   
+  .jci-menu-toggle svg {
+    font-size: 0.9rem;
+  }
+  
   .jci-menu-mobile {
+    max-width: 100%;
     padding: var(--spacing-md);
   }
   
@@ -863,40 +928,71 @@
     padding: var(--spacing-xs) var(--spacing-md);
     font-size: 0.875rem;
     gap: var(--spacing-sm);
-    min-height: 40px;
+    min-height: 44px;
   }
   
   .jci-nav-link-mobile svg {
     font-size: 1rem;
   }
+  
+  .jci-menu-header {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .jci-menu-close {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .jci-menu-close svg {
+    font-size: 0.9rem;
+  }
 }
 
-/* Extra Small Devices (up to 380px) */
+/* ============================================
+   EXTRA SMALL DEVICES (up to 380px)
+   ============================================ */
 @media (max-width: 380px) {
   .jci-logo-title {
     display: none;
   }
   
   .jci-logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
   
   .jci-nav-link-mobile {
     font-size: 0.8125rem;
     padding: var(--spacing-xs) var(--spacing-sm);
-    min-height: 36px;
+    min-height: 40px;
   }
   
   .jci-nav-link-mobile svg {
     font-size: 0.875rem;
   }
+  
+  .jci-header-inner {
+    padding: 0.25rem var(--spacing-xs);
+  }
+  
+  .jci-menu-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .jci-menu-toggle svg {
+    font-size: 0.8rem;
+  }
 }
 
-/* Landscape mode */
+/* ============================================
+   LANDSCAPE MODE
+   ============================================ */
 @media (max-width: 896px) and (orientation: landscape) {
   .jci-menu-mobile {
     max-width: 280px;
+    padding: var(--spacing-md);
   }
   
   .jci-nav-mobile {
@@ -906,7 +1002,8 @@
   .jci-nav-link-mobile {
     padding: var(--spacing-xs) var(--spacing-md);
     font-size: 0.8125rem;
-    min-height: 36px;
+    min-height: 38px;
+    gap: var(--spacing-sm);
   }
   
   .jci-nav-link-mobile svg {
@@ -917,9 +1014,32 @@
     margin-top: var(--spacing-md);
     padding-top: var(--spacing-md);
   }
+  
+  .jci-menu-header {
+    margin-bottom: var(--spacing-md);
+  }
 }
 
-/* ===== REDUCED MOTION ===== */
+/* ============================================
+   TABLET LANDSCAPE (specific)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
+  .jci-nav-desktop {
+    display: none;
+  }
+  
+  .jci-actions {
+    display: flex;
+  }
+  
+  .jci-menu-mobile {
+    max-width: 280px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .jci-header,
   .jci-logo-icon,
@@ -961,19 +1081,35 @@
     opacity: 1;
     animation: none !important;
   }
+  
+  .jci-menu-mobile {
+    animation: none !important;
+  }
+  
+  .jci-modal-overlay {
+    animation: none !important;
+  }
 }
 
-/* ===== LIGHT THEME SCROLLED ENHANCEMENT ===== */
+/* ============================================
+   LIGHT THEME SCROLLED ENHANCEMENT
+   ============================================ */
 .jci-header.light.scrolled {
   background: var(--bg-glass-strong);
+  box-shadow: var(--shadow-md);
 }
 
-/* ===== DARK THEME SCROLLED ENHANCEMENT ===== */
+/* ============================================
+   DARK THEME SCROLLED ENHANCEMENT
+   ============================================ */
 .jci-header.dark.scrolled {
   background: var(--bg-glass-strong);
+  box-shadow: var(--shadow-md);
 }
 
-/* Touch-friendly improvements for mobile */
+/* ============================================
+   TOUCH-FRIENDLY IMPROVEMENTS
+   ============================================ */
 @media (max-width: 768px) {
   .jci-nav-link-mobile,
   .jci-btn-mobile,
@@ -981,9 +1117,39 @@
   .jci-menu-close {
     min-height: 44px;
   }
+  
+  .jci-nav-link-mobile:active,
+  .jci-btn-mobile:active,
+  .jci-menu-toggle:active,
+  .jci-menu-close:active {
+    transform: scale(0.96);
+  }
 }
 
-/* Print styles */
+/* ============================================
+   ACCESSIBILITY - FOCUS STATES
+   ============================================ */
+.jci-nav-link:focus-visible,
+.jci-nav-link-mobile:focus-visible,
+.jci-menu-toggle:focus-visible,
+.jci-menu-close:focus-visible,
+.jci-logo:focus-visible,
+.jci-btn:focus-visible {
+  outline: 2px solid var(--btn-primary-bg);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+.jci-header ::selection {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
 @media print {
   .jci-header {
     display: none;

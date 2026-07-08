@@ -1,5 +1,5 @@
 /* LegalPages.css - iOS 26 Liquid Glass Style (JCI Sbikha Edition) */
-/* Fully integrated with global.css and App.css - Fully responsive */
+/* Fully responsive - Optimized for all devices */
 
 /* ===== LEGAL PAGE LAYOUT ===== */
 .jci-legal-page {
@@ -620,6 +620,7 @@
 .jci-legal-contact-info p svg {
   color: var(--jci-teal-blue);
   width: 18px;
+  flex-shrink: 0;
 }
 
 /* ===== ACCEPTANCE SECTION ===== */
@@ -722,13 +723,22 @@
   grid-column: 1 / -1;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* ============================================
+   LARGE DESKTOP (1200px and above)
+   ============================================ */
 @media (min-width: 1200px) {
   .jci-legal-hero-title {
     font-size: 3.5rem;
   }
 }
 
+/* ============================================
+   DESKTOP SMALL / LAPTOP (992px to 1199px)
+   ============================================ */
 @media (max-width: 1199px) {
   .jci-legal-hero-title {
     font-size: 3rem;
@@ -738,6 +748,9 @@
   }
 }
 
+/* ============================================
+   TABLET (768px to 991px)
+   ============================================ */
 @media (max-width: 991px) {
   .jci-legal-grid {
     grid-template-columns: 1fr;
@@ -766,9 +779,12 @@
   }
 }
 
+/* ============================================
+   MOBILE LARGE (576px to 767px)
+   ============================================ */
 @media (max-width: 767px) {
   .jci-legal-hero {
-    min-height: 50vh;
+    min-height: 40vh;
     padding: 3rem 0;
   }
   .jci-legal-hero-title {
@@ -819,14 +835,24 @@
   .jci-legal-contact-info p {
     justify-content: center;
   }
+  .jci-legal-container {
+    padding: 0 var(--spacing-lg);
+  }
 }
 
+/* ============================================
+   MOBILE SMALL (up to 575px)
+   ============================================ */
 @media (max-width: 575px) {
   .jci-legal-hero-title {
     font-size: 1.75rem;
   }
   .jci-legal-hero-description {
     font-size: 0.9375rem;
+  }
+  .jci-legal-hero {
+    min-height: 35vh;
+    padding: 2rem 0;
   }
   .jci-legal-card {
     padding: var(--spacing-lg);
@@ -842,6 +868,7 @@
   }
   .jci-legal-highlights {
     flex-direction: column;
+    align-items: stretch;
   }
   .jci-legal-highlight {
     justify-content: center;
@@ -864,8 +891,19 @@
     flex-direction: column;
     gap: var(--spacing-xs);
   }
+  .jci-legal-container {
+    padding: 0 var(--spacing-md);
+  }
+  .jci-legal-card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
+/* ============================================
+   EXTRA SMALL DEVICES (up to 380px)
+   ============================================ */
 @media (max-width: 380px) {
   .jci-legal-hero-title {
     font-size: 1.5rem;
@@ -876,8 +914,21 @@
   .jci-legal-text {
     font-size: 0.8125rem;
   }
+  .jci-legal-hero-badge {
+    font-size: 0.7rem;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+  .jci-legal-card {
+    padding: var(--spacing-md);
+  }
+  .jci-legal-item {
+    padding: var(--spacing-sm);
+  }
 }
 
+/* ============================================
+   LANDSCAPE MODE
+   ============================================ */
 @media (max-width: 896px) and (orientation: landscape) {
   .jci-legal-hero {
     min-height: auto;
@@ -889,9 +940,28 @@
   .jci-legal-card {
     padding: var(--spacing-lg);
   }
+  .jci-legal-rights-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
 }
 
-/* ===== REDUCED MOTION ===== */
+/* ============================================
+   TABLET LANDSCAPE (specific)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
+  .jci-legal-grid {
+    grid-template-columns: 1fr;
+  }
+  .jci-legal-sidebar-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .jci-legal-card,
   .jci-legal-right-card,
@@ -946,7 +1016,9 @@
   }
 }
 
-/* ===== THEME SPECIFIC ===== */
+/* ============================================
+   THEME SPECIFIC
+   ============================================ */
 .dark-theme .jci-legal-card-icon {
   background: var(--white);
   color: var(--black);
@@ -997,7 +1069,9 @@
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-/* Touch-friendly improvements */
+/* ============================================
+   TOUCH-FRIENDLY IMPROVEMENTS
+   ============================================ */
 @media (max-width: 768px) {
   .jci-legal-sidebar-link,
   .jci-home-btn,
@@ -1006,25 +1080,60 @@
   .jci-legal-item {
     min-height: 44px;
   }
+  
+  .jci-legal-sidebar-link {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .jci-legal-card,
+  .jci-legal-right-card {
+    cursor: pointer;
+  }
 }
 
-/* Print styles */
+/* ============================================
+   ACCESSIBILITY - FOCUS STATES
+   ============================================ */
+.jci-legal-sidebar-link:focus-visible,
+.jci-home-btn:focus-visible,
+.jci-legal-card:focus-visible,
+.jci-legal-right-card:focus-visible,
+.jci-legal-acceptance-card:focus-visible {
+  outline: 2px solid var(--btn-primary-bg);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+.jci-legal-page ::selection {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
 @media print {
   .jci-legal-sidebar,
   .jci-legal-back,
   .jci-legal-hero-badge {
-    display: none;
+    display: none !important;
   }
   .jci-legal-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   .jci-legal-card {
     break-inside: avoid;
-    box-shadow: none;
-    border: 1px solid #ddd;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    transform: none !important;
   }
   .jci-legal-hero {
-    min-height: auto;
-    padding: 1rem 0;
+    min-height: auto !important;
+    padding: 1rem 0 !important;
+  }
+  .jci-legal-hero-title {
+    font-size: 2rem !important;
   }
 }

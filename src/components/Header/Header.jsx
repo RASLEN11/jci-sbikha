@@ -10,7 +10,7 @@ import {
   FaBars, 
   FaTimes 
 } from 'react-icons/fa';
-import { getHeaderTranslations } from '../../contexts/Languages';
+import { getHeaderTranslations } from '../../Utils/Languages';
 import logoLight from '../../Images/Header/JCI_Logo_Dark.png';
 import logoDark from '../../Images/Header/JCI_Logo_Light.png';
 import './Header.css';
@@ -53,9 +53,11 @@ const Header = ({ theme = 'light', language = 'en', translations = {} }) => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
-    return () => { document.body.style.overflow = 'unset'; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isMobileMenuOpen]);
 
   // --- UPDATED NAVIGATION LINKS WITH ALL PAGES ---
@@ -83,10 +85,23 @@ const Header = ({ theme = 'light', language = 'en', translations = {} }) => {
     }, 200);
   };
 
+  const handleMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleKeyDown = useCallback((e, path) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleNavigation(path);
+    }
+  }, [handleNavigation]);
+
   return (
     <>
       <header
         className={`jci-header ${isDark ? 'dark' : 'light'} ${isScrolled ? 'scrolled' : ''}`}
+        role="banner"
+        aria-label="Site header"
       >
         <div className="jci-header-inner">
           {/* Logo - Far Left */}
@@ -95,13 +110,16 @@ const Header = ({ theme = 'light', language = 'en', translations = {} }) => {
             onClick={() => handleNavigation('/')}
             role="button"
             tabIndex={0}
-            onKeyPress={(e) => e.key === 'Enter' && handleNavigation('/')}
+            onKeyDown={(e) => handleKeyDown(e, '/')}
+            aria-label="JCI Sbikha - Accueil"
           >
             <img 
               src={logo} 
               alt="JCI Sbikha" 
               className="jci-logo-icon"
               loading="eager"
+              width="48"
+              height="48"
             />
             <div className="jci-logo-text">
               <span className="jci-logo-title">JCI Sbikha</span>
@@ -109,59 +127,79 @@ const Header = ({ theme = 'light', language = 'en', translations = {} }) => {
             </div>
           </div>
 
-          {/* Navigation - Far Right */}
-          <nav className="jci-nav-desktop">
+          {/* Navigation - Far Right (Desktop) */}
+          <nav className="jci-nav-desktop" aria-label="Main navigation">
             {navLinks.map((link) => (
               <div key={link.path} className="jci-nav-item">
                 <button
                   onClick={() => handleNavigation(link.path)}
                   className={`jci-nav-link ${isActive(link.path) ? 'active' : ''}`}
                   aria-label={`Navigate to ${link.name}`}
+                  aria-current={isActive(link.path) ? 'page' : undefined}
                 >
-                  <link.icon className="jci-nav-icon" />
+                  <link.icon className="jci-nav-icon" aria-hidden="true" />
                   <span>{link.name}</span>
                 </button>
               </div>
             ))}
           </nav>
 
+          {/* Mobile Menu Toggle */}
           <div className="jci-actions">
             <button
-              onClick={() => setIsMobileMenuOpen(true)}
+              onClick={handleMenuToggle}
               className="jci-menu-toggle"
-              aria-label="Open menu"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
-              <FaBars />
+              {isMobileMenuOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
             </button>
           </div>
         </div>
       </header>
 
+      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <>
           <div 
             className={`jci-modal-overlay ${isClosing ? 'closing' : ''}`}
             onClick={handleMenuClose}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' || e.key === 'Enter') {
+                handleMenuClose();
+              }
+            }}
+            aria-label="Close menu"
           />
-          <div className={`jci-menu-mobile ${isClosing ? 'closing' : ''}`}>
+          <div 
+            className={`jci-menu-mobile ${isClosing ? 'closing' : ''}`}
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
+          >
             <div className="jci-menu-header">
               <button 
                 onClick={handleMenuClose} 
                 className="jci-menu-close"
                 aria-label="Close menu"
               >
-                <FaTimes />
+                <FaTimes aria-hidden="true" />
               </button>
             </div>
             
-            <nav className="jci-nav-mobile">
+            <nav className="jci-nav-mobile" aria-label="Mobile navigation">
               {navLinks.map((link) => (
                 <button
                   key={link.path}
                   onClick={() => handleNavigation(link.path)}
                   className={`jci-nav-link-mobile ${isActive(link.path) ? 'active' : ''}`}
+                  aria-current={isActive(link.path) ? 'page' : undefined}
                 >
-                  <link.icon />
+                  <link.icon aria-hidden="true" />
                   <span>{link.name}</span>
                 </button>
               ))}

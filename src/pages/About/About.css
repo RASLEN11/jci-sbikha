@@ -1,9 +1,9 @@
-/* AboutUs.css - JCI Sbikha About Us Page Styles */
+/* About.css - JCI Sbikha About Us Page Styles */
 
 /* ===== Hero Section - Unified with Home ===== */
-.about-hero {
+.jci-about-hero {
   position: relative;
-  min-height: 85vh; /* Matches Home */
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,8 @@
   overflow: hidden;
   border-radius: 0 0 var(--radius-3xl) var(--radius-3xl);
   margin-bottom: var(--spacing-3xl);
+  width: 100%;
+  max-width: 100vw;
 
   /* --- DEFAULT DARK THEME GRADIENT --- */
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy), #0d1a2b);
@@ -18,19 +20,17 @@
 }
 
 /* --- LIGHT THEME OVERRIDE --- */
-.light-theme .about-hero {
+.light-theme .jci-about-hero {
   background: linear-gradient(145deg, #eef3f8 0%, #dbe3ed 40%, #c4d2e0 100%);
 }
 
-.about-hero-overlay {
+.jci-about-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   pointer-events: none;
-
-  /* --- DARK THEME GLOW --- */
   background: radial-gradient(
     circle at 30% 20%,
     rgba(76, 196, 209, 0.15) 0%,
@@ -38,8 +38,7 @@
   );
 }
 
-/* --- LIGHT THEME GLOW OVERRIDE --- */
-.light-theme .about-hero-overlay {
+.light-theme .jci-about-hero-overlay {
   background: radial-gradient(
     circle at 30% 20%,
     rgba(8, 157, 195, 0.06) 0%,
@@ -47,8 +46,7 @@
   );
 }
 
-/* --- TOP FADE (BLENDS WITH HEADER) --- */
-.about-hero-overlay::before {
+.jci-about-hero-overlay::before {
   content: "";
   position: absolute;
   top: 0;
@@ -60,8 +58,7 @@
   z-index: 1;
 }
 
-/* --- BOTTOM FADE (BLENDS WITH BODY) --- */
-.about-hero-overlay::after {
+.jci-about-hero-overlay::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -73,16 +70,17 @@
   z-index: 1;
 }
 
-.about-hero-content {
+.jci-about-hero-content {
   position: relative;
   z-index: 2;
   max-width: 900px;
   text-align: center;
   padding: var(--spacing-2xl) 0;
+  width: 100%;
 }
 
-/* ===== Hero Badge (Theme Aware) ===== */
-.about-hero-badge {
+/* ===== Hero Badge ===== */
+.jci-about-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -99,36 +97,31 @@
   transition: all var(--transition-fast);
 }
 
-.light-theme .about-hero-badge {
+.light-theme .jci-about-hero-badge {
   background: rgba(18, 18, 69, 0.06);
   border: 0.5px solid rgba(18, 18, 69, 0.15);
   color: var(--jci-dark-indigo);
 }
 
-.about-hero-badge-icon {
+.jci-about-hero-badge-icon {
   font-size: 0.875rem;
   color: var(--jci-teal-blue);
 }
 
-.about-hero-badge-text::before {
+.jci-about-hero-badge-text::before {
   content: "●";
   color: var(--jci-teal-blue);
   font-size: 0.5rem;
-  animation: pulse-dot 2s ease-in-out infinite;
+  animation: jci-pulse-dot 2s ease-in-out infinite;
 }
 
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
+@keyframes jci-pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
-/* ===== Hero Title (Theme Aware) ===== */
-.about-hero-title {
+/* ===== Hero Title ===== */
+.jci-about-hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: #ffffff;
@@ -138,18 +131,18 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .about-hero-title {
+.light-theme .jci-about-hero-title {
   color: var(--jci-dark-indigo);
 }
 
-.about-hero-highlight {
+.jci-about-hero-highlight {
   background: linear-gradient(135deg, #ffffff 0%, var(--jci-teal-blue) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.light-theme .about-hero-highlight {
+.light-theme .jci-about-hero-highlight {
   background: linear-gradient(
     135deg,
     var(--jci-dark-indigo) 0%,
@@ -160,8 +153,8 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* ===== Hero Description (Theme Aware) ===== */
-.about-hero-description {
+/* ===== Hero Description ===== */
+.jci-about-hero-description {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   color: rgba(255, 255, 255, 0.75);
   max-width: 650px;
@@ -170,31 +163,32 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .about-hero-description {
+.light-theme .jci-about-hero-description {
   color: var(--jci-light-teal);
 }
 
 /* ===== Hero Stats ===== */
-.about-hero-stats {
+.jci-about-hero-stats {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-2xl);
   padding-top: var(--spacing-xl);
   border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
 }
 
-.light-theme .about-hero-stats {
+.light-theme .jci-about-hero-stats {
   border-top: 0.5px solid rgba(18, 18, 69, 0.08);
 }
 
-.about-hero-stat {
+.jci-about-hero-stat {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
 }
 
-.about-hero-stat-icon {
+.jci-about-hero-stat-icon {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-lg);
@@ -207,12 +201,12 @@
   flex-shrink: 0;
 }
 
-.about-hero-stat-content {
+.jci-about-hero-stat-content {
   display: flex;
   flex-direction: column;
 }
 
-.about-hero-stat-value {
+.jci-about-hero-stat-value {
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
@@ -220,11 +214,11 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .about-hero-stat-value {
+.light-theme .jci-about-hero-stat-value {
   color: var(--jci-dark-indigo);
 }
 
-.about-hero-stat-label {
+.jci-about-hero-stat-label {
   font-size: 0.625rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.6);
@@ -233,26 +227,37 @@
   transition: color var(--transition-normal);
 }
 
-.light-theme .about-hero-stat-label {
+.light-theme .jci-about-hero-stat-label {
   color: var(--jci-light-teal);
 }
 
-.about-hero-stat-divider {
+.jci-about-hero-stat-detail {
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition-normal);
+}
+
+.light-theme .jci-about-hero-stat-detail {
+  color: var(--jci-light-teal);
+}
+
+.jci-about-hero-stat-divider {
   width: 1px;
   height: 40px;
   background: rgba(255, 255, 255, 0.15);
 }
 
-.light-theme .about-hero-stat-divider {
+.light-theme .jci-about-hero-stat-divider {
   background: rgba(18, 18, 69, 0.15);
 }
 
-/* ===== THE REST OF YOUR EXISTING CSS BELOW ===== */
-.about-tabs-section {
+/* ===== Tabs Section ===== */
+.jci-about-tabs-section {
   padding: 0 var(--spacing-xl) var(--spacing-2xl);
   margin-top: calc(-1 * var(--spacing-xl));
 }
-.about-tabs-wrapper {
+
+.jci-about-tabs-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -264,7 +269,8 @@
   border: 0.5px solid var(--glass-border);
   box-shadow: var(--shadow-md);
 }
-.about-tab {
+
+.jci-about-tab {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -279,38 +285,47 @@
   transition: all var(--transition-fast);
   font-family: inherit;
 }
-.about-tab:hover {
+
+.jci-about-tab:hover {
   background: var(--btn-hover-bg);
   color: var(--text-primary);
 }
-.about-tab.active {
+
+.jci-about-tab.jci-active {
   background: var(--jci-bright-cyan);
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(8, 157, 195, 0.3);
 }
-.about-tab-icon {
+
+.jci-about-tab-icon {
   font-size: 0.875rem;
 }
-.about-mission-section,
-.about-history-section,
-.about-values-section,
-.about-team-section {
+
+/* ===== Section Visibility ===== */
+.jci-about-mission-section,
+.jci-about-history-section,
+.jci-about-values-section,
+.jci-about-team-section {
   display: none;
   padding: var(--spacing-3xl) 0;
 }
-.about-mission-section.active-section,
-.about-history-section.active-section,
-.about-values-section.active-section,
-.about-team-section.active-section {
+
+.jci-about-mission-section.jci-active-section,
+.jci-about-history-section.jci-active-section,
+.jci-about-values-section.jci-active-section,
+.jci-about-team-section.jci-active-section {
   display: block;
 }
-.about-mission-grid {
+
+/* ===== Mission Section ===== */
+.jci-about-mission-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-2xl);
 }
-.about-mission-card,
-.about-vision-card {
+
+.jci-about-mission-card,
+.jci-about-vision-card {
   padding: var(--spacing-2xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -318,13 +333,15 @@
   border: 0.5px solid var(--glass-border);
   transition: all var(--transition-normal);
 }
-.about-mission-card:hover,
-.about-vision-card:hover {
+
+.jci-about-mission-card:hover,
+.jci-about-vision-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
-.about-mission-icon-wrapper,
-.about-vision-icon-wrapper {
+
+.jci-about-mission-icon-wrapper,
+.jci-about-vision-icon-wrapper {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-xl);
@@ -334,55 +351,66 @@
   margin-bottom: var(--spacing-lg);
   font-size: 1.5rem;
 }
-.about-mission-icon-wrapper {
+
+.jci-about-mission-icon-wrapper {
   background: rgba(76, 196, 209, 0.12);
   color: var(--jci-teal-blue);
 }
-.about-vision-icon-wrapper {
+
+.jci-about-vision-icon-wrapper {
   background: rgba(8, 157, 195, 0.12);
   color: var(--jci-bright-cyan);
 }
-.about-mission-title,
-.about-vision-title {
+
+.jci-about-mission-title,
+.jci-about-vision-title {
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: var(--spacing-md);
   color: var(--text-primary);
 }
-.about-mission-text,
-.about-vision-text {
+
+.jci-about-mission-text,
+.jci-about-vision-text {
   font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: var(--spacing-lg);
 }
-.about-mission-points,
-.about-vision-points {
+
+.jci-about-mission-points,
+.jci-about-vision-points {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
 }
-.about-mission-point,
-.about-vision-point {
+
+.jci-about-mission-point,
+.jci-about-vision-point {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
-.about-mission-check {
+
+.jci-about-mission-check {
   color: var(--jci-teal-blue);
   font-size: 0.875rem;
 }
-.about-vision-star {
+
+.jci-about-vision-star {
   color: var(--jci-bright-cyan);
   font-size: 0.875rem;
 }
-.about-timeline {
+
+/* ===== Timeline ===== */
+.jci-about-timeline {
   position: relative;
   padding: var(--spacing-xl) 0;
 }
-.about-timeline::before {
+
+.jci-about-timeline::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -397,22 +425,26 @@
   transform: translateX(-50%);
   border-radius: var(--radius-full);
 }
-.timeline-item {
+
+.jci-timeline-item {
   position: relative;
   width: 50%;
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
-.timeline-item.left {
+
+.jci-timeline-item.jci-left {
   padding-right: var(--spacing-2xl);
   text-align: right;
 }
-.timeline-item.right {
+
+.jci-timeline-item.jci-right {
   margin-left: auto;
   padding-left: var(--spacing-2xl);
   text-align: left;
 }
-.timeline-item::before {
+
+.jci-timeline-item::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -425,13 +457,16 @@
   z-index: 1;
   box-shadow: 0 0 0 4px rgba(8, 157, 195, 0.2);
 }
-.timeline-item.left::before {
+
+.jci-timeline-item.jci-left::before {
   right: -10px;
 }
-.timeline-item.right::before {
+
+.jci-timeline-item.jci-right::before {
   left: -10px;
 }
-.timeline-content {
+
+.jci-timeline-content {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -440,11 +475,13 @@
   transition: all var(--transition-normal);
   position: relative;
 }
-.timeline-content:hover {
+
+.jci-timeline-content:hover {
   transform: scale(1.02);
   box-shadow: var(--shadow-lg);
 }
-.timeline-icon-wrapper {
+
+.jci-timeline-icon-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -456,10 +493,12 @@
   font-size: 1rem;
   margin-bottom: var(--spacing-sm);
 }
-.timeline-item.left .timeline-icon-wrapper {
+
+.jci-timeline-item.jci-left .jci-timeline-icon-wrapper {
   margin-left: auto;
 }
-.timeline-year {
+
+.jci-timeline-year {
   display: inline-block;
   padding: 0.2rem 1rem;
   background: var(--jci-bright-cyan);
@@ -469,23 +508,28 @@
   border-radius: var(--radius-full);
   margin-bottom: var(--spacing-sm);
 }
-.timeline-title {
+
+.jci-timeline-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
 }
-.timeline-description {
+
+.jci-timeline-description {
   font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
-.about-values-grid {
+
+/* ===== Values Section ===== */
+.jci-about-values-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--spacing-xl);
 }
-.about-value-card {
+
+.jci-about-value-card {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -494,11 +538,13 @@
   text-align: center;
   transition: all var(--transition-normal);
 }
-.about-value-card:hover {
+
+.jci-about-value-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
-.about-value-icon {
+
+.jci-about-value-icon {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-xl);
@@ -509,61 +555,74 @@
   margin: 0 auto var(--spacing-md);
   transition: all var(--transition-normal);
 }
-.about-value-card:hover .about-value-icon {
+
+.jci-about-value-card:hover .jci-about-value-icon {
   transform: scale(1.1);
 }
-.about-value-title {
+
+.jci-about-value-title {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: var(--spacing-sm);
   color: var(--text-primary);
 }
-.about-value-description {
+
+.jci-about-value-description {
   font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
 }
-.about-value-line {
+
+.jci-about-value-line {
   width: 40px;
   height: 3px;
   border-radius: var(--radius-full);
   margin: 0 auto;
 }
-.about-achievements-section {
+
+/* ===== Achievements Section ===== */
+.jci-about-achievements-section {
   padding: var(--spacing-3xl) 0;
 }
-.about-achievements-wrapper {
+
+.jci-about-achievements-wrapper {
   padding: var(--spacing-2xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
   border-radius: var(--radius-2xl);
   border: 0.5px solid var(--glass-border);
 }
-.about-achievements-header {
+
+.jci-about-achievements-header {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
 }
-.about-achievements-title {
+
+.jci-about-achievements-title {
   font-size: 2rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
 }
-.about-achievements-subtitle {
+
+.jci-about-achievements-subtitle {
   font-size: 1rem;
   color: var(--text-tertiary);
 }
-.about-achievements-grid {
+
+.jci-about-achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: var(--spacing-xl);
 }
-.about-achievement-item {
+
+.jci-about-achievement-item {
   text-align: center;
   padding: var(--spacing-md);
 }
-.about-achievement-number {
+
+.jci-about-achievement-number {
   font-size: 2.5rem;
   font-weight: 700;
   background: linear-gradient(
@@ -576,23 +635,28 @@
   -webkit-text-fill-color: transparent;
   line-height: 1.2;
 }
-.about-achievement-label {
+
+.jci-about-achievement-label {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-secondary);
   margin-top: var(--spacing-xs);
 }
-.about-achievement-description {
+
+.jci-about-achievement-description {
   font-size: 0.75rem;
   color: var(--text-tertiary);
   margin-top: var(--spacing-xs);
 }
-.about-team-grid {
+
+/* ===== Team Section ===== */
+.jci-about-team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-xl);
 }
-.about-team-card {
+
+.jci-about-team-card {
   padding: var(--spacing-xl);
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
@@ -601,11 +665,13 @@
   text-align: center;
   transition: all var(--transition-normal);
 }
-.about-team-card:hover {
+
+.jci-about-team-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
-.about-team-avatar {
+
+.jci-about-team-avatar {
   width: 72px;
   height: 72px;
   border-radius: 50%;
@@ -624,34 +690,40 @@
   box-shadow: 0 4px 16px rgba(18, 18, 69, 0.15);
   transition: all var(--transition-normal);
 }
-.about-team-card:hover .about-team-avatar {
+
+.jci-about-team-card:hover .jci-about-team-avatar {
   transform: scale(1.05);
   box-shadow: 0 6px 24px rgba(18, 18, 69, 0.25);
 }
-.about-team-name {
+
+.jci-about-team-name {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
 }
-.about-team-role {
+
+.jci-about-team-role {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--jci-teal-blue);
   margin-bottom: var(--spacing-sm);
 }
-.about-team-description {
+
+.jci-about-team-description {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: var(--spacing-md);
 }
-.about-team-social {
+
+.jci-about-team-social {
   display: flex;
   justify-content: center;
   gap: var(--spacing-sm);
 }
-.about-team-social-btn {
+
+.jci-about-team-social-btn {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -664,16 +736,20 @@
   cursor: pointer;
   transition: all var(--transition-fast);
 }
-.about-team-social-btn:hover {
+
+.jci-about-team-social-btn:hover {
   background: var(--jci-bright-cyan);
   color: #ffffff;
   border-color: var(--jci-bright-cyan);
   transform: translateY(-2px);
 }
-.about-join-section {
+
+/* ===== Join CTA Section ===== */
+.jci-about-join-section {
   padding: var(--spacing-3xl) 0;
 }
-.about-join-wrapper {
+
+.jci-about-join-wrapper {
   padding: var(--spacing-3xl);
   background: linear-gradient(
     145deg,
@@ -684,11 +760,13 @@
   border: 0.5px solid rgba(255, 255, 255, 0.06);
   text-align: center;
 }
-.about-join-content {
+
+.jci-about-join-content {
   max-width: 700px;
   margin: 0 auto;
 }
-.about-join-icon-wrapper {
+
+.jci-about-join-icon-wrapper {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -698,47 +776,55 @@
   background: rgba(76, 196, 209, 0.15);
   margin-bottom: var(--spacing-lg);
 }
-.about-join-icon {
+
+.jci-about-join-icon {
   font-size: 2rem;
   color: var(--jci-teal-blue);
 }
-.about-join-title {
+
+.jci-about-join-title {
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: var(--spacing-md);
 }
-.about-join-text {
+
+.jci-about-join-text {
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: var(--spacing-xl);
   line-height: 1.7;
 }
-.about-join-benefits {
+
+.jci-about-join-benefits {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
-.about-join-benefit {
+
+.jci-about-join-benefit {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.875rem;
 }
-.about-join-check {
+
+.jci-about-join-check {
   color: var(--jci-teal-blue);
   font-size: 1rem;
 }
-.about-join-actions {
+
+.jci-about-join-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-md);
 }
-.about-join-btn {
+
+.jci-about-join-btn {
   background: linear-gradient(
     135deg,
     var(--jci-teal-blue),
@@ -749,11 +835,13 @@
   font-weight: 600 !important;
   box-shadow: 0 4px 24px rgba(8, 157, 195, 0.3) !important;
 }
-.about-join-btn:hover {
+
+.jci-about-join-btn:hover {
   transform: translateY(-2px) scale(1.02) !important;
   box-shadow: 0 8px 32px rgba(8, 157, 195, 0.4) !important;
 }
-.about-join-btn-secondary {
+
+.jci-about-join-btn-secondary {
   background: rgba(255, 255, 255, 0.08) !important;
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(255, 255, 255, 0.15) !important;
@@ -761,303 +849,341 @@
   padding: 0.875rem 2.5rem !important;
   font-size: 1rem !important;
 }
-.about-join-btn-secondary:hover {
+
+.jci-about-join-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.15) !important;
   transform: translateY(-2px) scale(1.02) !important;
 }
-.about-footer {
-  background: var(--bg-secondary);
-  padding: var(--spacing-3xl) 0 var(--spacing-xl);
-  border-top: 0.5px solid var(--border-light);
-  margin-top: var(--spacing-2xl);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: var(--spacing-2xl);
-  margin-bottom: var(--spacing-2xl);
-}
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-}
-.footer-logo .jci-shield-logo {
-  width: 64px;
-  height: 70px;
-  margin-bottom: var(--spacing-sm);
-}
-.footer-brand-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
-}
-.footer-brand-desc {
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-  line-height: 1.6;
-  max-width: 300px;
-}
-.footer-social {
-  display: flex;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-}
-.footer-social-link {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--btn-hover-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  transition: all var(--transition-fast);
-  border: 0.5px solid var(--border-light);
-}
-.footer-social-link:hover {
-  background: var(--jci-bright-cyan);
-  color: #ffffff;
-  transform: translateY(-2px);
-  border-color: var(--jci-bright-cyan);
-}
-.footer-heading {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-lg);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.footer-list li {
-  margin-bottom: var(--spacing-sm);
-}
-.footer-list a {
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-  transition: all var(--transition-fast);
-}
-.footer-list a:hover {
-  color: var(--jci-teal-blue);
-}
-.footer-contact-icon {
-  margin-right: var(--spacing-sm);
-  color: var(--jci-teal-blue);
-  font-size: 0.75rem;
-}
-.footer-list li {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-}
-.footer-bottom {
-  padding-top: var(--spacing-xl);
-  border-top: 0.5px solid var(--border-light);
-  text-align: center;
-}
-.footer-copy {
-  font-size: 0.8125rem;
-  color: var(--text-tertiary);
-}
-.footer-copy-brand {
-  color: var(--jci-teal-blue);
-  font-weight: 500;
-}
-.animate-on-scroll {
+
+/* ===== Animations ===== */
+.jci-animate-on-scroll {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
-.animate-on-scroll.visible {
+
+.jci-animate-on-scroll.jci-visible {
   opacity: 1;
   transform: translateY(0);
 }
-.animate-on-scroll:nth-child(2) {
+
+.jci-animate-on-scroll:nth-child(2) {
   transition-delay: 0.1s;
 }
-.animate-on-scroll:nth-child(3) {
+.jci-animate-on-scroll:nth-child(3) {
   transition-delay: 0.2s;
 }
-.animate-on-scroll:nth-child(4) {
+.jci-animate-on-scroll:nth-child(4) {
   transition-delay: 0.3s;
 }
-.animate-on-scroll:nth-child(5) {
+.jci-animate-on-scroll:nth-child(5) {
   transition-delay: 0.4s;
 }
-.animate-on-scroll:nth-child(6) {
+.jci-animate-on-scroll:nth-child(6) {
   transition-delay: 0.5s;
 }
-.glass-card {
+
+/* ===== Glass Card Helper ===== */
+.jci-glass-card {
   background: var(--bg-glass);
   backdrop-filter: blur(20px) saturate(180%);
   border: 0.5px solid var(--glass-border);
   box-shadow: var(--shadow-sm);
 }
+
+/* ======================================== */
+/* ========== RESPONSIVE STYLES ========== */
+/* ======================================== */
+
+/* ===== DESKTOP & TABLET (992px - 1200px) ===== */
 @media (max-width: 1200px) {
-  .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr;
+  .jci-about-hero-stats {
+    justify-content: center;
     gap: var(--spacing-xl);
   }
-  .about-hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
+
+/* ===== TABLET LANDSCAPE & SMALL DESKTOP (768px - 991px) ===== */
 @media (max-width: 991px) {
-  .about-mission-grid {
+  .jci-about-mission-grid {
     grid-template-columns: 1fr;
   }
-  .about-timeline::before {
+  
+  .jci-about-timeline::before {
     left: 20px;
   }
-  .timeline-item {
+  
+  .jci-timeline-item {
     width: 100%;
     padding-left: 60px !important;
     padding-right: 0 !important;
     text-align: left !important;
   }
-  .timeline-item::before {
+  
+  .jci-timeline-item::before {
     left: 10px !important;
     right: auto !important;
   }
-  .timeline-item.left .timeline-icon-wrapper {
+  
+  .jci-timeline-item.jci-left .jci-timeline-icon-wrapper {
     margin-left: 0;
   }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .about-hero {
+  
+  .jci-about-hero {
     min-height: 70vh;
     border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+  
+  .jci-about-hero-content {
+    max-width: 100%;
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .jci-about-hero-stats {
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+  }
+  
+  .jci-about-hero-stat {
+    flex: 1 1 calc(50% - var(--spacing-lg));
+    justify-content: center;
   }
 }
+
+/* ===== TABLET PORTRAIT & MOBILE LANDSCAPE (576px - 767px) ===== */
 @media (max-width: 768px) {
-  .about-hero {
+  .jci-about-hero {
     min-height: 65vh;
     padding: var(--spacing-2xl) var(--spacing-lg);
     border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   }
-  .about-hero-stats {
+  
+  .jci-about-hero-stats {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-md);
   }
-  .about-hero-stat {
+  
+  .jci-about-hero-stat {
     flex-direction: column;
     text-align: center;
   }
-  .about-tabs-wrapper {
+  
+  .jci-about-tabs-wrapper {
     flex-direction: column;
     align-items: stretch;
     gap: var(--spacing-sm);
   }
-  .about-tab {
+  
+  .jci-about-tab {
     justify-content: center;
     padding: 0.75rem;
   }
-  .about-values-grid {
+  
+  .jci-about-values-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
-  .about-achievements-grid {
+  
+  .jci-about-achievements-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
-  .about-join-wrapper {
+  
+  .jci-about-join-wrapper {
     padding: var(--spacing-xl);
   }
-  .about-join-benefits {
+  
+  .jci-about-join-benefits {
     flex-direction: column;
     align-items: center;
   }
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-  .about-team-grid {
+  
+  .jci-about-team-grid {
     grid-template-columns: 1fr 1fr;
   }
-}
-@media (max-width: 576px) {
-  .about-hero-title {
-    font-size: 2rem;
-  }
-  .about-hero-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-sm);
-  }
-  .about-hero-stat {
-    padding: var(--spacing-sm);
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: var(--radius-lg);
-  }
-  .about-hero-stat-value {
-    font-size: 1.1rem;
-  }
-  .about-mission-card,
-  .about-vision-card {
-    padding: var(--spacing-xl);
-  }
-  .about-achievements-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .about-team-grid {
-    grid-template-columns: 1fr;
-  }
-  .about-join-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-join-btn,
-  .about-join-btn-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-  .timeline-content {
-    padding: var(--spacing-md);
-  }
-  .timeline-item {
-    padding-left: 50px !important;
-  }
-  .about-tabs-section {
+  
+  .jci-about-tabs-section {
     padding: 0 var(--spacing-md) var(--spacing-xl);
   }
 }
-.dark-theme .about-hero {
+
+/* ===== MOBILE PORTRAIT (up to 576px) ===== */
+@media (max-width: 576px) {
+  .jci-about-hero {
+    min-height: 60vh;
+    padding: var(--spacing-xl) var(--spacing-md);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+  
+  .jci-about-hero-content {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .jci-about-hero-title {
+    font-size: 2rem;
+  }
+  
+  .jci-about-hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .jci-about-hero-stat {
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .jci-about-hero-stat-value {
+    font-size: 1.1rem;
+  }
+  
+  .jci-about-mission-card,
+  .jci-about-vision-card {
+    padding: var(--spacing-xl);
+  }
+  
+  .jci-about-achievements-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .jci-about-team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .jci-about-join-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .jci-about-join-btn,
+  .jci-about-join-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .jci-timeline-content {
+    padding: var(--spacing-md);
+  }
+  
+  .jci-timeline-item {
+    padding-left: 50px !important;
+  }
+  
+  .jci-about-tabs-section {
+    padding: 0 var(--spacing-sm) var(--spacing-lg);
+  }
+  
+  .jci-about-mission-title,
+  .jci-about-vision-title {
+    font-size: 1.4rem;
+  }
+  
+  .jci-about-achievements-title {
+    font-size: 1.6rem;
+  }
+  
+  .jci-about-join-title {
+    font-size: 1.6rem;
+  }
+  
+  .jci-about-join-benefit {
+    font-size: 0.8125rem;
+  }
+  
+  .jci-section-title-modern {
+    font-size: 1.6rem;
+  }
+  
+  .jci-about-values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .jci-about-achievements-wrapper {
+    padding: var(--spacing-md);
+  }
+}
+
+/* ===== EXTRA SMALL MOBILE (up to 400px) ===== */
+@media (max-width: 400px) {
+  .jci-about-hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .jci-about-hero-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .jci-about-hero-stat {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .jci-about-achievements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .jci-about-mission-card,
+  .jci-about-vision-card {
+    padding: var(--spacing-md);
+  }
+  
+  .jci-about-team-card {
+    padding: var(--spacing-md);
+  }
+  
+  .jci-about-join-wrapper {
+    padding: var(--spacing-md);
+  }
+  
+  .jci-timeline-content {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* ===== Dark Theme Overrides ===== */
+.dark-theme .jci-about-hero {
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy), #0d1a2b);
 }
-.dark-theme .about-join-wrapper {
+
+.dark-theme .jci-about-join-wrapper {
   background: linear-gradient(145deg, #0a0a1a, var(--jci-dark-navy));
 }
-.dark-theme .about-mission-card,
-.dark-theme .about-vision-card,
-.dark-theme .about-value-card,
-.dark-theme .about-team-card,
-.dark-theme .about-achievements-wrapper,
-.dark-theme .timeline-content {
+
+.dark-theme .jci-about-mission-card,
+.dark-theme .jci-about-vision-card,
+.dark-theme .jci-about-value-card,
+.dark-theme .jci-about-team-card,
+.dark-theme .jci-about-achievements-wrapper,
+.dark-theme .jci-timeline-content {
   background: rgba(27, 28, 71, 0.85);
 }
-.dark-theme .about-tabs-wrapper {
+
+.dark-theme .jci-about-tabs-wrapper {
   background: rgba(27, 28, 71, 0.85);
   border-color: rgba(255, 255, 255, 0.06);
 }
-.dark-theme .about-tab:hover {
+
+.dark-theme .jci-about-tab:hover {
   background: rgba(255, 255, 255, 0.05);
 }
-.dark-theme .about-tab.active {
+
+.dark-theme .jci-about-tab.jci-active {
   background: var(--jci-bright-cyan);
 }
-.dark-theme .timeline-item::before {
+
+.dark-theme .jci-timeline-item::before {
   border-color: var(--bg-primary);
   box-shadow: 0 0 0 4px rgba(8, 157, 195, 0.15);
 }
-.dark-theme .about-team-social-btn {
+
+.dark-theme .jci-about-team-social-btn {
   border-color: rgba(255, 255, 255, 0.08);
   color: var(--text-tertiary);
 }
-.dark-theme .about-team-social-btn:hover {
+
+.dark-theme .jci-about-team-social-btn:hover {
   background: var(--jci-bright-cyan);
   color: #ffffff;
   border-color: var(--jci-bright-cyan);

@@ -1,5 +1,5 @@
 /* Footer.css - iOS 26 Liquid Glass Style (JCI Sbikha Edition) */
-/* Fully integrated with global.css and App.css - Fully responsive */
+/* Fully responsive - Optimized for all devices */
 
 /* ============================================
    FOOTER CONTAINER
@@ -124,7 +124,7 @@
 }
 
 /* ============================================
-   FOOTER GRID - CENTERED
+   FOOTER GRID - RESPONSIVE
    ============================================ */
 .jci-footer-grid {
   display: grid;
@@ -163,6 +163,7 @@
   height: 48px;
   object-fit: contain;
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .jci-footer-logo:hover .jci-footer-logo-icon {
@@ -199,7 +200,7 @@
 }
 
 /* ============================================
-   BRAND ROW - Badge & Social Icons on the SAME LINE
+   BRAND ROW - Badge & Social Icons
    ============================================ */
 .jci-footer-brand-row {
   display: flex;
@@ -229,6 +230,7 @@
   cursor: pointer;
   transition: all var(--transition-fast);
   border: 0.5px solid var(--border-medium);
+  white-space: nowrap;
 }
 
 .jci-footer-badge:hover {
@@ -242,15 +244,17 @@
 
 .jci-footer-badge svg {
   font-size: 0.75rem;
+  flex-shrink: 0;
 }
 
 /* ============================================
-   SOCIAL LINKS INSIDE BRAND ROW (Same line as badge)
+   SOCIAL LINKS INSIDE BRAND ROW
    ============================================ */
 .jci-footer-brand-social-group {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  flex-wrap: wrap;
 }
 
 .jci-footer-brand-social-link {
@@ -269,6 +273,7 @@
   font-size: 0.9rem;
   animation: jci_footerSocialPopIn 0.4s ease forwards;
   opacity: 0;
+  flex-shrink: 0;
 }
 
 .jci-footer-brand-social-link:nth-child(1) { animation-delay: 0.35s; }
@@ -330,6 +335,7 @@
   color: var(--text-tertiary);
   font-size: 0.875rem;
   transition: transform var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .jci-footer-section:hover .jci-footer-heading svg {
@@ -369,6 +375,7 @@
   font-size: 0.875rem;
   transition: all var(--transition-fast);
   cursor: pointer;
+  padding: var(--spacing-xs) 0;
 }
 
 .jci-footer-link:hover {
@@ -380,6 +387,7 @@
   font-size: 0.75rem;
   opacity: 0.6;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .jci-footer-link:hover svg {
@@ -444,6 +452,7 @@
 
 .jci-footer-contact-text {
   line-height: 1.4;
+  word-break: break-word;
 }
 
 /* ============================================
@@ -473,6 +482,11 @@
   color: var(--text-tertiary);
   margin: 0;
   transition: color var(--transition-fast);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
 .jci-footer-credit:hover {
@@ -553,14 +567,23 @@
    RESPONSIVE BREAKPOINTS
    ============================================ */
 
-/* Large Desktop (1200px and above) */
+/* ============================================
+   DESKTOP (1200px and above) - DEFAULT
+   ============================================ */
 @media (min-width: 1200px) {
   .jci-footer-inner {
     max-width: 1400px;
   }
+  
+  .jci-footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: var(--spacing-2xl);
+  }
 }
 
-/* Desktop (992px to 1199px) */
+/* ============================================
+   DESKTOP SMALL / LAPTOP (992px to 1199px)
+   ============================================ */
 @media (max-width: 1199px) {
   .jci-footer-grid {
     grid-template-columns: 1.5fr 1fr 1.2fr;
@@ -572,7 +595,6 @@
     padding: var(--spacing-xl);
   }
   
-  /* Contact section spans full width on smaller desktop */
   .jci-footer-contact-section {
     grid-column: 1 / -1;
     margin-top: var(--spacing-md);
@@ -589,7 +611,9 @@
   }
 }
 
-/* Tablet (768px to 991px) */
+/* ============================================
+   TABLET (768px to 991px)
+   ============================================ */
 @media (max-width: 991px) {
   .jci-footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -602,8 +626,7 @@
     text-align: center;
     align-items: center;
   }
-
-  /* Center the Badge + Social Row on Tablet */
+  
   .jci-footer-brand-row {
     justify-content: center;
   }
@@ -637,7 +660,6 @@
     display: none;
   }
   
-  /* Contact section full width on tablet */
   .jci-footer-contact-section {
     grid-column: 1 / -1;
     margin-top: var(--spacing-md);
@@ -653,9 +675,17 @@
   .jci-footer-contact-item {
     justify-content: center;
   }
+  
+  .jci-footer-brand-social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
 
-/* Mobile Large (576px to 767px) */
+/* ============================================
+   MOBILE LARGE (576px to 767px)
+   ============================================ */
 @media (max-width: 767px) {
   .jci-footer {
     width: calc(100% - 1rem);
@@ -674,6 +704,17 @@
     max-width: 100%;
   }
   
+  .jci-footer-brand {
+    grid-column: 1 / -1;
+    text-align: center;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .jci-footer-logo {
+    justify-content: center;
+  }
+  
   .jci-footer-logo-icon {
     width: 40px;
     height: 40px;
@@ -685,39 +726,57 @@
   
   .jci-footer-description {
     font-size: 0.8125rem;
+    text-align: center;
+    max-width: 400px;
   }
-
-  /* Stack Badge and Social links vertically on mobile */
+  
   .jci-footer-brand-row {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
+    width: 100%;
   }
   
-  .jci-footer-brand-social-link {
-    width: 34px;
-    height: 34px;
-    font-size: 0.8rem;
+  .jci-footer-badge {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.875rem;
   }
   
   .jci-footer-brand-social-group {
     gap: var(--spacing-xs);
   }
   
+  .jci-footer-brand-social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+  
   .jci-footer-heading {
     font-size: 0.875rem;
     margin-bottom: var(--spacing-md);
+    justify-content: center;
+  }
+  
+  .jci-footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .jci-footer-section {
+    text-align: center;
   }
   
   .jci-footer-list {
     gap: var(--spacing-xs);
+    align-items: center;
   }
   
   .jci-footer-link {
     font-size: 0.8125rem;
+    justify-content: center;
   }
   
-  /* Contact section on mobile - single column */
   .jci-footer-contact-section {
     grid-column: 1 / -1;
     margin-top: var(--spacing-md);
@@ -733,6 +792,7 @@
   .jci-footer-contact-item {
     justify-content: center;
     font-size: 0.8125rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
   
   .jci-footer-contact-icon {
@@ -753,15 +813,23 @@
   }
 }
 
-/* Mobile Small (up to 575px) */
+/* ============================================
+   MOBILE SMALL (up to 575px)
+   ============================================ */
 @media (max-width: 575px) {
   .jci-footer {
     width: calc(100% - 0.75rem);
     margin: var(--spacing-xs) auto;
+    border-radius: var(--radius-lg);
   }
   
   .jci-footer-inner {
     padding: var(--spacing-md);
+  }
+  
+  .jci-footer-grid {
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
   }
   
   .jci-footer-logo-icon {
@@ -779,11 +847,18 @@
   
   .jci-footer-description {
     font-size: 0.75rem;
+    max-width: 300px;
   }
   
   .jci-footer-badge {
     padding: 0.3rem 0.75rem;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+  }
+  
+  .jci-footer-brand-social-link {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
   }
   
   .jci-footer-heading {
@@ -792,6 +867,11 @@
   }
   
   .jci-footer-heading::after {
+    width: 24px;
+    height: 2px;
+  }
+  
+  .jci-footer-section:hover .jci-footer-heading::after {
     width: 24px;
   }
   
@@ -823,28 +903,35 @@
   
   .jci-footer-credit {
     font-size: 0.6rem;
+    gap: 2px;
   }
 }
 
-/* Extra Small Devices (up to 380px) */
+/* ============================================
+   EXTRA SMALL DEVICES (up to 380px)
+   ============================================ */
 @media (max-width: 380px) {
   .jci-footer-inner {
     padding: var(--spacing-sm);
   }
   
   .jci-footer-logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
   
   .jci-footer-logo-title {
     font-size: 0.9rem;
   }
   
+  .jci-footer-logo-subtitle {
+    font-size: 0.55rem;
+  }
+  
   .jci-footer-brand-social-link {
-    width: 26px;
-    height: 26px;
-    font-size: 0.6rem;
+    width: 28px;
+    height: 28px;
+    font-size: 0.65rem;
   }
   
   .jci-footer-heading {
@@ -863,9 +950,20 @@
     width: 12px;
     font-size: 0.65rem;
   }
+  
+  .jci-footer-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .jci-footer-brand-row {
+    gap: var(--spacing-xs);
+  }
 }
 
-/* Landscape mode */
+/* ============================================
+   LANDSCAPE MODE
+   ============================================ */
 @media (max-width: 896px) and (orientation: landscape) {
   .jci-footer {
     margin: var(--spacing-sm) auto;
@@ -898,6 +996,31 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-sm) var(--spacing-lg);
+  }
+  
+  .jci-footer-description {
+    max-width: 500px;
+  }
+}
+
+/* ============================================
+   TABLET LANDSCAPE (specific)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
+  .jci-footer-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .jci-footer-brand {
+    grid-column: 1 / -1;
+  }
+  
+  .jci-footer-contact-section {
+    grid-column: 1 / -1;
+  }
+  
+  .jci-footer-contact-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -972,11 +1095,16 @@
   }
   
   .jci-footer-link {
-    padding: var(--spacing-xs) 0;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
   
   .jci-footer-contact-item {
-    padding: var(--spacing-xs) 0;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .jci-footer-brand-social-link {
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
