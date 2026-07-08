@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- JCI Sbikha Favicon & Branding -->
+    <link rel="icon" href="%PUBLIC_URL%/JCI_Logo.png" type="image/png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#121245" />
+    <meta name="description" content="JCI Sbikha - Junior Chamber International, Tunisia's premier civic leadership organization. Empowering young people to create positive change in their communities." />
+    <meta name="keywords" content="JCI, Sbikha, Junior Chamber International, Tunisia, Civic Leadership, Youth Empowerment, Community Service" />
+    <meta name="author" content="JCI Sbikha" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/JCI_Logo.png" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="JCI Sbikha | Junior Chamber International Tunisia" />
+    <meta property="og:description" content="JCI Sbikha is Tunisia's premier civic leadership organization. We empower young people aged 18 to 40 to create positive change in their communities through active citizenship." />
+    <meta property="og:image" content="%PUBLIC_URL%/JCI_Logo.png" />
+    <meta property="og:url" content="https://jcisbikha.tn" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JCI Sbikha | Junior Chamber International Tunisia" />
+    <meta name="twitter:description" content="JCI Sbikha - Empowering young people to create positive change in their communities through active citizenship and leadership development." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/JCI_Logo.png" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Preconnect to domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="%PUBLIC_URL%/JCI_Logo.png" as="image" type="image/png">
+    
+    <!-- Favicon for various devices -->
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/JCI_Logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/JCI_Logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/JCI_Logo.png">
+    <link rel="mask-icon" href="%PUBLIC_URL%/JCI_Logo.png" color="#121245">
+    
+    <!-- Theme color meta tags (light/dark mode aware) -->
+    <meta name="theme-color" content="#f8f9fc" media="(prefers-color-scheme: light)" id="theme-color-light">
+    <meta name="theme-color" content="#1B1C47" media="(prefers-color-scheme: dark)" id="theme-color-dark">
+    
+    <!-- PWA Related for iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="JCI Sbikha">
+    
+    <title>JCI Sbikha | Junior Chamber International Tunisia</title>
+    
+    <!-- Google Fonts: Inter + Fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- JCI Sbikha brand color custom properties -->
+    <style>
+      :root {
+        --jci-dark-indigo: #121245;
+        --jci-teal-blue: #4CC4D1;
+        --jci-bright-cyan: #089DC3;
+        --jci-dark-navy: #1B1C47;
+        --jci-teal-text: #2F9DB2;
+        --jci-light-teal: #3B6B7A;
+        --jci-gradient-stop: #AEE0E6;
+      }
+      body {
+        margin: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background: var(--jci-dark-indigo);
+        transition: background 0.3s ease;
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background: #f8f9fc;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, #121245 0%, #1B1C47 100%); display: flex; align-items: center; justify-content: center; font-family: 'Inter', system-ui, -apple-system, sans-serif; padding: 20px; text-align: center; z-index: 10000;">
+        <div style="max-width: 550px; background: rgba(255, 255, 255, 0.06); border-radius: 32px; padding: 40px 32px; box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5); border: 1px solid rgba(76, 196, 209, 0.15); backdrop-filter: blur(20px);">
+          <div style="margin-bottom: 24px;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CC4D1 0%, #089DC3 100%); border-radius: 20px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px -5px rgba(76, 196, 209, 0.3);">
+              <span style="color: #121245; font-weight: 900; font-size: 28px; letter-spacing: 1px;">JCI</span>
+            </div>
+          </div>
+          <h1 style="color: #4CC4D1; margin-bottom: 16px; font-weight: 700; font-size: 1.9rem;">JCI Sbikha</h1>
+          <p style="color: #a1a1a6; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.4; font-weight: 400;">
+            Tunisia's premier civic leadership organization. Please enable JavaScript to join our community.
+          </p>
+          <div style="height: 2px; width: 60px; background: #4CC4D1; margin: 28px auto 16px;"></div>
+          <p style="color: #7c7c82; font-size: 0.85rem;">
+            Empowering young people to create positive change in their communities.
+          </p>
+        </div>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    
+    <!--
+      JCI Sbikha - Junior Chamber International Tunisia
+      The build step will inject bundled scripts/styles into this body.
+    -->
+  </body>
+</html>

@@ -1,0 +1,1030 @@
+/* LegalPages.css - iOS 26 Liquid Glass Style (JCI Sbikha Edition) */
+/* Fully integrated with global.css and App.css - Fully responsive */
+
+/* ===== LEGAL PAGE LAYOUT ===== */
+.jci-legal-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes jci_legalFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jci_legalCardSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes jci_legalItemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes jci_legalBadgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes jci_legalIconBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes jci_legalRightCardHover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ===== STAGGERED ANIMATIONS ===== */
+.jci-legal-hero-content {
+  animation: jci_legalFadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+.jci-legal-hero-badge {
+  animation: jci_legalFadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.1s forwards;
+}
+
+.jci-legal-hero-title {
+  animation: jci_legalFadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s forwards;
+}
+
+.jci-legal-hero-description {
+  animation: jci_legalFadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.3s forwards;
+}
+
+.jci-legal-sidebar {
+  animation: jci_legalFadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.2s forwards;
+}
+
+.jci-legal-card {
+  animation: jci_legalCardSlideUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.jci-legal-card:nth-child(1) { animation-delay: 0.1s; }
+.jci-legal-card:nth-child(2) { animation-delay: 0.2s; }
+.jci-legal-card:nth-child(3) { animation-delay: 0.3s; }
+.jci-legal-card:nth-child(4) { animation-delay: 0.4s; }
+.jci-legal-card:nth-child(5) { animation-delay: 0.5s; }
+.jci-legal-card:nth-child(6) { animation-delay: 0.6s; }
+.jci-legal-card:nth-child(7) { animation-delay: 0.7s; }
+.jci-legal-card:nth-child(8) { animation-delay: 0.8s; }
+.jci-legal-card:nth-child(9) { animation-delay: 0.9s; }
+.jci-legal-card:nth-child(10) { animation-delay: 1.0s; }
+
+.jci-legal-item {
+  animation: jci_legalItemSlideIn 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+.jci-legal-item:nth-child(1) { animation-delay: 0.05s; }
+.jci-legal-item:nth-child(2) { animation-delay: 0.1s; }
+.jci-legal-item:nth-child(3) { animation-delay: 0.15s; }
+.jci-legal-item:nth-child(4) { animation-delay: 0.2s; }
+.jci-legal-item:nth-child(5) { animation-delay: 0.25s; }
+
+.jci-legal-right-card {
+  animation: jci_legalCardSlideUp 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.jci-legal-right-card:nth-child(1) { animation-delay: 0.05s; }
+.jci-legal-right-card:nth-child(2) { animation-delay: 0.1s; }
+.jci-legal-right-card:nth-child(3) { animation-delay: 0.15s; }
+.jci-legal-right-card:nth-child(4) { animation-delay: 0.2s; }
+.jci-legal-right-card:nth-child(5) { animation-delay: 0.25s; }
+.jci-legal-right-card:nth-child(6) { animation-delay: 0.3s; }
+
+.jci-legal-acceptance {
+  animation: jci_legalFadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.3s forwards;
+}
+
+.jci-legal-back {
+  animation: jci_legalFadeUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) 0.4s forwards;
+}
+
+/* ===== HERO SECTION ===== */
+.jci-legal-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.jci-legal-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(18, 18, 69, 0.02), transparent);
+  pointer-events: none;
+}
+
+.jci-legal-hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+.jci-legal-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  border: 0.5px solid var(--glass-border);
+  margin-bottom: var(--spacing-xl);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.jci-legal-hero-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  animation: jci_legalBadgePulse 0.6s ease;
+}
+
+.jci-legal-hero-badge svg {
+  margin-right: 0.5rem;
+  color: var(--jci-bright-cyan);
+}
+
+.jci-legal-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+  opacity: 1;
+}
+
+.jci-legal-hero-highlight {
+  color: var(--jci-bright-cyan);
+}
+
+.jci-legal-hero-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-2xl);
+  transition: color var(--transition-fast);
+  opacity: 1;
+}
+
+/* ===== MAIN CONTENT SECTION ===== */
+.jci-legal-section {
+  padding: 2rem 0 5rem 0;
+}
+
+.jci-legal-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.jci-legal-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--spacing-3xl);
+}
+
+/* ===== SIDEBAR ===== */
+.jci-legal-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  opacity: 1;
+}
+
+.jci-legal-sidebar-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: var(--radius-2xl);
+  border: 0.5px solid var(--glass-border);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-normal);
+}
+
+.jci-legal-sidebar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-medium);
+}
+
+.jci-legal-sidebar-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 0.5px solid var(--border-light);
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.jci-legal-sidebar-card h3 svg {
+  color: var(--jci-teal-blue);
+}
+
+.jci-legal-sidebar-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jci-legal-sidebar-card li {
+  margin-bottom: var(--spacing-md);
+}
+
+.jci-legal-sidebar-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  display: block;
+  padding: var(--spacing-xs) 0;
+  cursor: pointer;
+  position: relative;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.jci-legal-sidebar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width var(--transition-fast);
+}
+
+.jci-legal-sidebar-link:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.jci-legal-sidebar-link:hover::after {
+  width: 100%;
+}
+
+.jci-legal-sidebar-link.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ===== MAIN CONTENT CARDS ===== */
+.jci-legal-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.jci-legal-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: var(--radius-2xl);
+  border: 0.5px solid var(--glass-border);
+  padding: var(--spacing-2xl);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  opacity: 1;
+  scroll-margin-top: 100px;
+}
+
+.jci-legal-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
+}
+
+.jci-legal-card-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--btn-primary-bg);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+  font-size: 1.5rem;
+  color: var(--btn-primary-text);
+  transition: all var(--transition-normal);
+}
+
+.jci-legal-card:hover .jci-legal-card-icon {
+  transform: scale(1.05) rotate(-3deg);
+  animation: jci_legalIconBounce 0.3s ease;
+}
+
+.jci-legal-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.jci-legal-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+  transition: color var(--transition-fast);
+}
+
+/* ===== LEGAL ITEMS ===== */
+.jci-legal-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.jci-legal-item {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-glass-strong);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid var(--glass-border);
+  transition: all var(--transition-fast);
+  opacity: 1;
+}
+
+.jci-legal-item:hover {
+  transform: translateX(4px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-legal-item-icon {
+  color: var(--jci-bright-cyan);
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.jci-legal-item:hover .jci-legal-item-icon {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+.jci-legal-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.jci-legal-item p {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  margin: 0;
+  transition: color var(--transition-fast);
+}
+
+/* ===== HIGHLIGHTS ===== */
+.jci-legal-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 0.5px solid var(--border-light);
+}
+
+.jci-legal-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  background: var(--bg-glass-strong);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  border: 0.5px solid var(--glass-border);
+  transition: all var(--transition-fast);
+}
+
+.jci-legal-highlight:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-legal-highlight svg {
+  color: var(--jci-bright-cyan);
+  font-size: 0.75rem;
+  transition: transform var(--transition-fast);
+}
+
+.jci-legal-highlight:hover svg {
+  transform: scale(1.2);
+}
+
+/* ===== RIGHTS GRID ===== */
+.jci-legal-rights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.jci-legal-right-card {
+  background: var(--bg-glass-strong);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  text-align: center;
+  border: 0.5px solid var(--glass-border);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.jci-legal-right-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg);
+  animation: jci_legalRightCardHover 0.3s ease forwards;
+}
+
+.jci-legal-right-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--bg-glass);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-md);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+}
+
+.jci-legal-right-card:hover .jci-legal-right-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.jci-legal-right-card h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.jci-legal-right-card p {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+  transition: color var(--transition-fast);
+}
+
+/* ===== NOTICE BOX ===== */
+.jci-legal-notice {
+  display: flex;
+  gap: var(--spacing-md);
+  background: var(--bg-glass-strong);
+  border-left: 3px solid var(--jci-bright-cyan);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-lg);
+  transition: all var(--transition-fast);
+}
+
+.jci-legal-notice:hover {
+  transform: translateX(2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-legal-notice svg {
+  color: var(--jci-bright-cyan);
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.jci-legal-notice:hover svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.jci-legal-notice strong {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+}
+
+.jci-legal-notice p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== CONTACT SECTION ===== */
+.jci-legal-contact {
+  background: var(--bg-glass-strong);
+}
+
+.jci-legal-contact-info {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: var(--bg-glass);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid var(--glass-border);
+  transition: all var(--transition-fast);
+}
+
+.jci-legal-contact-info:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-medium);
+}
+
+.jci-legal-contact-info p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.jci-legal-contact-info p:hover {
+  color: var(--text-primary);
+}
+
+.jci-legal-contact-info p:last-child {
+  margin-bottom: 0;
+}
+
+.jci-legal-contact-info p svg {
+  color: var(--jci-teal-blue);
+  width: 18px;
+}
+
+/* ===== ACCEPTANCE SECTION ===== */
+.jci-legal-acceptance {
+  margin-top: var(--spacing-xl);
+  opacity: 1;
+}
+
+.jci-legal-acceptance-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  border: 0.5px solid var(--glass-border);
+  text-align: left;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.jci-legal-acceptance-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-medium);
+}
+
+.jci-legal-acceptance-card svg {
+  font-size: 2rem;
+  color: var(--jci-bright-cyan);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.jci-legal-acceptance-card:hover svg {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.jci-legal-acceptance-card p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  transition: color var(--transition-fast);
+}
+
+.jci-legal-acceptance-card:hover p {
+  color: var(--text-primary);
+}
+
+/* ===== BACK BUTTON ===== */
+.jci-legal-back {
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+  opacity: 1;
+}
+
+.jci-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  font-weight: 510;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+}
+
+.jci-home-btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-home-btn-primary:hover {
+  transform: scale(1.02);
+  filter: brightness(0.95);
+  box-shadow: var(--shadow-md);
+}
+
+.jci-home-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.light-theme .jci-home-btn-primary:hover {
+  filter: brightness(0.94);
+}
+
+.dark-theme .jci-home-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+/* ===== FULL WIDTH CARD ===== */
+.jci-legal-card-full {
+  grid-column: 1 / -1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 1200px) {
+  .jci-legal-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .jci-legal-hero-title {
+    font-size: 3rem;
+  }
+  .jci-legal-grid {
+    gap: var(--spacing-2xl);
+  }
+}
+
+@media (max-width: 991px) {
+  .jci-legal-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+  .jci-legal-sidebar {
+    position: relative;
+    top: 0;
+  }
+  .jci-legal-sidebar-card ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  .jci-legal-sidebar-card li {
+    margin-bottom: 0;
+  }
+  .jci-legal-hero-title {
+    font-size: 2.5rem;
+  }
+  .jci-legal-card-title {
+    font-size: 1.35rem;
+  }
+  .jci-legal-card {
+    padding: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 767px) {
+  .jci-legal-hero {
+    min-height: 50vh;
+    padding: 3rem 0;
+  }
+  .jci-legal-hero-title {
+    font-size: 2rem;
+  }
+  .jci-legal-hero-description {
+    font-size: 1rem;
+  }
+  .jci-legal-hero-badge {
+    font-size: 0.75rem;
+    padding: var(--spacing-xs) var(--spacing-lg);
+  }
+  .jci-legal-card {
+    padding: var(--spacing-xl);
+  }
+  .jci-legal-card-title {
+    font-size: 1.25rem;
+  }
+  .jci-legal-card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+  .jci-legal-rights-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  .jci-legal-acceptance-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .jci-legal-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .jci-legal-item-icon {
+    margin: 0 auto;
+  }
+  .jci-legal-notice {
+    flex-direction: column;
+    text-align: center;
+  }
+  .jci-legal-notice svg {
+    margin: 0 auto;
+  }
+  .jci-legal-acceptance-card svg {
+    margin: 0 auto;
+  }
+  .jci-legal-contact-info p {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .jci-legal-hero-title {
+    font-size: 1.75rem;
+  }
+  .jci-legal-hero-description {
+    font-size: 0.9375rem;
+  }
+  .jci-legal-card {
+    padding: var(--spacing-lg);
+  }
+  .jci-legal-card-title {
+    font-size: 1.125rem;
+  }
+  .jci-legal-text {
+    font-size: 0.875rem;
+  }
+  .jci-legal-rights-grid {
+    grid-template-columns: 1fr;
+  }
+  .jci-legal-highlights {
+    flex-direction: column;
+  }
+  .jci-legal-highlight {
+    justify-content: center;
+  }
+  .jci-legal-item h4 {
+    font-size: 0.9375rem;
+  }
+  .jci-legal-item p {
+    font-size: 0.8125rem;
+  }
+  .jci-legal-contact-info p {
+    font-size: 0.8125rem;
+  }
+  .jci-home-btn {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-xl);
+  }
+  .jci-legal-sidebar-card ul {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 380px) {
+  .jci-legal-hero-title {
+    font-size: 1.5rem;
+  }
+  .jci-legal-card-title {
+    font-size: 1rem;
+  }
+  .jci-legal-text {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 896px) and (orientation: landscape) {
+  .jci-legal-hero {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  .jci-legal-sidebar-card ul {
+    gap: var(--spacing-sm);
+  }
+  .jci-legal-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .jci-legal-card,
+  .jci-legal-right-card,
+  .jci-legal-sidebar-link,
+  .jci-legal-item,
+  .jci-legal-acceptance-card,
+  .jci-legal-highlight,
+  .jci-home-btn,
+  .jci-legal-hero-badge,
+  .jci-legal-hero-content,
+  .jci-legal-hero-title,
+  .jci-legal-hero-description,
+  .jci-legal-sidebar,
+  .jci-legal-back,
+  .jci-legal-acceptance,
+  .jci-legal-notice,
+  .jci-legal-contact-info,
+  .jci-legal-card-icon,
+  .jci-legal-item-icon,
+  .jci-legal-highlight svg,
+  .jci-legal-acceptance-card svg,
+  .jci-legal-notice svg {
+    animation: none !important;
+    transition: none !important;
+  }
+  .jci-legal-card:hover,
+  .jci-legal-right-card:hover,
+  .jci-legal-acceptance-card:hover {
+    transform: none !important;
+  }
+  .jci-legal-sidebar-link:hover {
+    transform: none !important;
+  }
+  .jci-legal-card,
+  .jci-legal-right-card,
+  .jci-legal-item,
+  .jci-legal-highlight,
+  .jci-legal-notice,
+  .jci-legal-contact-info,
+  .jci-legal-hero-content,
+  .jci-legal-hero-badge,
+  .jci-legal-hero-title,
+  .jci-legal-hero-description,
+  .jci-legal-sidebar,
+  .jci-legal-back,
+  .jci-legal-acceptance {
+    opacity: 1 !important;
+  }
+  .jci-legal-sidebar-link::after,
+  .jci-legal-hero-badge {
+    animation: none !important;
+  }
+}
+
+/* ===== THEME SPECIFIC ===== */
+.dark-theme .jci-legal-card-icon {
+  background: var(--white);
+  color: var(--black);
+}
+
+.dark-theme .jci-legal-acceptance-card svg {
+  color: var(--white);
+}
+
+.dark-theme .jci-legal-card,
+.dark-theme .jci-legal-sidebar-card,
+.dark-theme .jci-legal-item,
+.dark-theme .jci-legal-right-card,
+.dark-theme .jci-legal-highlight,
+.dark-theme .jci-legal-notice,
+.dark-theme .jci-legal-contact-info,
+.dark-theme .jci-legal-acceptance-card {
+  background: rgba(27, 28, 71, 0.9);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .jci-legal-hero-highlight {
+  color: var(--jci-bright-cyan);
+}
+
+.dark-theme .jci-legal-notice {
+  border-left-color: var(--jci-bright-cyan);
+}
+
+.dark-theme .jci-legal-notice svg {
+  color: var(--jci-bright-cyan);
+}
+
+.light-theme .jci-legal-card-icon {
+  background: var(--black);
+  color: var(--white);
+}
+
+.light-theme .jci-legal-card,
+.light-theme .jci-legal-sidebar-card,
+.light-theme .jci-legal-item,
+.light-theme .jci-legal-right-card,
+.light-theme .jci-legal-highlight,
+.light-theme .jci-legal-notice,
+.light-theme .jci-legal-contact-info,
+.light-theme .jci-legal-acceptance-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  .jci-legal-sidebar-link,
+  .jci-home-btn,
+  .jci-legal-card,
+  .jci-legal-right-card,
+  .jci-legal-item {
+    min-height: 44px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .jci-legal-sidebar,
+  .jci-legal-back,
+  .jci-legal-hero-badge {
+    display: none;
+  }
+  .jci-legal-grid {
+    grid-template-columns: 1fr;
+  }
+  .jci-legal-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  .jci-legal-hero {
+    min-height: auto;
+    padding: 1rem 0;
+  }
+}

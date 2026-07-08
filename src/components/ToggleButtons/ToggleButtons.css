@@ -1,0 +1,624 @@
+/* ToggleButtons.css - iOS 26 Liquid Glass Style (JCI Sbikha Edition) */
+/* Fully integrated with global.css and App.css - Fully responsive */
+
+/* ===== TOGGLE CONTAINER ===== */
+.jci-toggle-container {
+  position: fixed;
+  top: 25%;
+  right: var(--spacing-xl);
+  transform: translateY(-50%);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* ===== iOS 26 LIQUID GLASS BUTTON ===== */
+.jci-toggle-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--glass-shadow-sm);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  /* Animation properties */
+  animation: jci_slideInRight 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) backwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.jci-toggle-btn:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.jci-toggle-btn:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.light-theme .jci-toggle-btn {
+  background: rgba(255, 255, 255, 0.92);
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.dark-theme .jci-toggle-btn {
+  background: rgba(0, 0, 0, 0.75);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ambient light effect */
+.jci-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.light-theme .jci-toggle-btn::before {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.dark-theme .jci-toggle-btn::before {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+.jci-toggle-btn:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.light-theme .jci-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .jci-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.jci-toggle-btn:active {
+  transform: scale(0.97);
+  transition: transform 0.08s;
+}
+
+.jci-toggle-icon {
+  font-size: 1.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.jci-toggle-btn:hover .jci-toggle-icon {
+  transform: scale(1.05);
+}
+
+/* Language button icon rotation on hover */
+.jci-toggle-btn:nth-child(1):hover .jci-toggle-icon {
+  animation: jci_languageIconShake 0.4s ease-in-out;
+}
+
+@keyframes jci_languageIconShake {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-5deg); }
+  40% { transform: rotate(5deg); }
+  60% { transform: rotate(-3deg); }
+  80% { transform: rotate(3deg); }
+}
+
+/* Theme button icon rotation on hover */
+.jci-toggle-btn:nth-child(2):hover .jci-toggle-icon {
+  animation: jci_themeIconRotate 0.4s ease-in-out;
+}
+
+@keyframes jci_themeIconRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* Dark theme specific rotation */
+.dark-theme .jci-toggle-btn:nth-child(2):hover .jci-toggle-icon {
+  animation: jci_themeIconRotateDark 0.4s ease-in-out;
+}
+
+@keyframes jci_themeIconRotateDark {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(-180deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+.jci-toggle-text {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  opacity: 0.8;
+  color: var(--text-primary);
+}
+
+/* ===== LIQUID GLASS TOOLTIP ===== */
+.jci-toggle-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem 0.875rem;
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: var(--radius-lg);
+  font-size: 0.75rem;
+  font-weight: 510;
+  white-space: nowrap;
+  color: var(--text-primary);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  pointer-events: none;
+  z-index: var(--z-tooltip);
+  border: 0.5px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.2px;
+}
+
+.light-theme .jci-toggle-btn::after {
+  background: rgba(255, 255, 255, 0.98);
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #1c1c1e;
+}
+
+.dark-theme .jci-toggle-btn::after {
+  background: rgba(0, 0, 0, 0.95);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.jci-toggle-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== BACK TO TOP BUTTON ===== */
+.jci-backtop-btn {
+  position: fixed;
+  bottom: var(--spacing-2xl);
+  right: var(--spacing-xl);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--glass-shadow-sm);
+  color: var(--text-primary);
+  z-index: var(--z-toast);
+  /* Animation properties */
+  animation: jci_slideInUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) backwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Back button exit animation */
+.jci-backtop-btn.exit {
+  animation: jci_slideOutDown 0.2s ease-out forwards;
+}
+
+@keyframes jci_slideOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+}
+
+.light-theme .jci-backtop-btn {
+  background: rgba(255, 255, 255, 0.92);
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.dark-theme .jci-backtop-btn {
+  background: rgba(0, 0, 0, 0.75);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ambient light effect for back button */
+.jci-backtop-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.light-theme .jci-backtop-btn::before {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+}
+
+.dark-theme .jci-backtop-btn::before {
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+}
+
+.jci-backtop-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.light-theme .jci-backtop-btn:hover {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .jci-backtop-btn:hover {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.jci-backtop-btn:active {
+  transform: translateY(-2px) scale(0.97);
+  transition: transform 0.08s;
+}
+
+.jci-backtop-icon {
+  font-size: 1.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.jci-backtop-btn:hover .jci-backtop-icon {
+  animation: jci_backIconFloat 0.4s ease-in-out;
+}
+
+@keyframes jci_backIconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ===== SCROLL PROGRESS BAR ===== */
+.jci-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--text-primary) 0%, var(--text-secondary) 50%, var(--text-primary) 100%);
+  transform-origin: 0% 50%;
+  z-index: calc(var(--z-toast) + 2);
+  transition: transform 0.1s ease-out;
+  animation: jci_progressFadeIn 0.3s ease forwards;
+}
+
+@keyframes jci_progressFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes jci_progressFadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.jci-scroll-progress.exit {
+  animation: jci_progressFadeOut 0.3s ease forwards;
+}
+
+.light-theme .jci-scroll-progress {
+  background: linear-gradient(90deg, #1c1c1e 0%, #8e8e93 50%, #1c1c1e 100%);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme .jci-scroll-progress {
+  background: linear-gradient(90deg, #ffffff 0%, #a1a1a6 50%, #ffffff 100%);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes jci_slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes jci_slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== PULSE ANIMATION FOR NOTIFICATIONS ===== */
+@keyframes jci_liquidPulse {
+  0%, 100% {
+    box-shadow: var(--glass-shadow-sm);
+  }
+  50% {
+    box-shadow: var(--glass-shadow-lg);
+  }
+}
+
+.light-theme .jci-toggle-btn.has-notification {
+  box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.3), var(--glass-shadow-sm);
+}
+
+.jci-toggle-btn.has-notification {
+  animation: jci_liquidPulse 2s infinite;
+}
+
+/* ===== FULL RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+  .jci-toggle-container {
+    right: var(--spacing-lg);
+    gap: var(--spacing-sm);
+  }
+  
+  .jci-toggle-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-xl);
+  }
+  
+  .jci-toggle-icon {
+    font-size: 1.15rem;
+  }
+  
+  .jci-toggle-text {
+    font-size: 0.55rem;
+  }
+  
+  .jci-backtop-btn {
+    width: 48px;
+    height: 48px;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-lg);
+    border-radius: var(--radius-xl);
+  }
+  
+  .jci-backtop-icon {
+    font-size: 1.15rem;
+  }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (max-width: 767px) {
+  .jci-toggle-container {
+    right: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+  
+  .jci-toggle-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-lg);
+  }
+  
+  .jci-toggle-icon {
+    font-size: 1rem;
+  }
+  
+  .jci-toggle-text {
+    font-size: 0.5rem;
+  }
+  
+  .jci-backtop-btn {
+    width: 44px;
+    height: 44px;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-md);
+    border-radius: var(--radius-lg);
+  }
+  
+  .jci-backtop-icon {
+    font-size: 1rem;
+  }
+  
+  /* Hide tooltips on mobile for cleaner UI */
+  .jci-toggle-btn::after {
+    display: none;
+  }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
+  .jci-toggle-container {
+    right: var(--spacing-sm);
+    gap: 0.5rem;
+  }
+  
+  .jci-toggle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+  }
+  
+  .jci-toggle-icon {
+    font-size: 0.9rem;
+  }
+  
+  .jci-toggle-text {
+    font-size: 0.45rem;
+  }
+  
+  .jci-backtop-btn {
+    width: 40px;
+    height: 40px;
+    bottom: var(--spacing-md);
+    right: var(--spacing-sm);
+    border-radius: var(--radius-md);
+  }
+  
+  .jci-backtop-icon {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Devices (up to 380px) */
+@media (max-width: 380px) {
+  .jci-toggle-container {
+    right: 0.5rem;
+    gap: 0.375rem;
+  }
+  
+  .jci-toggle-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+  }
+  
+  .jci-toggle-icon {
+    font-size: 0.8rem;
+  }
+  
+  .jci-toggle-text {
+    font-size: 0.4rem;
+  }
+  
+  .jci-backtop-btn {
+    width: 36px;
+    height: 36px;
+    bottom: var(--spacing-sm);
+    right: 0.5rem;
+    border-radius: var(--radius-md);
+  }
+  
+  .jci-backtop-icon {
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape mode */
+@media (max-width: 896px) and (orientation: landscape) {
+  .jci-toggle-container {
+    top: 20%;
+    right: var(--spacing-md);
+  }
+  
+  .jci-toggle-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .jci-backtop-btn {
+    width: 40px;
+    height: 40px;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+  }
+}
+
+/* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+@media (hover: none) and (pointer: coarse) {
+  .jci-toggle-btn:active {
+    transform: scale(0.96);
+  }
+  
+  .jci-backtop-btn:active {
+    transform: scale(0.96);
+  }
+  
+  .jci-toggle-btn:hover,
+  .jci-backtop-btn:hover {
+    transform: none;
+  }
+  
+  .jci-toggle-btn:nth-child(1):hover .jci-toggle-icon,
+  .jci-toggle-btn:nth-child(2):hover .jci-toggle-icon,
+  .jci-backtop-btn:hover .jci-backtop-icon {
+    animation: none;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .jci-toggle-btn,
+  .jci-backtop-btn,
+  .jci-toggle-icon,
+  .jci-backtop-icon,
+  .jci-scroll-progress {
+    transition: none;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  
+  .jci-toggle-btn:hover,
+  .jci-backtop-btn:hover {
+    transform: none;
+  }
+  
+  .jci-toggle-btn::after {
+    transition: none;
+  }
+  
+  .jci-toggle-btn:nth-child(1):hover .jci-toggle-icon,
+  .jci-toggle-btn:nth-child(2):hover .jci-toggle-icon,
+  .jci-backtop-btn:hover .jci-backtop-icon {
+    animation: none;
+  }
+  
+  .jci-scroll-progress.exit {
+    animation: none;
+  }
+  
+  .jci-backtop-btn.exit {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ===== SMOOTH THEME TRANSITION ===== */
+.jci-toggle-btn,
+.jci-backtop-btn {
+  transition-property: transform, box-shadow, background, color;
+  transition-duration: var(--transition-normal);
+}
+
+/* ===== BUTTON GLOW EFFECT ===== */
+.btn-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}

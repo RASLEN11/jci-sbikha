@@ -1,0 +1,47 @@
+{
+  "short_name": "JCI Sbikha",
+  "name": "JCI Sbikha - Junior Chamber International Tunisia",
+  "icons": [
+    {
+      "src": "JCI_Logo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "JCI_Logo.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "JCI_Logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#121245",
+  "background_color": "#1B1C47",
+  "orientation": "portrait-primary",
+  "categories": ["community", "nonprofit", "social"],
+  "description": "JCI Sbikha - Tunisia's premier civic leadership organization. Empowering young people to create positive change in their communities.",
+  "shortcuts": [
+    {
+      "name": "Home",
+      "url": "/",
+      "description": "Go to JCI Sbikha Home"
+    },
+    {
+      "name": "About",
+      "url": "/about",
+      "description": "Learn about JCI Sbikha"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact",
+      "description": "Get in touch with JCI Sbikha"
+    }
+  ]
+}

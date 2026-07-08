@@ -1,0 +1,39 @@
+/* index.css - JCI Sbikha Global Styles */
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Uses the CSS variables from your global.css */
+  background: var(--bg-primary, #f8f9fc);
+  color: var(--text-primary, #121245);
+  transition: background-color var(--transition-normal, 0.3s ease), color var(--transition-normal, 0.3s ease);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* JCI Sbikha Branding Overrides */
+:root {
+  /* Overriding any old variables with your JCI palette */
+  --jci-dark-indigo: #121245;
+  --jci-teal-blue: #4CC4D1;
+  --jci-bright-cyan: #089DC3;
+  --jci-dark-navy: #1B1C47;
+  --jci-teal-text: #2F9DB2;
+  --jci-light-teal: #3B6B7A;
+  --jci-gradient-stop: #AEE0E6;
+}
+
+/* Dark mode support - Integrates with your dark-theme class */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--bg-primary, #1B1C47);
+  }
+}

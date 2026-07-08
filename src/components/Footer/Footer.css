@@ -1,0 +1,1010 @@
+/* Footer.css - iOS 26 Liquid Glass Style (JCI Sbikha Edition) */
+/* Fully integrated with global.css and App.css - Fully responsive */
+
+/* ============================================
+   FOOTER CONTAINER
+   ============================================ */
+.jci-footer {
+  position: relative;
+  width: calc(100% - 2rem);
+  margin: var(--spacing-lg) auto;
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  opacity: 1;
+}
+
+.jci-footer.light {
+  background: var(--glass-light);
+  border: 0.5px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.jci-footer.dark {
+  background: var(--glass-dark);
+  border: 0.5px solid var(--glass-dark-border);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.jci-footer:hover {
+  box-shadow: var(--glass-shadow-md);
+}
+
+/* ============================================
+   FOOTER ANIMATIONS
+   ============================================ */
+@keyframes jci_footerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jci-footer.animate-in {
+  animation: jci_footerFadeIn 0.6s ease forwards;
+}
+
+@keyframes jci_footerItemSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jci_footerLinkSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes jci_footerSocialPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes jci_footerBadgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes jci_footerHeadingUnderline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 32px;
+  }
+}
+
+/* ============================================
+   STAGGERED ANIMATIONS FOR FOOTER ITEMS
+   ============================================ */
+.jci-footer-grid > * {
+  animation: jci_footerItemSlideUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.jci-footer-grid > *:nth-child(1) { animation-delay: 0.15s; }
+.jci-footer-grid > *:nth-child(2) { animation-delay: 0.23s; }
+.jci-footer-grid > *:nth-child(3) { animation-delay: 0.31s; }
+.jci-footer-grid > *:nth-child(4) { animation-delay: 0.39s; }
+
+/* ============================================
+   FOOTER INNER
+   ============================================ */
+.jci-footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+}
+
+/* ============================================
+   FOOTER GRID - CENTERED
+   ============================================ */
+.jci-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   BRAND SECTION
+   ============================================ */
+.jci-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.jci-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.jci-footer-logo:hover {
+  transform: translateX(3px);
+}
+
+.jci-footer-logo-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
+}
+
+.jci-footer-logo:hover .jci-footer-logo-icon {
+  transform: scale(1.02);
+}
+
+.jci-footer-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.jci-footer-logo-title {
+  font-size: 1.25rem;
+  font-weight: 630;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.jci-footer-logo-subtitle {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.3px;
+}
+
+.jci-footer-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  animation: jci_footerItemSlideUp 0.5s ease 0.2s forwards;
+  opacity: 0;
+}
+
+/* ============================================
+   BRAND ROW - Badge & Social Icons on the SAME LINE
+   ============================================ */
+.jci-footer-brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xs);
+  animation: jci_footerItemSlideUp 0.5s ease 0.25s forwards;
+  opacity: 0;
+}
+
+/* ============================================
+   QUALITY BADGE
+   ============================================ */
+.jci-footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.4rem 1rem;
+  background: var(--btn-hover-bg);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 510;
+  color: var(--text-primary);
+  width: fit-content;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 0.5px solid var(--border-medium);
+}
+
+.jci-footer-badge:hover {
+  background: var(--border-medium);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.jci-footer-badge:active {
+  transform: scale(0.98);
+}
+
+.jci-footer-badge svg {
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   SOCIAL LINKS INSIDE BRAND ROW (Same line as badge)
+   ============================================ */
+.jci-footer-brand-social-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.jci-footer-brand-social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-lg);
+  background: var(--btn-hover-bg);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  border: 0.5px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.9rem;
+  animation: jci_footerSocialPopIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.jci-footer-brand-social-link:nth-child(1) { animation-delay: 0.35s; }
+.jci-footer-brand-social-link:nth-child(2) { animation-delay: 0.38s; }
+.jci-footer-brand-social-link:nth-child(3) { animation-delay: 0.41s; }
+.jci-footer-brand-social-link:nth-child(4) { animation-delay: 0.44s; }
+
+.jci-footer-brand-social-link:hover {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  transform: translateY(-3px) scale(1.1);
+  border-color: transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-footer-brand-social-link:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   FOOTER SECTIONS
+   ============================================ */
+.jci-footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.jci-footer-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.jci-footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+  animation: jci_footerHeadingUnderline 0.5s ease 0.3s forwards;
+  width: 0;
+}
+
+.jci-footer-section:hover .jci-footer-heading::after {
+  width: 48px;
+}
+
+.jci-footer-heading svg {
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  transition: transform var(--transition-fast);
+}
+
+.jci-footer-section:hover .jci-footer-heading svg {
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* ============================================
+   LISTS
+   ============================================ */
+.jci-footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.jci-footer-list li {
+  animation: jci_footerLinkSlideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.jci-footer-list li:nth-child(1) { animation-delay: 0.15s; }
+.jci-footer-list li:nth-child(2) { animation-delay: 0.2s; }
+.jci-footer-list li:nth-child(3) { animation-delay: 0.25s; }
+.jci-footer-list li:nth-child(4) { animation-delay: 0.3s; }
+.jci-footer-list li:nth-child(5) { animation-delay: 0.35s; }
+.jci-footer-list li:nth-child(6) { animation-delay: 0.4s; }
+
+.jci-footer-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.jci-footer-link:hover {
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.jci-footer-link svg {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  transition: all var(--transition-fast);
+}
+
+.jci-footer-link:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.jci-footer-contact-list {
+  gap: var(--spacing-sm);
+}
+
+.jci-footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  cursor: default;
+  padding: var(--spacing-xs) 0;
+  position: relative;
+  border-radius: var(--radius-md);
+}
+
+.jci-footer-contact-item::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  top: -4px;
+  bottom: -4px;
+  border-radius: var(--radius-md);
+  background: var(--btn-hover-bg);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: -1;
+}
+
+.jci-footer-contact-item:hover::before {
+  opacity: 1;
+}
+
+.jci-footer-contact-item:hover {
+  color: var(--text-primary);
+}
+
+.jci-footer-contact-icon {
+  font-size: 0.8rem;
+  color: var(--jci-teal-blue);
+  flex-shrink: 0;
+  width: 18px;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.jci-footer-contact-item:hover .jci-footer-contact-icon {
+  transform: scale(1.1);
+}
+
+.jci-footer-contact-text {
+  line-height: 1.4;
+}
+
+/* ============================================
+   COPYRIGHT SECTION
+   ============================================ */
+.jci-footer-copyright {
+  padding-top: var(--spacing-xl);
+  border-top: 0.5px solid var(--border-light);
+  text-align: center;
+  animation: jci_footerItemSlideUp 0.5s ease 0.4s forwards;
+  opacity: 0;
+}
+
+.jci-footer-copyright-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-sm) 0;
+  transition: color var(--transition-fast);
+}
+
+.jci-footer-copyright-text:hover {
+  color: var(--text-primary);
+}
+
+.jci-footer-credit {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  transition: color var(--transition-fast);
+}
+
+.jci-footer-credit:hover {
+  color: var(--text-secondary);
+}
+
+.jci-footer-credit a {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.jci-footer-credit a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width var(--transition-fast);
+}
+
+.jci-footer-credit a:hover {
+  color: var(--text-primary);
+}
+
+.jci-footer-credit a:hover::after {
+  width: 100%;
+}
+
+.jci-footer-credit a:not(:last-child)::after {
+  left: 0;
+}
+
+/* ============================================
+   DARK THEME SPECIFIC
+   ============================================ */
+.dark-theme .jci-footer-badge {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dark-theme .jci-footer-brand-social-link:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.dark-theme .jci-footer-contact-item::before {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dark-theme .jci-footer-contact-icon {
+  color: var(--jci-teal-blue);
+}
+
+/* ============================================
+   LIGHT THEME SPECIFIC
+   ============================================ */
+.light-theme .jci-footer-badge {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.light-theme .jci-footer-brand-social-link:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.light-theme .jci-footer-contact-item::before {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.light-theme .jci-footer-contact-icon {
+  color: var(--jci-teal-blue);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Large Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .jci-footer-inner {
+    max-width: 1400px;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 1199px) {
+  .jci-footer-grid {
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: var(--spacing-xl);
+    max-width: 100%;
+  }
+  
+  .jci-footer-inner {
+    padding: var(--spacing-xl);
+  }
+  
+  /* Contact section spans full width on smaller desktop */
+  .jci-footer-contact-section {
+    grid-column: 1 / -1;
+    margin-top: var(--spacing-md);
+  }
+  
+  .jci-footer-contact-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm) var(--spacing-xl);
+  }
+  
+  .jci-footer-contact-item {
+    justify-content: flex-start;
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+  .jci-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: 100%;
+  }
+  
+  .jci-footer-brand {
+    grid-column: 1 / -1;
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Center the Badge + Social Row on Tablet */
+  .jci-footer-brand-row {
+    justify-content: center;
+  }
+  
+  .jci-footer-badge {
+    margin: 0;
+  }
+  
+  .jci-footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .jci-footer-heading {
+    justify-content: center;
+  }
+  
+  .jci-footer-section {
+    text-align: center;
+  }
+  
+  .jci-footer-link {
+    justify-content: center;
+  }
+  
+  .jci-footer-section:hover .jci-footer-heading::after {
+    width: 32px;
+  }
+  
+  .jci-footer-heading svg {
+    display: none;
+  }
+  
+  /* Contact section full width on tablet */
+  .jci-footer-contact-section {
+    grid-column: 1 / -1;
+    margin-top: var(--spacing-md);
+  }
+  
+  .jci-footer-contact-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm) var(--spacing-xl);
+    justify-items: center;
+  }
+  
+  .jci-footer-contact-item {
+    justify-content: center;
+  }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (max-width: 767px) {
+  .jci-footer {
+    width: calc(100% - 1rem);
+    margin: var(--spacing-sm) auto;
+    border-radius: var(--radius-xl);
+  }
+  
+  .jci-footer-inner {
+    padding: var(--spacing-lg);
+  }
+  
+  .jci-footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    max-width: 100%;
+  }
+  
+  .jci-footer-logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .jci-footer-logo-title {
+    font-size: 1.1rem;
+  }
+  
+  .jci-footer-description {
+    font-size: 0.8125rem;
+  }
+
+  /* Stack Badge and Social links vertically on mobile */
+  .jci-footer-brand-row {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .jci-footer-brand-social-link {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+  
+  .jci-footer-brand-social-group {
+    gap: var(--spacing-xs);
+  }
+  
+  .jci-footer-heading {
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .jci-footer-list {
+    gap: var(--spacing-xs);
+  }
+  
+  .jci-footer-link {
+    font-size: 0.8125rem;
+  }
+  
+  /* Contact section on mobile - single column */
+  .jci-footer-contact-section {
+    grid-column: 1 / -1;
+    margin-top: var(--spacing-md);
+  }
+  
+  .jci-footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .jci-footer-contact-item {
+    justify-content: center;
+    font-size: 0.8125rem;
+  }
+  
+  .jci-footer-contact-icon {
+    width: 16px;
+    font-size: 0.75rem;
+  }
+  
+  .jci-footer-copyright {
+    padding-top: var(--spacing-lg);
+  }
+  
+  .jci-footer-copyright-text {
+    font-size: 0.7rem;
+  }
+  
+  .jci-footer-credit {
+    font-size: 0.65rem;
+  }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
+  .jci-footer {
+    width: calc(100% - 0.75rem);
+    margin: var(--spacing-xs) auto;
+  }
+  
+  .jci-footer-inner {
+    padding: var(--spacing-md);
+  }
+  
+  .jci-footer-logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .jci-footer-logo-title {
+    font-size: 1rem;
+  }
+  
+  .jci-footer-logo-subtitle {
+    font-size: 0.6rem;
+  }
+  
+  .jci-footer-description {
+    font-size: 0.75rem;
+  }
+  
+  .jci-footer-badge {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .jci-footer-heading {
+    font-size: 0.8125rem;
+    padding-bottom: var(--spacing-xs);
+  }
+  
+  .jci-footer-heading::after {
+    width: 24px;
+  }
+  
+  .jci-footer-link {
+    font-size: 0.75rem;
+    gap: var(--spacing-xs);
+  }
+  
+  .jci-footer-link svg {
+    font-size: 0.7rem;
+  }
+  
+  .jci-footer-contact-item {
+    font-size: 0.75rem;
+  }
+  
+  .jci-footer-contact-icon {
+    width: 14px;
+    font-size: 0.7rem;
+  }
+  
+  .jci-footer-copyright {
+    padding-top: var(--spacing-md);
+  }
+  
+  .jci-footer-copyright-text {
+    font-size: 0.65rem;
+  }
+  
+  .jci-footer-credit {
+    font-size: 0.6rem;
+  }
+}
+
+/* Extra Small Devices (up to 380px) */
+@media (max-width: 380px) {
+  .jci-footer-inner {
+    padding: var(--spacing-sm);
+  }
+  
+  .jci-footer-logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .jci-footer-logo-title {
+    font-size: 0.9rem;
+  }
+  
+  .jci-footer-brand-social-link {
+    width: 26px;
+    height: 26px;
+    font-size: 0.6rem;
+  }
+  
+  .jci-footer-heading {
+    font-size: 0.75rem;
+  }
+  
+  .jci-footer-link {
+    font-size: 0.7rem;
+  }
+  
+  .jci-footer-contact-item {
+    font-size: 0.7rem;
+  }
+  
+  .jci-footer-contact-icon {
+    width: 12px;
+    font-size: 0.65rem;
+  }
+}
+
+/* Landscape mode */
+@media (max-width: 896px) and (orientation: landscape) {
+  .jci-footer {
+    margin: var(--spacing-sm) auto;
+  }
+  
+  .jci-footer-inner {
+    padding: var(--spacing-md);
+  }
+  
+  .jci-footer-grid {
+    gap: var(--spacing-md);
+    max-width: 100%;
+  }
+  
+  .jci-footer-brand {
+    gap: var(--spacing-sm);
+  }
+  
+  .jci-footer-logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .jci-footer-brand-social-link {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .jci-footer-contact-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm) var(--spacing-lg);
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .jci-footer,
+  .jci-footer-logo,
+  .jci-footer-logo-icon,
+  .jci-footer-badge,
+  .jci-footer-brand-social-link,
+  .jci-footer-link,
+  .jci-footer-heading::after,
+  .jci-footer-heading svg,
+  .jci-footer-copyright-text,
+  .jci-footer-credit a::after,
+  .jci-footer-contact-icon,
+  .jci-footer-contact-item {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .jci-footer-logo:hover,
+  .jci-footer-badge:hover,
+  .jci-footer-brand-social-link:hover,
+  .jci-footer-link:hover,
+  .jci-footer-contact-item:hover {
+    transform: none !important;
+  }
+  
+  .jci-footer-section:hover .jci-footer-heading::after {
+    width: 32px;
+  }
+  
+  .jci-footer-grid > *,
+  .jci-footer-description,
+  .jci-footer-badge,
+  .jci-footer-brand-row,
+  .jci-footer-brand-social-link,
+  .jci-footer-list li,
+  .jci-footer-copyright,
+  .jci-footer-contact-item {
+    opacity: 1;
+    animation: none !important;
+  }
+  
+  .jci-footer-heading::after {
+    width: 32px;
+    animation: none !important;
+  }
+  
+  .jci-footer-contact-item:hover .jci-footer-contact-icon {
+    transform: none;
+  }
+  
+  .jci-footer-contact-item::before {
+    opacity: 0 !important;
+  }
+}
+
+/* ============================================
+   TOUCH-FRIENDLY IMPROVEMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .jci-footer-link,
+  .jci-footer-brand-social-link,
+  .jci-footer-badge,
+  .jci-footer-logo,
+  .jci-footer-contact-item {
+    min-height: 44px;
+  }
+  
+  .jci-footer-link {
+    padding: var(--spacing-xs) 0;
+  }
+  
+  .jci-footer-contact-item {
+    padding: var(--spacing-xs) 0;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - FOCUS STATES
+   ============================================ */
+.jci-footer-link:focus-visible,
+.jci-footer-brand-social-link:focus-visible,
+.jci-footer-logo:focus-visible,
+.jci-footer-badge:focus-visible,
+.jci-footer-contact-item:focus-visible {
+  outline: 2px solid var(--btn-primary-bg);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+.jci-footer ::selection {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .jci-footer {
+    display: none;
+  }
+}

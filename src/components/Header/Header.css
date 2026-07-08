@@ -1,0 +1,991 @@
+/* Header.css - iOS 26 Liquid Glass Style (JCI Sbikha Edition) */
+/* Fully integrated with global.css and App.css - Fully responsive */
+
+/* ===== HEADER CONTAINER ===== */
+.jci-header {
+  position: sticky;
+  top: var(--spacing-lg);
+  z-index: var(--z-header);
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+  border-radius: var(--radius-2xl);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transition: all var(--transition-normal);
+  animation: jci_headerSlideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.jci-header.light {
+  background: var(--glass-light);
+  border: 0.5px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.jci-header.dark {
+  background: var(--glass-dark);
+  border: 0.5px solid var(--glass-dark-border);
+  box-shadow: var(--glass-shadow-md);
+}
+
+/* ===== HEADER ANIMATIONS ===== */
+@keyframes jci_headerSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jci_mobileMenuSlideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes jci_mobileMenuSlideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes jci_overlayFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes jci_overlayFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes jci_mobileItemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes jci_menuCloseRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+/* ===== HEADER INNER ===== */
+.jci-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2xl);
+}
+
+/* ===== LOGO SECTION ===== */
+.jci-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.jci-logo:hover {
+  transform: translateX(3px);
+}
+
+.jci-logo-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
+}
+
+.jci-logo:hover .jci-logo-icon {
+  transform: scale(1.02);
+}
+
+.jci-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.jci-logo-title {
+  font-size: 1.25rem;
+  font-weight: 630;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+  transition: color var(--transition-fast);
+}
+
+.jci-logo-subtitle {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  letter-spacing: 0.3px;
+  transition: color var(--transition-fast);
+}
+
+/* ===== DESKTOP NAVIGATION - MOVED TO RIGHT ===== */
+.jci-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-left: auto;
+}
+
+.jci-nav-item {
+  position: relative;
+}
+
+.jci-nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-weight: 510;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.jci-nav-link:hover {
+  background: var(--btn-hover-bg);
+  transform: translateY(-1px);
+}
+
+.jci-nav-link.active {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.jci-nav-link.active svg {
+  color: inherit;
+}
+
+.jci-nav-icon {
+  font-size: 0.875rem;
+  transition: transform var(--transition-fast);
+}
+
+.jci-nav-link:hover .jci-nav-icon {
+  transform: scale(1.05);
+}
+
+/* ===== RULES SPECIAL BUTTON STYLING ===== */
+.jci-nav-link.rules-link {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Gold gradient border effect */
+.jci-nav-link.rules-link::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-full);
+  padding: 1.5px;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.jci-nav-link.rules-link:hover::before,
+.jci-nav-link.rules-link.active::before {
+  opacity: 1;
+}
+
+/* Gold glow on hover */
+.jci-nav-link.rules-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.jci-nav-link.rules-link:hover::after {
+  opacity: 1;
+}
+
+/* Active state - Gold gradient background */
+.jci-nav-link.rules-link.active {
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+  color: #000000;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+}
+
+.jci-nav-link.rules-link.active svg {
+  color: #000000;
+}
+
+.jci-nav-link.rules-link.active::before {
+  opacity: 0;
+}
+
+.jci-nav-link.rules-link.active::after {
+  opacity: 0;
+}
+
+/* Hover state for non-active */
+.jci-nav-link.rules-link:hover:not(.active) {
+  background: rgba(255, 215, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Rules icon special styling */
+.jci-nav-link.rules-link .jci-nav-icon {
+  transition: transform 0.3s ease;
+}
+
+.jci-nav-link.rules-link:hover .jci-nav-icon {
+  transform: scale(1.15) rotate(-10deg);
+}
+
+.jci-nav-link.rules-link.active .jci-nav-icon {
+  transform: scale(1);
+}
+
+/* ===== RANKS BUTTON STYLING ===== */
+.jci-nav-link.ranks-link {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Blue gradient border effect */
+.jci-nav-link.ranks-link::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-full);
+  padding: 1.5px;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.jci-nav-link.ranks-link:hover::before,
+.jci-nav-link.ranks-link.active::before {
+  opacity: 1;
+}
+
+/* Blue glow on hover */
+.jci-nav-link.ranks-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle at center, rgba(0, 122, 255, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.jci-nav-link.ranks-link:hover::after {
+  opacity: 1;
+}
+
+/* Active state - Blue gradient background */
+.jci-nav-link.ranks-link.active {
+  background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+}
+
+.jci-nav-link.ranks-link.active svg {
+  color: #ffffff;
+}
+
+.jci-nav-link.ranks-link.active::before {
+  opacity: 0;
+}
+
+.jci-nav-link.ranks-link.active::after {
+  opacity: 0;
+}
+
+/* Hover state for non-active */
+.jci-nav-link.ranks-link:hover:not(.active) {
+  background: rgba(0, 122, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Ranks icon special styling */
+.jci-nav-link.ranks-link .jci-nav-icon {
+  transition: transform 0.3s ease;
+}
+
+.jci-nav-link.ranks-link:hover .jci-nav-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.jci-nav-link.ranks-link.active .jci-nav-icon {
+  transform: scale(1);
+}
+
+/* ===== RIGHT ACTIONS - NOW ONLY MOBILE TOGGLE ===== */
+.jci-actions {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
+}
+
+/* ===== BUTTON STYLES ===== */
+.jci-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-weight: 510;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+
+.jci-btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-btn-primary:hover {
+  transform: scale(1.02);
+}
+
+.light-theme .jci-btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+.dark-theme .jci-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.jci-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.jci-btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 0.5px solid var(--border-medium);
+}
+
+.jci-btn-outline:hover {
+  background: var(--btn-hover-bg);
+  transform: scale(1.02);
+}
+
+.jci-btn-danger {
+  background: rgba(255, 59, 48, 0.12);
+  color: #ff3b30;
+  border: 0.5px solid rgba(255, 59, 48, 0.3);
+}
+
+.jci-btn-danger:hover {
+  background: rgba(255, 59, 48, 0.2);
+  transform: scale(1.02);
+}
+
+/* ===== MOBILE TOGGLE - NOW VISIBLE ON ALL SCREENS ===== */
+.jci-menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  border: 0.5px solid var(--border-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-primary);
+  margin-left: var(--spacing-sm);
+}
+
+.jci-menu-toggle:hover {
+  background: var(--btn-hover-bg);
+  transform: scale(1.02);
+}
+
+.jci-menu-toggle:active {
+  transform: scale(0.95);
+}
+
+/* ===== MOBILE MENU - Liquid Glass ===== */
+.jci-menu-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 320px;
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-left: 0.5px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  z-index: 1100;
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  animation: jci_mobileMenuSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.jci-menu-mobile.closing {
+  animation: jci_mobileMenuSlideOut 0.2s ease-out forwards;
+}
+
+.jci-menu-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.jci-menu-close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  border: 0.5px solid var(--border-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-primary);
+}
+
+.jci-menu-close:hover {
+  background: var(--btn-hover-bg);
+  animation: jci_menuCloseRotate 0.3s ease forwards;
+}
+
+.jci-nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+}
+
+.jci-nav-link-mobile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  font-weight: 510;
+  font-size: 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  animation: jci_mobileItemSlideIn 0.3s ease forwards;
+  opacity: 0;
+}
+
+/* Staggered animations for 6 items */
+.jci-nav-link-mobile:nth-child(1) { animation-delay: 0.05s; }
+.jci-nav-link-mobile:nth-child(2) { animation-delay: 0.1s; }
+.jci-nav-link-mobile:nth-child(3) { animation-delay: 0.15s; }
+.jci-nav-link-mobile:nth-child(4) { animation-delay: 0.2s; }
+.jci-nav-link-mobile:nth-child(5) { animation-delay: 0.25s; }
+.jci-nav-link-mobile:nth-child(6) { animation-delay: 0.3s; }
+
+.jci-nav-link-mobile:hover {
+  background: var(--btn-hover-bg);
+  transform: translateX(4px);
+}
+
+.jci-nav-link-mobile.active {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.jci-nav-link-mobile svg {
+  transition: transform var(--transition-fast);
+}
+
+.jci-nav-link-mobile:hover svg {
+  transform: scale(1.1);
+}
+
+/* ===== MOBILE RULES & RANKS SPECIAL STYLING ===== */
+.jci-nav-link-mobile.rules-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.jci-nav-link-mobile.rules-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.jci-nav-link-mobile.rules-link:hover::before {
+  opacity: 1;
+}
+
+.jci-nav-link-mobile.rules-link.active {
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+  color: #000000;
+}
+
+.jci-nav-link-mobile.rules-link.active svg {
+  color: #000000;
+}
+
+.jci-nav-link-mobile.rules-link.active::before {
+  opacity: 0;
+}
+
+.jci-nav-link-mobile.rules-link:hover:not(.active) {
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.jci-nav-link-mobile.rules-link .jci-nav-icon {
+  transition: transform 0.3s ease;
+}
+
+.jci-nav-link-mobile.rules-link:hover .jci-nav-icon {
+  transform: scale(1.15) rotate(-10deg);
+}
+
+/* Mobile Ranks styling */
+.jci-nav-link-mobile.ranks-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.jci-nav-link-mobile.ranks-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.1), rgba(88, 86, 214, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.jci-nav-link-mobile.ranks-link:hover::before {
+  opacity: 1;
+}
+
+.jci-nav-link-mobile.ranks-link.active {
+  background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+  color: #ffffff;
+}
+
+.jci-nav-link-mobile.ranks-link.active svg {
+  color: #ffffff;
+}
+
+.jci-nav-link-mobile.ranks-link.active::before {
+  opacity: 0;
+}
+
+.jci-nav-link-mobile.ranks-link:hover:not(.active) {
+  background: rgba(0, 122, 255, 0.08);
+}
+
+.jci-nav-link-mobile.ranks-link .jci-nav-icon {
+  transition: transform 0.3s ease;
+}
+
+.jci-nav-link-mobile.ranks-link:hover .jci-nav-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.jci-mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 0.5px solid var(--border-light);
+}
+
+.jci-btn-mobile {
+  width: 100%;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+/* ===== MODAL OVERLAY ===== */
+.jci-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: var(--spacing-lg);
+  animation: jci_overlayFadeIn 0.2s ease forwards;
+}
+
+.jci-modal-overlay.closing {
+  animation: jci_overlayFadeOut 0.2s ease forwards;
+}
+
+/* ============================================
+   ADDITIONAL NAVIGATION ITEMS STYLES (6 ITEMS)
+   ============================================ */
+
+/* Ensure all nav links have proper spacing with 6 items */
+.jci-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-left: auto;
+}
+
+/* Adjust padding for 6 items on desktop */
+@media (min-width: 992px) {
+  .jci-nav-link {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8125rem;
+  }
+  
+  .jci-nav-icon {
+    font-size: 0.8rem;
+  }
+}
+
+/* For medium desktop screens with 6 items */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .jci-nav-link {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.75rem;
+  }
+  
+  .jci-nav-icon {
+    font-size: 0.7rem;
+  }
+  
+  .jci-nav-desktop {
+    gap: 2px;
+  }
+}
+
+/* ===== FULL RESPONSIVE BREAKPOINTS ===== */
+
+/* Large Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .jci-header-inner {
+    max-width: 1400px;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 1199px) {
+  .jci-header-inner {
+    padding: var(--spacing-md) var(--spacing-xl);
+    gap: var(--spacing-xl);
+  }
+  
+  .jci-nav-desktop {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+  .jci-nav-desktop {
+    display: none;
+  }
+  
+  .jci-actions {
+    display: flex;
+  }
+  
+  .jci-logo-title {
+    font-size: 1rem;
+  }
+  
+  .jci-logo-subtitle {
+    font-size: 0.6rem;
+  }
+  
+  .jci-logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .jci-header-inner {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    gap: var(--spacing-md);
+  }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (max-width: 767px) {
+  .jci-header {
+    top: var(--spacing-sm);
+    width: calc(100% - 1rem);
+    border-radius: var(--radius-xl);
+  }
+  
+  .jci-header.scrolled {
+    top: 0;
+  }
+  
+  .jci-header-inner {
+    padding: 0.5rem var(--spacing-md);
+  }
+  
+  .jci-logo-subtitle {
+    display: none;
+  }
+  
+  .jci-logo-title {
+    font-size: 0.9rem;
+  }
+  
+  .jci-logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .jci-menu-mobile {
+    max-width: 100%;
+    padding: var(--spacing-lg);
+  }
+  
+  .jci-menu-toggle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Mobile nav links - 6 items */
+  .jci-nav-link-mobile {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9375rem;
+    min-height: 44px;
+  }
+  
+  .jci-nav-link-mobile svg {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
+  .jci-header {
+    top: var(--spacing-xs);
+    width: calc(100% - 0.75rem);
+  }
+  
+  .jci-header-inner {
+    padding: 0.375rem var(--spacing-sm);
+  }
+  
+  .jci-logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .jci-logo-title {
+    font-size: 0.8rem;
+  }
+  
+  .jci-menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .jci-menu-mobile {
+    padding: var(--spacing-md);
+  }
+  
+  .jci-nav-link-mobile {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.875rem;
+    gap: var(--spacing-sm);
+    min-height: 40px;
+  }
+  
+  .jci-nav-link-mobile svg {
+    font-size: 1rem;
+  }
+}
+
+/* Extra Small Devices (up to 380px) */
+@media (max-width: 380px) {
+  .jci-logo-title {
+    display: none;
+  }
+  
+  .jci-logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .jci-nav-link-mobile {
+    font-size: 0.8125rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-height: 36px;
+  }
+  
+  .jci-nav-link-mobile svg {
+    font-size: 0.875rem;
+  }
+}
+
+/* Landscape mode */
+@media (max-width: 896px) and (orientation: landscape) {
+  .jci-menu-mobile {
+    max-width: 280px;
+  }
+  
+  .jci-nav-mobile {
+    gap: var(--spacing-xs);
+  }
+  
+  .jci-nav-link-mobile {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.8125rem;
+    min-height: 36px;
+  }
+  
+  .jci-nav-link-mobile svg {
+    font-size: 0.875rem;
+  }
+  
+  .jci-mobile-actions {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .jci-header,
+  .jci-logo-icon,
+  .jci-nav-link,
+  .jci-btn,
+  .jci-menu-toggle,
+  .jci-menu-close,
+  .jci-logo,
+  .jci-menu-mobile,
+  .jci-modal-overlay,
+  .jci-nav-link-mobile,
+  .jci-nav-link.rules-link::before,
+  .jci-nav-link.rules-link::after,
+  .jci-nav-link.ranks-link::before,
+  .jci-nav-link.ranks-link::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .jci-nav-link:hover,
+  .jci-btn:hover,
+  .jci-logo:hover,
+  .jci-menu-toggle:hover,
+  .jci-menu-close:hover,
+  .jci-nav-link-mobile:hover,
+  .jci-nav-link.rules-link:hover,
+  .jci-nav-link.ranks-link:hover {
+    transform: none !important;
+  }
+  
+  .jci-nav-link.rules-link:hover .jci-nav-icon,
+  .jci-nav-link-mobile.rules-link:hover .jci-nav-icon,
+  .jci-nav-link.ranks-link:hover .jci-nav-icon,
+  .jci-nav-link-mobile.ranks-link:hover .jci-nav-icon {
+    transform: none !important;
+  }
+  
+  .jci-nav-link-mobile {
+    opacity: 1;
+    animation: none !important;
+  }
+}
+
+/* ===== LIGHT THEME SCROLLED ENHANCEMENT ===== */
+.jci-header.light.scrolled {
+  background: var(--bg-glass-strong);
+}
+
+/* ===== DARK THEME SCROLLED ENHANCEMENT ===== */
+.jci-header.dark.scrolled {
+  background: var(--bg-glass-strong);
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+  .jci-nav-link-mobile,
+  .jci-btn-mobile,
+  .jci-menu-toggle,
+  .jci-menu-close {
+    min-height: 44px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .jci-header {
+    display: none;
+  }
+}

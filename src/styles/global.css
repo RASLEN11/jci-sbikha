@@ -1,0 +1,985 @@
+/* global.css - iOS 26 Liquid Glass Style (JCI Sbikha Brand Edition - jci- prefix) */
+
+/* ============================================
+   ROOT VARIABLES
+   ============================================ */
+:root {
+  /* JCI Sbikha Brand Colors */
+  --jci-dark-indigo: #121245;
+  --jci-teal-blue: #4CC4D1;
+  --jci-bright-cyan: #089DC3;
+  --jci-dark-navy: #1B1C47;
+  --jci-teal-text: #2F9DB2;
+  --jci-light-teal: #3B6B7A;
+  --jci-gradient-stop: #AEE0E6;
+  
+  /* Neutral Colors - Refined Black & White Scale */
+  --white: #ffffff;
+  --black: #000000;
+  
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-150: #e9ecef;
+  --gray-200: #dee2e6;
+  --gray-300: #ced4da;
+  --gray-400: #adb5bd;
+  --gray-500: #868e96;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --gray-950: #1a1d20;
+  
+  /* Glass Effect Colors - Light Theme Optimized */
+  --glass-light: rgba(255, 255, 255, 0.85);
+  --glass-light-strong: rgba(255, 255, 255, 0.96);
+  --glass-light-edge: rgba(255, 255, 255, 0.5);
+  --glass-light-border: rgba(18, 18, 69, 0.08);
+  --glass-light-shadow: rgba(18, 18, 69, 0.03);
+  
+  --glass-dark: rgba(27, 28, 71, 0.85);
+  --glass-dark-strong: rgba(27, 28, 71, 0.96);
+  --glass-dark-border: rgba(255, 255, 255, 0.12);
+  --glass-dark-shadow: rgba(0, 0, 0, 0.25);
+  
+  /* Spacing - iOS 26 Standard */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 0.75rem;   /* 12px */
+  --spacing-lg: 1rem;      /* 16px */
+  --spacing-xl: 1.5rem;    /* 24px */
+  --spacing-2xl: 2rem;     /* 32px */
+  --spacing-3xl: 2.5rem;   /* 40px */
+  --spacing-4xl: 3rem;     /* 48px */
+  
+  /* Border Radius - iOS 26 Style */
+  --radius-sm: 0.5rem;      /* 8px */
+  --radius-md: 0.75rem;     /* 12px */
+  --radius-lg: 1rem;        /* 16px */
+  --radius-xl: 1.25rem;     /* 20px */
+  --radius-2xl: 1.5rem;     /* 24px */
+  --radius-3xl: 2rem;       /* 32px */
+  --radius-full: 9999px;
+  
+  /* Shadows - Light Theme Optimized */
+  --shadow-sm: 0 1px 2px rgba(18, 18, 69, 0.04), 0 0 0 1px rgba(18, 18, 69, 0.02);
+  --shadow-md: 0 2px 4px rgba(18, 18, 69, 0.06), 0 0 0 1px rgba(18, 18, 69, 0.03);
+  --shadow-lg: 0 4px 12px rgba(18, 18, 69, 0.08), 0 0 0 1px rgba(18, 18, 69, 0.03);
+  --shadow-xl: 0 8px 24px rgba(18, 18, 69, 0.10), 0 0 0 1px rgba(18, 18, 69, 0.03);
+  --shadow-2xl: 0 16px 40px rgba(18, 18, 69, 0.14), 0 0 0 1px rgba(18, 18, 69, 0.03);
+  
+  /* Glass Shadows - Light Theme */
+  --glass-shadow-sm: 0 4px 20px rgba(18, 18, 69, 0.06);
+  --glass-shadow-md: 0 8px 30px rgba(18, 18, 69, 0.08);
+  --glass-shadow-lg: 0 12px 40px rgba(18, 18, 69, 0.10);
+  
+  /* Transitions - iOS 26 Smooth */
+  --transition-fast: 200ms cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --transition-normal: 300ms cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --transition-slow: 500ms cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Z-Index */
+  --z-below: -1;
+  --z-base: 0;
+  --z-above: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-header: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+  --z-tooltip: 60;
+  
+  /* Sidebar Variables */
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 80px;
+  
+  /* ===== ADDITIONAL COLORS ===== */
+  
+  /* Success / Error / Warning variants */
+  --color-success: #34c759;
+  --color-success-bg: rgba(52, 199, 89, 0.12);
+  --color-error: #ff3b30;
+  --color-error-bg: rgba(255, 59, 48, 0.12);
+  --color-warning: #ff9500;
+  --color-warning-bg: rgba(255, 149, 0, 0.12);
+  --color-info: #007aff;
+  --color-info-bg: rgba(0, 122, 255, 0.12);
+  
+  /* Gold / Special colors */
+  --color-gold: #ffd700;
+  --color-gold-dark: #ff8c00;
+  --color-gold-bg: rgba(255, 215, 0, 0.12);
+  
+  /* Social colors */
+  --color-facebook: #1877f2;
+  --color-instagram: #e4405f;
+  --color-linkedin: #0a66c2;
+  --color-youtube: #ff0000;
+  --color-twitter: #1da1f2;
+  --color-whatsapp: #25d366;
+  --color-tiktok: #000000;
+}
+
+/* ============================================
+   LIGHT THEME - JCI Sbikha Clean & Professional
+   ============================================ */
+.light-theme {
+  /* Backgrounds - Clean, elegant off-white base */
+  --bg-primary: #f8f9fc;      /* Slightly cool white for JCI cyan/navy contrast */
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f4f6fa;
+  --bg-card: #ffffff;
+  --bg-overlay: rgba(18, 18, 69, 0.4);
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-glass-strong: rgba(255, 255, 255, 0.98);
+  
+  /* Text colors - JCI Brand Palette */
+  --text-primary: var(--jci-dark-indigo);    /* Main headlines & logo */
+  --text-secondary: var(--jci-teal-text);    /* Sub-headlines & "Sbikha" */
+  --text-tertiary: var(--jci-light-teal);    /* Body text & descriptions */
+  --text-disabled: #b0b8c9;
+  --text-inverse: #ffffff;
+  
+  /* Borders - Teal/Cyan accents */
+  --border-light: rgba(76, 196, 209, 0.15);
+  --border-medium: rgba(76, 196, 209, 0.25);
+  --border-heavy: rgba(18, 18, 69, 0.3);
+  
+  /* Shadows & Effects */
+  --shadow-color: rgba(18, 18, 69, 0.06);
+  --glass-border: rgba(76, 196, 209, 0.15);
+  
+  /* Buttons */
+  --btn-primary-bg: var(--jci-bright-cyan);
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: var(--bg-glass);
+  --btn-secondary-text: var(--jci-dark-indigo);
+  --btn-secondary-border: var(--glass-border);
+  --btn-hover-bg: rgba(8, 157, 195, 0.08);
+  
+  /* Accent colors */
+  --accent-success: #34c759;
+  --accent-warning: #ff9500;
+  --accent-error: #ff3b30;
+  --accent-info: var(--jci-bright-cyan);
+}
+
+.light-theme body {
+  background: var(--bg-primary);
+  background-image: radial-gradient(circle at 25% 0%, rgba(18, 18, 69, 0.02) 0%, transparent 60%);
+}
+
+.light-theme .jci-card,
+.light-theme .jci-user-sidebar,
+.light-theme .jci-admin-stat-card,
+.light-theme .jci-userManagement-table-container {
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 0.5px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
+}
+
+.light-theme .jci-user-sidebar {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px) saturate(180%);
+}
+
+.light-theme .jci-glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.light-theme .jci-glass-card:hover {
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.light-theme .jci-btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.light-theme .jci-btn-primary:hover {
+  filter: brightness(0.94);
+  transform: scale(1.02);
+}
+
+.light-theme .jci-btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  color: var(--jci-dark-indigo);
+}
+
+.light-theme .jci-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.96);
+  transform: scale(1.02);
+}
+
+.light-theme .jci-btn-outline {
+  background: transparent;
+  border: 0.5px solid var(--border-medium);
+  color: var(--jci-dark-indigo);
+}
+
+.light-theme .jci-btn-outline:hover {
+  background: var(--btn-hover-bg);
+  transform: scale(1.02);
+}
+
+.light-theme input,
+.light-theme textarea,
+.light-theme select {
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border-medium);
+  color: var(--text-primary);
+}
+
+.light-theme input:focus,
+.light-theme textarea:focus,
+.light-theme select:focus {
+  border-color: var(--jci-bright-cyan);
+  box-shadow: 0 0 0 3px rgba(8, 157, 195, 0.15);
+}
+
+.light-theme h1 {
+  background: linear-gradient(135deg, var(--jci-dark-indigo) 0%, var(--jci-teal-blue) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light-theme h2, 
+.light-theme h3, 
+.light-theme h4 {
+  color: var(--text-primary);
+}
+
+.light-theme p {
+  color: var(--text-secondary);
+}
+
+.light-theme .jci-profile-modal-container,
+.light-theme .jci-userManagement-modal,
+.light-theme .jci-admins-modal {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(30px) saturate(180%);
+  border: 0.5px solid var(--glass-border);
+}
+
+.light-theme .jci-userManagement-table thead th,
+.light-theme .jci-admins-table thead th,
+.light-theme .jci-trainingReports-table thead th {
+  background: rgba(76, 196, 209, 0.06);
+  color: var(--text-tertiary);
+}
+
+.light-theme .jci-userManagement-table tbody tr:hover,
+.light-theme .jci-admins-table tbody tr:hover,
+.light-theme .jci-trainingReports-table tbody tr:hover {
+  background: rgba(76, 196, 209, 0.04);
+}
+
+.light-theme .jci-badge-primary {
+  background: rgba(18, 18, 69, 0.06);
+  color: var(--jci-dark-indigo);
+}
+
+.light-theme .jci-badge-success {
+  background: rgba(52, 199, 89, 0.12);
+  color: #34c759;
+}
+
+.light-theme .jci-badge-warning {
+  background: rgba(255, 149, 0, 0.12);
+  color: #ff9500;
+}
+
+.light-theme .jci-badge-error {
+  background: rgba(255, 59, 48, 0.12);
+  color: #ff3b30;
+}
+
+.light-theme ::-webkit-scrollbar-track {
+  background: rgba(18, 18, 69, 0.04);
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+  background: rgba(18, 18, 69, 0.15);
+}
+
+.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: rgba(18, 18, 69, 0.25);
+}
+
+.light-theme ::selection {
+  background: var(--jci-dark-indigo);
+  color: #ffffff;
+}
+
+.light-theme :focus-visible {
+  box-shadow: 0 0 0 3px rgba(8, 157, 195, 0.15);
+}
+
+.light-theme code,
+.light-theme pre {
+  background: rgba(18, 18, 69, 0.04);
+  border: 0.5px solid rgba(18, 18, 69, 0.08);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   DARK THEME - Deep Navy Immersion
+   ============================================ */
+.dark-theme {
+  --bg-primary: var(--jci-dark-navy);
+  --bg-secondary: #151628;
+  --bg-tertiary: #1c1d31;
+  --bg-card: #202142;
+  --bg-overlay: rgba(0, 0, 0, 0.75);
+  --bg-glass: var(--glass-dark);
+  --bg-glass-strong: var(--glass-dark-strong);
+  
+  --text-primary: #ffffff;
+  --text-secondary: var(--jci-gradient-stop);
+  --text-tertiary: #8a8ba8;
+  --text-disabled: #484a6b;
+  --text-inverse: #000000;
+  
+  --border-light: rgba(174, 224, 230, 0.15);
+  --border-medium: rgba(174, 224, 230, 0.25);
+  --border-heavy: rgba(174, 224, 230, 0.35);
+  
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --glass-border: var(--glass-dark-border);
+  
+  --btn-primary-bg: var(--jci-bright-cyan);
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.06);
+  --btn-secondary-text: #ffffff;
+  --btn-secondary-border: var(--glass-dark-border);
+  --btn-hover-bg: rgba(255, 255, 255, 0.08);
+  
+  --accent-success: #34c759;
+  --accent-warning: #ff9500;
+  --accent-error: #ff3b30;
+  --accent-info: var(--jci-bright-cyan);
+}
+
+.dark-theme body {
+  background: var(--bg-primary);
+  background-image: radial-gradient(circle at 25% 0%, rgba(174, 224, 230, 0.02) 0%, transparent 60%);
+}
+
+.dark-theme .jci-glass-card {
+  background: rgba(27, 28, 71, 0.85);
+  border-color: rgba(174, 224, 230, 0.1);
+}
+
+.dark-theme .jci-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+/* ============================================
+   BASE STYLES - iOS 26
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* ============================================
+   TYPOGRAPHY - iOS 26 Refined
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-weight: 630;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+  letter-spacing: -0.022em;
+}
+
+h1 { 
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  letter-spacing: -0.03em;
+}
+
+h2 { font-size: 2rem; font-weight: 630; letter-spacing: -0.022em; }
+h3 { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.021em; }
+h4 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+h5 { font-size: 1.25rem; font-weight: 590; letter-spacing: -0.019em; }
+h6 { font-size: 1rem; font-weight: 590; letter-spacing: -0.018em; }
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   CONTAINER - Fully Responsive
+   ============================================ */
+.jci-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.jci-container-fluid {
+  width: 100%;
+  padding: 0 var(--spacing-xl);
+}
+
+/* ============================================
+   GLASS CARD - iOS 26 Liquid Glass
+   ============================================ */
+.jci-glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: var(--radius-2xl);
+  border: 0.5px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-md);
+}
+
+/* ============================================
+   BUTTONS - iOS 26 Style
+   ============================================ */
+.jci-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 510;
+  line-height: 1.4;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+
+.jci-btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-btn-primary:hover {
+  transform: scale(1.02);
+}
+
+.light-theme .jci-btn-primary:hover {
+  filter: brightness(0.94);
+}
+
+.dark-theme .jci-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.jci-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.jci-btn-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--btn-secondary-border);
+}
+
+.jci-btn-secondary:hover {
+  transform: scale(1.02);
+  background: var(--btn-hover-bg);
+}
+
+.jci-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.jci-btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 0.5px solid var(--border-medium);
+}
+
+.jci-btn-outline:hover {
+  background: var(--btn-hover-bg);
+  backdrop-filter: blur(20px);
+}
+
+.jci-btn-danger {
+  background: rgba(255, 59, 48, 0.12);
+  color: #ff3b30;
+  backdrop-filter: blur(20px);
+}
+
+.jci-btn-danger:hover {
+  background: rgba(255, 59, 48, 0.2);
+}
+
+.jci-btn-sm {
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
+}
+
+.jci-btn-lg {
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+}
+
+.jci-btn-icon {
+  padding: 0.625rem;
+  border-radius: var(--radius-lg);
+}
+
+.jci-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   CARDS - iOS 26
+   ============================================ */
+.jci-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  border: 0.5px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.jci-card-header {
+  padding: var(--spacing-lg);
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.jci-card-body {
+  padding: var(--spacing-lg);
+}
+
+.jci-card-footer {
+  padding: var(--spacing-lg);
+  border-top: 0.5px solid var(--border-light);
+}
+
+/* ============================================
+   FORMS - iOS 26 Style
+   ============================================ */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--jci-bright-cyan);
+  box-shadow: 0 0 0 3px rgba(8, 157, 195, 0.15);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.8125rem;
+  font-weight: 510;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   GRID - Fully Responsive
+   ============================================ */
+.jci-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.jci-grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.jci-grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.jci-grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.jci-grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ============================================
+   FLEX
+   ============================================ */
+.jci-flex { display: flex; }
+.jci-flex-col { flex-direction: column; }
+.jci-flex-row { flex-direction: row; }
+.jci-items-center { align-items: center; }
+.jci-justify-center { justify-content: center; }
+.jci-justify-between { justify-content: space-between; }
+.jci-gap-sm { gap: var(--spacing-sm); }
+.jci-gap-md { gap: var(--spacing-md); }
+.jci-gap-lg { gap: var(--spacing-lg); }
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+.jci-text-center { text-align: center; }
+.jci-text-left { text-align: left; }
+.jci-text-right { text-align: right; }
+
+.jci-w-full { width: 100%; }
+.jci-h-full { height: 100%; }
+
+.jci-mt-auto { margin-top: auto; }
+.jci-mb-auto { margin-bottom: auto; }
+.jci-m-0 { margin: 0; }
+.jci-p-0 { padding: 0; }
+
+.jci-relative { position: relative; }
+.jci-absolute { position: absolute; }
+.jci-fixed { position: fixed; }
+.jci-sticky { position: sticky; }
+
+/* ============================================
+   iOS 26 ANIMATIONS
+   ============================================ */
+@keyframes jci_fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes jci_slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jci_slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jci_scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.jci-fade-in {
+  animation: jci_fadeIn var(--transition-normal) ease-out;
+}
+
+.jci-slide-up {
+  animation: jci_slideUp var(--transition-normal) cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.jci-slide-down {
+  animation: jci_slideDown var(--transition-normal) cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.jci-scale-in {
+  animation: jci_scaleIn var(--transition-normal) cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* ============================================
+   SCROLLBAR - iOS Style
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-heavy);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+/* ============================================
+   FOCUS RING - iOS 26
+   ============================================ */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(8, 157, 195, 0.15);
+}
+
+/* ============================================
+   GLASS EFFECT ENHANCEMENTS
+   ============================================ */
+.jci-glass-blur {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.jci-bg-glass-light {
+  background: var(--glass-light);
+}
+
+.jci-bg-glass-dark {
+  background: var(--glass-dark);
+}
+
+/* ============================================
+   SAFE AREA SUPPORT
+   ============================================ */
+@supports (padding: max(0px)) {
+  .jci-safe-top {
+    padding-top: max(var(--spacing-lg), env(safe-area-inset-top));
+  }
+  .jci-safe-bottom {
+    padding-bottom: max(var(--spacing-lg), env(safe-area-inset-bottom));
+  }
+  .jci-safe-left {
+    padding-left: max(var(--spacing-lg), env(safe-area-inset-left));
+  }
+  .jci-safe-right {
+    padding-right: max(var(--spacing-lg), env(safe-area-inset-right));
+  }
+}
+
+/* ============================================
+   ADDITIONAL UTILITY CLASSES
+   ============================================ */
+.jci-overflow-hidden {
+  overflow: hidden;
+}
+
+.jci-overflow-auto {
+  overflow: auto;
+}
+
+.jci-rounded-full {
+  border-radius: var(--radius-full);
+}
+
+.jci-rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.jci-rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+.jci-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.jci-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.jci-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.jci-transition-all {
+  transition: all var(--transition-fast);
+}
+
+.jci-cursor-pointer {
+  cursor: pointer;
+}
+
+.jci-opacity-0 {
+  opacity: 0;
+}
+
+.jci-opacity-100 {
+  opacity: 1;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Large Desktop (1200px and above) */
+@media (min-width: 1200px) {
+  .jci-container {
+    max-width: 1280px;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 1199px) {
+  .jci-grid-cols-4 { grid-template-columns: repeat(3, 1fr); }
+  .jci-container {
+    max-width: 960px;
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
+  .jci-grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .jci-grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .jci-container {
+    max-width: 720px;
+  }
+}
+
+/* Mobile Large (576px to 767px) */
+@media (max-width: 767px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  
+  .jci-container {
+    padding: 0 var(--spacing-lg);
+    max-width: 100%;
+  }
+  
+  .jci-grid-cols-2,
+  .jci-grid-cols-3,
+  .jci-grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .jci-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .jci-btn-lg {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .jci-card-header,
+  .jci-card-body,
+  .jci-card-footer {
+    padding: var(--spacing-md);
+  }
+  
+  /* Improve touch targets on small devices */
+  .jci-btn, 
+  .jci-modal-close,
+  [role="button"] {
+    min-height: 44px;
+  }
+}
+
+/* Extra Small Devices (up to 380px) */
+@media (max-width: 380px) {
+  .jci-stat-value {
+    font-size: 1.75rem;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .jci-no-print {
+    display: none !important;
+  }
+  
+  .jci-card {
+    box-shadow: none;
+    border: 0.5px solid var(--border-light);
+  }
+}
